@@ -1,0 +1,14 @@
+.bg-image{
+    height:600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.stay-right {
+    position:relative;
+}
+.row{
+    height:100%;
+}
+
