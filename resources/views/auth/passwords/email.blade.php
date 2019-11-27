@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+{{-- パスワード初期化画面 --}}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

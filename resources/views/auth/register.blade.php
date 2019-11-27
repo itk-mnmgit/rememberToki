@@ -14,7 +14,7 @@
                         
                         {{-- ユーザー名 --}}
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('ユーザー名') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('氏名') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
@@ -57,6 +57,7 @@
                             </div>
                         </div>
 
+                        {{-- 性別 --}}
                         <div class="form-group row">
                                 <div class="col-md-6 offset-md-4">
                                     <div class="form-check">
@@ -75,31 +76,74 @@
                                 </div>
                         </div>
                         
-
-                        {{-- 興味関心 --}}
+                        {{-- 年齢 --}}
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('あなたの興味・関心') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('年齢') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="age" type="age" class="form-control{{ $errors->has('age') ? ' is-invalid' : '' }}" name="age" value="{{ old('age') }}" required>
+    
+                                    @if ($errors->has('age'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('age') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
                         {{-- 職業 --}}
                         <div class="form-group row">
-                            <label for="worker-confirm" class="col-md-4 col-form-label text-md-right">{{ __('職業') }}</label>
+                                <label for="worker" class="col-md-4 col-form-label text-md-right">{{ __('職業') }}</label>
+                                <div class="col-md-6">
+                                    <input id="worker" type="worker" class="form-control{{ $errors->has('worker') ? ' is-invalid' : '' }}" name="worker" value="{{ old('worker') }}"required>
+
+                                    @if ($errors->has('worker'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('worker') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                        {{-- 興味関心 --}}
+                        <div class="form-group row">
+                            <label for="habit" class="col-md-4 col-form-label text-md-right">{{ __('あなたの興味・関心') }}</label>
 
                             <div class="col-md-6">
-                                <input id="worker-confirm" type="worker" class="form-control" name="password_confirmation" required>
+                                <input id="habit" type="habit" class="form-control{{ $errors->has('habit') ? ' is-invalid' : '' }}" name="habit" value="{{ old('habit') }}"required>
+
+                                @if ($errors->has('habit'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('habit') }}</strong>
+                                        </span>
+                                    @endif
                             </div>
                         </div>
 
+                           {{-- 住所--}}
+                           <div class="form-group row">
+                                <label for="adress" class="col-md-4 col-form-label text-md-right">{{ __('住所') }}</label>
+                                <div class="col-md-6">
+                                    <input id="adress" type="adress" class="form-control{{ $errors->has('adress') ? ' is-invalid' : '' }}" name="adress" value="{{ old('adress') }}"required>
 
+                                    @if ($errors->has('adress'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('adress') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+
+
+
+                        {{-- 登録ボタン --}}
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('登録') }}
                                 </button>
+
                             </div>
                         </div>
                     </form>

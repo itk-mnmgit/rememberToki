@@ -1,3 +1,4 @@
+/* ホームページメイン画面 */
 .bg-image{
     height:600px;
     background-repeat: no-repeat;
@@ -12,3 +13,17 @@
     height:100%;
 }
 
+.container-fluid section {
+    margin: 10px;
+    border-radius: 5px;
+    background: #F5F0CF;
+    padding: 15px;
+    display: flex;
+  }
+  .contents-into h1 {
+    color: #E6AC27;
+    font-size: 1.5rem;
+  }
+  .contents-into p {
+    margin-top: 10px;
+  }
