@@ -7,23 +7,26 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        // return view('home');
-        return 'Hello world!';
+        return view('home');
     }
+    public function thanks()
+    {
+        return view('thanks');
+    }
+
+    public function storeDeteil()
+    {
+        //img,intro 等を保存
+        //save();みたいなやつ
+        //mine.phpに帰る
+        return view('mine');
+    }
+
 }

@@ -8,10 +8,18 @@
             <div class="card">
                 <div class="card-header">{{ __('アカウント作成') }}</div>
 
+                @if($errors->any())
+                <ul>
+                  @foreach($errors->all() as $message)
+                    <li class="alert alert-danger">{{$message}}</li>
+                  @endforeach
+                </ul>
+              @endif
+
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-                        
+
                         {{-- ユーザー名 --}}
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('氏名') }}</label>
@@ -61,13 +69,13 @@
                         <div class="form-group row">
                                 <div class="col-md-6 offset-md-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="sex" id="gender" {{ old('gender') ? 'checked' : '' }}>
+                                        <input class="form-check-input" type="radio" name="gender" id="gender" {{ old('gender') ? 'checked' : '' }} value='1'>
 
                                         <label class="form-check-label" for="gender">
                                             {{ __('男性') }}
                                         </label>
 
-                                        <input class="form-check-input" type="checkbox" name="sex" id="gender-woman" {{ old('gender') ? 'checked' : '' }}>
+                                        <input class="form-check-input" type="radio" name="gender" id="gender-woman" {{ old('gender') ? 'checked' : '' }} value='2'>
 
                                         <label class="form-check-label" for="gender-woman">
                                             {{ __('女性') }}
@@ -93,13 +101,13 @@
 
                         {{-- 職業 --}}
                         <div class="form-group row">
-                                <label for="worker" class="col-md-4 col-form-label text-md-right">{{ __('職業') }}</label>
+                                <label for="occupation" class="col-md-4 col-form-label text-md-right">{{ __('職業') }}</label>
                                 <div class="col-md-6">
-                                    <input id="worker" type="worker" class="form-control{{ $errors->has('worker') ? ' is-invalid' : '' }}" name="worker" value="{{ old('worker') }}"required>
+                                    <input id="occupation" type="occupation" class="form-control{{ $errors->has('occupation') ? ' is-invalid' : '' }}" name="occupation" value="{{ old('occupation') }}"required>
 
-                                    @if ($errors->has('worker'))
+                                    @if ($errors->has('occupation'))
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('worker') }}</strong>
+                                            <strong>{{ $errors->first('occupation') }}</strong>
                                         </span>
                                     @endif
                                 </div>
@@ -107,14 +115,14 @@
 
                         {{-- 興味関心 --}}
                         <div class="form-group row">
-                            <label for="habit" class="col-md-4 col-form-label text-md-right">{{ __('あなたの興味・関心') }}</label>
+                            <label for="tag" class="col-md-4 col-form-label text-md-right">{{ __('あなたの興味・関心') }}</label>
 
                             <div class="col-md-6">
-                                <input id="habit" type="habit" class="form-control{{ $errors->has('habit') ? ' is-invalid' : '' }}" name="habit" value="{{ old('habit') }}"required>
+                                <input id="tag" type="tag" class="form-control{{ $errors->has('tag') ? ' is-invalid' : '' }}" name="tag" value="{{ old('tag') }}"required>
 
-                                @if ($errors->has('habit'))
+                                @if ($errors->has('tag'))
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('habit') }}</strong>
+                                            <strong>{{ $errors->first('tag') }}</strong>
                                         </span>
                                     @endif
                             </div>
@@ -122,13 +130,13 @@
 
                            {{-- 住所--}}
                            <div class="form-group row">
-                                <label for="adress" class="col-md-4 col-form-label text-md-right">{{ __('住所') }}</label>
+                                <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('住所') }}</label>
                                 <div class="col-md-6">
-                                    <input id="adress" type="adress" class="form-control{{ $errors->has('adress') ? ' is-invalid' : '' }}" name="adress" value="{{ old('adress') }}"required>
+                                    <input id="address" type="address" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}"required>
 
-                                    @if ($errors->has('adress'))
+                                    @if ($errors->has('address'))
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('adress') }}</strong>
+                                            <strong>{{ $errors->first('address') }}</strong>
                                         </span>
                                     @endif
                                 </div>

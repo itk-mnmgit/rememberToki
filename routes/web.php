@@ -10,11 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// home.blade.phpと接続
-Route::get('/', function () {
-    return view('home');
-});
+
+
+
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/thanks', 'HomeController@thanks')->name('thanks');
+
+
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

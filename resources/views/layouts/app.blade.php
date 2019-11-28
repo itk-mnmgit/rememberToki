@@ -19,8 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    
-    bootstrapで色つけ、ログイン画面と、register画面を加工。
+
 </head>
 <body>
     <!-- header -->

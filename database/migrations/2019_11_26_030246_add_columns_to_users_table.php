@@ -16,7 +16,7 @@ class AddColumnsToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
 
             //画像未選択時に
-            $icon = 'zz';
+            $icon = '';
 
             // $table->increments('id');
             // $table->string('name');
@@ -26,6 +26,7 @@ class AddColumnsToUsersTable extends Migration
             $table->string('address');
             $table->text('intro')->nullable();
             $table->string('img')->default($icon);
+            $table->string('occupation');
             // $table->timestamp('email_verified_at')->nullable();
             // $table->string('password');
             // $table->rememberToken();
