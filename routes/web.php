@@ -12,7 +12,7 @@
 */
 // home.blade.phpと接続
 Route::get('/', function () {
-    return view('home');
+    return view('events.index');
 });
 
 Auth::routes();

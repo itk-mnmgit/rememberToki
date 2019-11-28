@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
-    bootstrapで色つけ、ログイン画面と、register画面を加工。
+    {{-- bootstrapで色つけ、ログイン画面と、register画面を加工。 --}}
 </head>
 <body>
     <!-- header -->
@@ -27,7 +27,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel bg-primary">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'CPIC') }}
                 </a>
                 {{-- 　未処理　画面左上のLaravelをCPICにする --}}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
