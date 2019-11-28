@@ -14,10 +14,10 @@
                         
                         {{-- ユーザー名 --}}
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('氏名') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder='氏名'>
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
@@ -29,10 +29,10 @@
 
                         {{-- メールアドレス --}}
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('メールアドレス') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus placeholder='メールアドレス'>
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
@@ -44,10 +44,10 @@
 
                         {{-- パスワード --}}
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('パスワード') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required autofocus placeholder='パスワード'>
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
@@ -63,7 +63,7 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="sex" id="gender" {{ old('gender') ? 'checked' : '' }}>
 
-                                        <label class="form-check-label" for="gender">
+                                        <label class="form-check-label mr-5" for="gender">
                                             {{ __('男性') }}
                                         </label>
 
@@ -78,10 +78,10 @@
                         
                         {{-- 年齢 --}}
                         <div class="form-group row">
-                                <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('年齢') }}</label>
+                                <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="age" type="age" class="form-control{{ $errors->has('age') ? ' is-invalid' : '' }}" name="age" value="{{ old('age') }}" required>
+                                    <input id="age" type="age" class="form-control{{ $errors->has('age') ? ' is-invalid' : '' }}" name="age" value="{{ old('age') }}" required autofocus placeholder='年齢'>
     
                                     @if ($errors->has('age'))
                                         <span class="invalid-feedback" role="alert">
@@ -93,9 +93,9 @@
 
                         {{-- 職業 --}}
                         <div class="form-group row">
-                                <label for="worker" class="col-md-4 col-form-label text-md-right">{{ __('職業') }}</label>
+                                <label for="worker" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
                                 <div class="col-md-6">
-                                    <input id="worker" type="worker" class="form-control{{ $errors->has('worker') ? ' is-invalid' : '' }}" name="worker" value="{{ old('worker') }}"required>
+                                    <input id="worker" type="worker" class="form-control{{ $errors->has('worker') ? ' is-invalid' : '' }}" name="worker" value="{{ old('worker') }}"required autofocus placeholder='職業'>
 
                                     @if ($errors->has('worker'))
                                         <span class="invalid-feedback" role="alert">
@@ -107,10 +107,10 @@
 
                         {{-- 興味関心 --}}
                         <div class="form-group row">
-                            <label for="habit" class="col-md-4 col-form-label text-md-right">{{ __('あなたの興味・関心') }}</label>
+                            <label for="habit" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
 
                             <div class="col-md-6">
-                                <input id="habit" type="habit" class="form-control{{ $errors->has('habit') ? ' is-invalid' : '' }}" name="habit" value="{{ old('habit') }}"required>
+                                <input id="habit" type="habit" class="form-control{{ $errors->has('habit') ? ' is-invalid' : '' }}" name="habit" value="{{ old('habit') }}"required autofocus placeholder='あなたの興味・関心'>
 
                                 @if ($errors->has('habit'))
                                         <span class="invalid-feedback" role="alert">
@@ -122,9 +122,9 @@
 
                            {{-- 住所--}}
                            <div class="form-group row">
-                                <label for="adress" class="col-md-4 col-form-label text-md-right">{{ __('住所') }}</label>
+                                <label for="adress" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
                                 <div class="col-md-6">
-                                    <input id="adress" type="adress" class="form-control{{ $errors->has('adress') ? ' is-invalid' : '' }}" name="adress" value="{{ old('adress') }}"required>
+                                    <input id="adress" type="adress" class="form-control{{ $errors->has('adress') ? ' is-invalid' : '' }}" name="adress" value="{{ old('adress') }}"required autofocus placeholder='住所' >
 
                                     @if ($errors->has('adress'))
                                         <span class="invalid-feedback" role="alert">

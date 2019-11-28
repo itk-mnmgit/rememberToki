@@ -5,22 +5,23 @@
 <div class="main">
   <div class="bg-image" style="background-image: url({{ asset('image/homebackground.jpg') }})">
     <div class="row">
-      <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
       <div class="col-md-4 d-flex flex-column justify-content-center">
         <h3 class="display-4-1 text-black">最高に『ワクワクする出会い』を</h3>
         <h1 class="display-4-2 text-black">Connect People In Cebu</h1>
       </div>
 
       <div class="col-md-4 d-flex flex-column justify-content-center">
-        <p class="right">セブで『仲間』を見つけよう</p>
-        <hr class="my-4">
+        <div class="comment1">
+          <p class="right">セブで『仲間』を見つけよう</p>
+        
 
-        <p>同じ趣味、関心を持った仲間たちとチャットを始めよう</p>
-        <p>仲良くなって一緒にイベントを開催しよう</p>
-        <p>CPICをはじめよ</p>
-
+          <p>同じ趣味、関心を持った仲間たちとチャットを始めよう</p>
+          <p>仲良くなって一緒にイベントを開催しよう</p>
+          <p>CPICをはじめよ</p>
+        </div>
         <div class="col-md-4 d-flex align-items-center">
-          <a class="btn btn-primary btn-lg text-white" href="#" role="button">アカウント作成</a>
+          <a class="btn btn-primary btn-lg text-white mr-3" href="#" role="button">アカウント作成</a>
           <a class="btn btn-primary btn-lg text-white" href="#" role="button">ログイン</a>
         </div>
       </div>
@@ -28,49 +29,90 @@
   </div>
 </div>
 
+<!-- content画面 -->
+<div class="contents">
+    <p>さっそくイベントに参加してみる</p>
+    <p>仲間がもうすぐ開催する開催するイベントを見てみよう。</p>
+  </div>
+
+{{-- イベント一覧表示 --}}
 <div class="container mt-5">
   <div class="row">
+
     <div class="col-md-4 md-3">
-      <div class="card"　class="card-img-top">
-        <img src="assets/images/coffee2.jpeg" alt="">
+      <div class="card">
+        <img src="{{ asset('image/homeprogramming.jpg') }}">
         <div class="card-body">
-          <h3 class="title">What we're all about</h3>
-          <p class="card-text">At the end of the day, it all comes down to coffee. But to get there it takes a dedicated, knowledgeable team with a sustainable approach.</p>
-          <a href="#" class="btn btn-primary">Go</a>
+          <h3 class="title">イベント１</h3>
+          <p class="card-text">イベント内容</p>
+          <a href="#" class="btn btn-primary">詳細</a>
         </div>
       </div>
     </div>
-    
+
     <div class="col-md-4 md-3">
       <div class="card card-img-top">
-        <img src="assets/images/coffee3.jpeg" alt="">
+        <img src="{{ asset('image/homeprogramming.jpg') }}">
           <div class="card-body">
-            <h3 class="title">Removing only caffeine</h3>
-              <p class="card-text"> Find out how we really achieve coffee that tastes so good you don't miss the caffeine.</p>
-              <a href="#" class="btn btn-primary">Go</a>
+            <h3 class="title">イベント２</h3>
+              <p class="card-text"> イベント内容</p>
+              <a href="#" class="btn btn-primary">詳細</a>
           </div>
       </div>
     </div>
 
-    
     <div class="col-md-4 md-3">
-      <div class="card"　class="card-img-top">
-        <img src="assets/images/coffee4.jpeg" alt="">
-        <div class="card-body">
-          <h3 class="title">Amazing decaf is near you</h3>
-          <p class="card-text">Because you love coffee, but don't always want the caffeine, look for the Swiss Water® logo or ask how your coffee was decaffeinated.</p>
-          <a href="#" class="btn btn-primary">Go</a>
+        <div class="card card-img-top">
+          <img src="{{ asset('image/homeprogramming.jpg') }}">
+            <div class="card-body">
+              <h3 class="title">イベント３</h3>
+                <p class="card-text"> イベント内容</p>
+                <a href="#" class="btn btn-primary">詳細</a>
+            </div>
+        </div>
+      </div>
+  </div>
+ </div>
+
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-md-4 md-3">
+        <div class="card">
+          <img src="{{ asset('image/homeprogramming.jpg') }}">
+          <div class="card-body">
+            <h3 class="title">イベント4</h3>
+            <p class="card-text">イベント内容</p>
+            <a href="#" class="btn btn-primary">詳細</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 md-3">
+        <div class="card card-img-top">
+          <img src="{{ asset('image/homeprogramming.jpg') }}">
+            <div class="card-body">
+              <h3 class="title">イベント5</h3>
+                <p class="card-text"> イベント内容</p>
+                <a href="#" class="btn btn-primary">詳細</a>
+            </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 md-3">
+          <div class="card card-img-top">
+            <img src="{{ asset('image/homeprogramming.jpg') }}">
+              <div class="card-body">
+                <h3 class="title">イベント6</h3>
+                  <p class="card-text"> イベント内容</p>
+                  <a href="#" class="btn btn-primary">詳細</a>
+              </div>
+          </div>
         </div>
     </div>
-    </div>
-  </div>
 </div>
 
-<!-- content画面 -->
-<div class="contents">
-  <p>さっそくイベントに参加してみる</p>
-  <p>仲間がもうすぐ開催する開催するイベントを見てみよう。</p>
-</div>
+
+
 
 
 
@@ -88,7 +130,8 @@ Laravel勉強会
 
 
 <!-- footer -->
-<div class="footer">
-    <p>CPIC</p>
+<nav class="navbar navbar-expand-md navbar-light navbar-laravel bg-primary">
+ <div class="footer">
+    <p>コピーライトCPIC</p>
 </div>
 @endsection
