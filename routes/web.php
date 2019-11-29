@@ -13,7 +13,7 @@
 
 
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('index');
 Route::get('/thanks', 'HomeController@thanks')->name('thanks');
 Route::post('/mine', 'HomeController@storeDetail')->name('postMine');
 Route::get('/mine', 'HomeController@toMine')->name('getMine');
