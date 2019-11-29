@@ -14,6 +14,7 @@
 
 
 Route::get('/', 'HomeController@index')->name('index');
+<<<<<<< HEAD
 Route::get('/thanks', 'HomeController@thanks')->name('thanks');
 Route::post('/mine', 'HomeController@storeDetail')->name('postMine');
 Route::get('/mine', 'HomeController@toMine')->name('getMine');
@@ -24,3 +25,14 @@ Route::get('/mine', 'HomeController@toMine')->name('getMine');
 
 
 Auth::routes();
+=======
+Auth::routes();
+
+// Route::group(['middleware' => ['auth']], function()
+// {
+    //この中に書かれたrouteはログインしていないと見れなくなる
+    Route::get('/thanks', 'HomeController@thanks')->name('thanks');
+    Route::post('/mine', 'HomeController@storeDetail')->name('postMine');
+    Route::get('/mine', 'HomeController@toMine')->name('getMine');
+// });
+>>>>>>> develop

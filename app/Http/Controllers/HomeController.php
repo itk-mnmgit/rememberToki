@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -21,12 +22,15 @@ class HomeController extends Controller
         return view('thanks');
     }
 
-    public function storeDeteil(Request $request)
+    public function storeDetail(Request $request)
     {
+        $imgPath = $this->saveProfileImage($request->img);
+
         //img,intro 等を保存
         //DB(users)のカラムにrequestで得た奴らをぶち込む
         $user = Auth::user();
-        $user->img = $request->img;
+        $user->img = $imgPath;
+
         //DBに保存
         $user->save();
 
@@ -34,9 +38,22 @@ class HomeController extends Controller
         return view('mine');
     }
 
+    //profile画像を保存するためのメソッド
+    //引数 : $image : 保存したい画像
+    private function saveProfileImage($image)
+    {
+        //storage/public/images/profilePictureに絶対に被らない名前で保存してくれる
+        //保存した後、そのファイルまでのパスを返してくれる
+        $imgPath = $image->store('images/profilePicture', 'public');
+
+        return 'storage/' . $imgPath;
+    }
+
     public function toMine()
     {
         return view('mine');
     }
+
+
 
 }

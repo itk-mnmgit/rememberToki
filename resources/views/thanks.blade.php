@@ -32,7 +32,7 @@
                                 <div class="col-md-6">
                                     {{-- デバッグの時だるいから今だけrequired外してます --}}
                                     {{-- <input id="picture" type="file" class="form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture" required> --}}
-                                    <input id="picture" type="file" class="form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture" >
+                                    <input id="picture" type="file" class="form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="img" >
 
                                     @if ($errors->has('picture'))
                                         <span class="invalid-feedback" role="alert">
