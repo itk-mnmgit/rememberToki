@@ -34,8 +34,8 @@ class HomeController extends Controller
         //DBに保存
         $user->save();
 
-        //mine.phpに帰る
-        return view('mine');
+        //chat.index.phpに帰る
+        return view('chat.index');
     }
 
     //profile画像を保存するためのメソッド
