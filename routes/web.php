@@ -22,4 +22,5 @@ Auth::routes();
     Route::get('/thanks', 'HomeController@thanks')->name('thanks');
     Route::post('/mine', 'HomeController@storeDetail')->name('postMine');
     Route::get('/mine', 'HomeController@toMine')->name('getMine');
+    Route::get('/event', 'EventController@index')->name('event.index');
 // });
