@@ -6,20 +6,34 @@
 @section('content')
 
 
-<h1>登録完了！</h1>
+<div class="row mb-2">
+    <div class="col-md-6">
+        <div class="row no gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">ありがとうございました。</strong>
+                <h3 class="mb-0">登録完了しました！</h3>
+                <p class="card-text mb-auto">次は、プロフィール写真を追加しましょう。</p>
+            </div>
+        </div>
+</div>
 
-<h1>さらに登録しますか？</h1>
+</div>
+{{-- <div class="thanks-main">
+        <div class="bg-image" style="background-image: url({{ asset('image/thanksimg.jpeg') }})">
+          <div class="row">
+              <div class="col-md-4"></div>
+                    <div class="col-md-4 d-flex flex-column justify-content-center">
+                    <p class="display-4-1 text-black">登録完了しました！</p>
+                    <p class="display-4-1 text-black">さらに登録しますか？</p>
+                    </div> --}}
 
-<a class="btn btn-primary btn-lg text-white" href="{{ route('getMine') }}" role="button">あとで</a>
-
-<h1>画像選択だけ入れてます</h1>
 <h1>introのところとUIお願いします</h1>
 
 <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
+                    <div class="card-header">{{ __('プロフィールを登録') }}</div>
 
                     <div class="card-body">
                         {{-- enctype="multipart/form-data" : 画像送れるようにする --}}
@@ -27,7 +41,7 @@
                             @csrf
 
                             <div class="form-group row">
-                                <label for="picture" class="col-md-4 col-form-label text-md-right">Profile Picture</label>
+                                <label for="picture" class="col-md-4 col-form-label text-md-right">写真</label>
 
                                 <div class="col-md-6">
                                     {{-- デバッグの時だるいから今だけrequired外してます --}}
@@ -48,7 +62,9 @@
                                         登録！
                                     </button>
                                 </div>
+                                <a class="btn btn-primary btn-lg text-white" href="{{ route('getMine') }}" role="button">あとで</a>
                             </div>
+
                         </form>
                     </div>
                 </div>
