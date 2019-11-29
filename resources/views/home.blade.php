@@ -19,7 +19,7 @@
           <p>CPICをはじめよ</p>
         </div>
         <div class="col-md-4 d-flex align-items-center">
-          <a class="btn btn-primary btn-lg text-white" href="{{ route('register') }}" role="button">アカウント作成</a>
+          <a class="btn btn-primary btn-lg text-white mr-1" href="{{ route('register') }}" role="button">アカウント作成</a>
           <a class="btn btn-primary btn-lg text-white" href="{{ route('login') }}" role="button">ログイン</a>
         </div>
       </div>
