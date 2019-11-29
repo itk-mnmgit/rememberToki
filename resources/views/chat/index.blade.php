@@ -7,7 +7,8 @@
 
 
 <h1>mypageやで〜</h1>
-<a class="btn btn-primary btn-lg text-white" href="{{ route('home.group') }}" role="button">グルー日追加画面に移動するボタン</a>
+<a class="btn btn-primary btn-lg text-white" href="{{ route('home.group') }}" role="button">グループ追加画面に移動するボタン</a>
+<a class="btn btn-primary btn-lg text-white" href="{{ route('event.index') }}" role="button">イベント一覧画面に移動するボタン</a>
 
 
 @endsection

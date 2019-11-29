@@ -23,4 +23,6 @@ Auth::routes();
     Route::post('/chat/index', 'HomeController@storeDetail')->name('post.chat.index');
     Route::get('/chat/index', 'ChatController@index')->name('get.chat.index');
     Route::get('/home/group', 'ChatController@toGroup')->name('home.group');
+    Route::get('/event/index', 'EventController@index')->name('event.index');
+
 // });
