@@ -10,7 +10,7 @@
 
 <h1>さらに登録しますか？</h1>
 
-<a class="btn btn-primary btn-lg text-white" href="{{ route('getMine') }}" role="button">あとで</a>
+<a class="btn btn-primary btn-lg text-white" href="{{ route('get.chat.index') }}" role="button">あとで</a>
 
 <h1>画像選択だけ入れてます</h1>
 <h1>introのところとUIお願いします</h1>
@@ -23,7 +23,7 @@
 
                     <div class="card-body">
                         {{-- enctype="multipart/form-data" : 画像送れるようにする --}}
-                        <form method="POST" action="{{ route('postMine') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('post.chat.index') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">

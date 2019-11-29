@@ -13,13 +13,14 @@
 
 
 
-Route::get('/', 'HomeController@index')->name('index');
+Route::get('/', 'HomeController@index')->name('home.index');
 Auth::routes();
 
 // Route::group(['middleware' => ['auth']], function()
 // {
     //この中に書かれたrouteはログインしていないと見れなくなる
-    Route::get('/thanks', 'HomeController@thanks')->name('thanks');
-    Route::post('/mine', 'HomeController@storeDetail')->name('postMine');
-    Route::get('/mine', 'HomeController@toMine')->name('getMine');
+    Route::get('/home/thanks', 'HomeController@thanks')->name('home.thanks');
+    Route::post('/chat/index', 'HomeController@storeDetail')->name('post.chat.index');
+    Route::get('/chat/index', 'ChatController@index')->name('get.chat.index');
+    Route::get('/home/group', 'ChatController@toGroup')->name('home.group');
 // });
