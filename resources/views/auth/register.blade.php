@@ -9,12 +9,12 @@
                 <div class="card-header">{{ __('アカウント作成') }}</div>
 
                 @if($errors->any())
-                <ul>
-                  @foreach($errors->all() as $message)
-                    <li class="alert alert-danger">{{$message}}</li>
-                  @endforeach
-                </ul>
-              @endif
+                    <ul>
+                    @foreach($errors->all() as $message)
+                        <li class="alert alert-danger">{{$message}}</li>
+                    @endforeach
+                    </ul>
+                @endif
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -83,14 +83,14 @@
                                     </div>
                                 </div>
                         </div>
-                        
+
                         {{-- 年齢 --}}
                         <div class="form-group row">
                                 <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
-    
+
                                 <div class="col-md-6">
                                     <input id="age" type="age" class="form-control{{ $errors->has('age') ? ' is-invalid' : '' }}" name="age" value="{{ old('age') }}" required autofocus placeholder='年齢'>
-    
+
                                     @if ($errors->has('age'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('age') }}</strong>

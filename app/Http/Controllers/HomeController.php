@@ -21,11 +21,21 @@ class HomeController extends Controller
         return view('thanks');
     }
 
-    public function storeDeteil()
+    public function storeDeteil(Request $request)
     {
         //img,intro 等を保存
-        //save();みたいなやつ
+        //DB(users)のカラムにrequestで得た奴らをぶち込む
+        $user = Auth::user();
+        $user->img = $request->img;
+        //DBに保存
+        $user->save();
+
         //mine.phpに帰る
+        return view('mine');
+    }
+
+    public function toMine()
+    {
         return view('mine');
     }
 

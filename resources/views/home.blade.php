@@ -16,11 +16,14 @@
           <p class="right">セブで『仲間』を見つけよう</p>
           <p>同じ趣味、関心を持った仲間たちとチャットを始めよう</p>
           <p>仲良くなって一緒にイベントを開催しよう</p>
-          <p>CPICをはじめよ</p>
+          <p>CPICをはじめよう</p>
         </div>
         <div class="col-md-4 d-flex align-items-center">
-          <a class="btn btn-primary btn-lg text-white" href="{{ route('register') }}" role="button">アカウント作成</a>
-          <a class="btn btn-primary btn-lg text-white" href="{{ route('login') }}" role="button">ログイン</a>
+
+            @guest
+            <a class="btn btn-primary btn-lg text-white" href="{{ route('register') }}" role="button">アカウント作成</a>
+            <a class="btn btn-primary btn-lg text-white" href="{{ route('login') }}" role="button">ログイン</a>
+            @endguest
         </div>
       </div>
     </div>
