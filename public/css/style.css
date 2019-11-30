@@ -52,6 +52,8 @@
     text-align: center;
   }
 
-  .thanks-main p{
-    font-size: 50px;
-  }
+  /* thans.blade.php */
+.form-control{
+    font-size:4em;
+}
+
