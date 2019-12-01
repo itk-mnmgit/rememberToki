@@ -15,11 +15,11 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home');
+        return view('home.index');
     }
     public function thanks()
     {
-        return view('thanks');
+        return view('home.thanks');
     }
 
     public function storeDetail(Request $request)
@@ -34,8 +34,8 @@ class HomeController extends Controller
         //DBに保存
         $user->save();
 
-        //mine.phpに帰る
-        return view('mine');
+        //chat.index.phpに帰る
+        return view('chat.index');
     }
 
     //profile画像を保存するためのメソッド
@@ -49,10 +49,8 @@ class HomeController extends Controller
         return 'storage/' . $imgPath;
     }
 
-    public function toMine()
-    {
-        return view('mine');
-    }
+
+
 
 
 

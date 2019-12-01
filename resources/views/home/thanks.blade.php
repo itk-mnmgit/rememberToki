@@ -47,6 +47,10 @@
 </div>
 
 
+<<<<<<< HEAD:resources/views/thanks.blade.php
+=======
+<a class="btn btn-primary btn-lg text-white" href="{{ route('get.chat.index') }}" role="button">あとで</a>
+>>>>>>> 8b4c2004a1f7333194846242f40cc3ee1e7513ea:resources/views/home/thanks.blade.php
 
 <h1>introのところとUIお願いします</h1>
 
@@ -58,7 +62,7 @@
 
                     <div class="card-body">
                         {{-- enctype="multipart/form-data" : 画像送れるようにする --}}
-                        <form method="POST" action="{{ route('postMine') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('post.chat.index') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">
