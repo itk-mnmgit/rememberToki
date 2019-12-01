@@ -31,6 +31,7 @@ class HomeController extends Controller
         $user = Auth::user();
         $user->img = $imgPath;
 
+
         //DBに保存
         $user->save();
 
