@@ -44,16 +44,10 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('get.chat.index') }}">
-                                    マイDMリスト
-                                </a>
-                                <a class="dropdown-item" href="{{ route('get.chat.index') }}">
-                                    マイグループリスト
+                                    my page
                                     </a>
                                 <a class="dropdown-item" href="{{ route('home.listGroup') }}">
-                                    グループを検索
-                                </a>
-                                <a class="dropdown-item" href="{{ route('home.listGroup') }}">
-                                    いいねしたグループ
+                                    DM/グループを検索
                                 </a>
                             </div>
                         </li>

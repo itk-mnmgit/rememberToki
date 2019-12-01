@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'group')
-
+@section('title', 'listGroup')
 
 @section('content')
-<h1>グループ一覧画面やで〜</h1>
+
+<h1>chat/listGroup</h1>
+
 @endsection

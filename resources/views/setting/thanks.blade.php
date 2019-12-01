@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'confirm')
+@section('title', 'thanks')
 
 @section('content')
 
-<h1>chat/confirm</h1>
+<h1>setting/thanks</h1>
 
 @endsection
