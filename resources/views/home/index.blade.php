@@ -22,7 +22,7 @@
 
       {{-- ログインしてないときは アカウント作成/ログインボタン を表示 --}}
             @guest
-            <a class="btn btn-primary btn-lg text-white" href="{{ route('register') }}" role="button">アカウント作成</a>
+            <a class="btn btn-primary btn-lg text-white mr-1" href="{{ route('register') }}" role="button">アカウント作成</a>
             <a class="btn btn-primary btn-lg text-white" href="{{ route('login') }}" role="button">ログイン</a>
             @endguest
       {{-- ログイン時は mypageへ ボタン --}}
