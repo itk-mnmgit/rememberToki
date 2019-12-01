@@ -6,5 +6,12 @@ use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('setting.index');
+    }
+    public function help()
+    {
+        return view('setting.help');
+    }
 }
