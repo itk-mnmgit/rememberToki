@@ -11,7 +11,7 @@
 |
 */
 
-
+// use Symfony\Component\Routing\Annotation\Route;
 
 Route::get('/', 'HomeController@index')->name('home.index');
 Auth::routes();
@@ -29,6 +29,6 @@ Auth::routes();
 
     Route::get('/setting/index', 'SettingController@index')->name('setting.index');
     Route::get('/setting/help', 'SettingController@help')->name('setting.help');
-    Routr::post('setting/thanks', 'SettingController@thanks')->name('setting.thanks');
+    Route::post('setting/thanks', 'SettingController@thanks')->name('setting.thanks');
 
 // });

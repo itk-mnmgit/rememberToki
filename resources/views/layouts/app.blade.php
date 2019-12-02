@@ -21,6 +21,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
+    @yield('custom_css')
 </head>
 <body>
     <!-- header -->
