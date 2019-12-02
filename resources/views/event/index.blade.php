@@ -16,10 +16,12 @@
             <button type="button" class="btn btn-primary btn-lg text-white text-align-center">ボタン</button>
             </span>
             <div class="row col-md-2"></div>
-            <a class="btn btn-success btn-lg text-white col-md-2" href="{{ route('register') }}" role="button">イベント作成画面</a>
+            <a class="btn btn-success btn-lg text-white col-md-2" href="{{ route('event.makeEvent') }}" role="button">イベント作成画面</a>
         </div>
 
       <p>イベント作成画面btn は仮でregisterに設定。</p>
+      <p>↓</p>
+      <strong><p>イベント作成画面に変更済み(event.makeEvent : event/makeEvent.blade.php)</p></strong>
 
 
 
