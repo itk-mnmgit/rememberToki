@@ -21,10 +21,10 @@
                         @csrf
 
                         {{-- ユーザー名 --}}
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
+                        <div class="form-group row justify-content-center">
+                            {{-- <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label> --}}
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 ">
                                 <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder='氏名'>
 
                                 @if ($errors->has('name'))
@@ -36,8 +36,8 @@
                         </div>
 
                         {{-- メールアドレス --}}
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
+                        <div class="form-group row justify-content-center">
+                            {{-- <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label> --}}
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus placeholder='メールアドレス'>
@@ -51,8 +51,8 @@
                         </div>
 
                         {{-- パスワード --}}
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
+                        <div class="form-group row justify-content-center">
+                            {{-- <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label> --}}
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required autofocus placeholder='パスワード'>
@@ -85,8 +85,8 @@
                         </div>
 
                         {{-- 年齢 --}}
-                        <div class="form-group row">
-                                <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
+                        <div class="form-group row justify-content-center">
+                                {{-- <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label> --}}
 
                                 <div class="col-md-6">
                                     <input id="age" type="age" class="form-control{{ $errors->has('age') ? ' is-invalid' : '' }}" name="age" value="{{ old('age') }}" required autofocus placeholder='年齢'>
@@ -100,8 +100,8 @@
                             </div>
 
                         {{-- 職業 --}}
-                        <div class="form-group row">
-                                <label for="occupation" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
+                        <div class="form-group row justify-content-center">
+                                {{-- <label for="occupation" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label> --}}
                                 <div class="col-md-6">
                                     <input id="occupation" type="occupation" class="form-control{{ $errors->has('occupation') ? ' is-invalid' : '' }}" name="occupation" value="{{ old('occupation') }}"required autofocus placeholder='職業'>
 
@@ -114,8 +114,8 @@
                             </div>
 
                         {{-- 興味関心 --}}
-                        <div class="form-group row">
-                            <label for="tag" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
+                        <div class="form-group row justify-content-center">
+                            {{-- <label for="tag" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label> --}}
 
                             <div class="col-md-6">
                                 <input id="tag" type="tag" class="form-control{{ $errors->has('tag') ? ' is-invalid' : '' }}" name="tag" value="{{ old('tag') }}"required autofocus placeholder='あなたの興味・関心'>
@@ -129,8 +129,8 @@
                         </div>
 
                            {{-- 住所--}}
-                           <div class="form-group row">
-                                <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
+                           <div class="form-group row justify-content-center">
+                                {{-- <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label> --}}
                                 <div class="col-md-6">
                                     <input id="address" type="address" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}"required autofocus placeholder='住所' >
 

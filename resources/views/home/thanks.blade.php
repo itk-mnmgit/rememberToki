@@ -8,8 +8,9 @@
 {{-- 質問１これはつけた方がいいのかデザイン崩れるdiv class="container-fluid" --}}
 <div class="container">
     <div class="row">
+            <div class="col-md-1"></div>
             <div class="col-md-10">
-                <div class="row no gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
+                <div class="row no gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static text-center">
                         <strong class="inline-block">プロフィールをもっと追加しよう！</strong>
                         <a class="btn btn-lg text-primary" href="{{ route('get.chat.index') }}" role="button">skip▶︎▶︎</a>
@@ -43,7 +44,7 @@
                                 </div>
 
                                 <div class="form-group row mb-0">
-                                    <div class="col-md-6 offset-md-4">
+                                    <div class="col-md-4 offset-md-4">
                                         <button type="submit" class="btn btn-primary">
                                             {{ __('登録') }}
                                         </button>

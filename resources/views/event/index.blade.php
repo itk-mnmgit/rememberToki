@@ -5,47 +5,111 @@
 
 @section('content')
 
-<!-- feature -->
-<div class="container mt-5">
-    <h2>FEATURE</h2>
+<!-- イベント一覧画面 -->
+<div class="container mt-3 text-center">
+    <h1>参加したいイベントを見つけよう</h1>
+    <P>検索form</P>
+    <p>イベント作成画面btn は仮でregisterに設定。</p>
+    <a class="btn btn-success btn-lg text-white" href="{{ route('register') }}" role="button">イベント作成画面</a>
     <div class="row">
-
-      <div class="col-md-4 mb-3">
+      <!-- イベント１ -->
+      <div class="col-md-3 mb-3">
         <div class="card" id="highreliability">
             <img src="{{ asset('image/homefootball.jpg') }}" alt="business city" class='img-fluid card-img-top'>
-            <title>Placeholder</title>
+            <title>イベント１</title>
           <div class="card-body">
-            <h5 class="card-title">HIGH RELIABILITY</h5>
-            <p class="card-text">Since our founding in 2015, we have worked with over 1,000 clients and all of them have been satisfied. These actual results are regarded as highly reliable. </p>
-            <a href="#" class="btn btn-primary">See more</a>
+            <h5 class="card-title">表題１</h5>
+            <p class="card-text">内容１ </p>
+            <a href="#" class="btn btn-primary">詳細</a>
           </div>
         </div>
       </div>
-      <!-- /.col-md-4 -->
-      <div class="col-md-4 mb-3">
+      <!-- イベント２ -->
+      <div class="col-md-3 mb-3">
         <div class="card" id="punctuality">
-          <img src="{{ asset('image/homefootball.jpg') }}" alt="business city" class='img-fluid card-img-top'>
-          <title>Placeholder</title>
+          <img src="{{ asset('image/thanksimg.jpeg') }}" alt="business city" class='img-fluid card-img-top'>
+          <title>イベント２</title>
           <div class="card-body">
-            <h5 class="card-title">PUNCTUALITY</h5>
-            <p class="card-text">In general, what is said to be the most important thing in business is punctuality. We have worked with a lot of clients so far but have never missed deadlines.</p>
-            <a href="#" class="btn btn-primary">See more</a>
+            <h5 class="card-title">表題２</h5>
+            <p class="card-text">内容２</p>
+            <a href="#" class="btn btn-primary">詳細</a>
           </div>
         </div>
       </div>
-      <!-- /.col-md-4 -->
-      <div class="col-md-4">
+      <!--イベント３ -->
+      <div class="col-md-3 mb-3">
         <div class="card" id="strategies">
-          <img src="{{ asset('image/homefootball.jpg') }}" alt="business city" class='img-fluid rrcard-img-top'>
-          <title>Placeholder</title>
+          <img src="{{ asset('image/iland.jpeg') }}" alt="business city" class='img-fluid rrcard-img-top'>
+          <title>イベント３</title>
           <div class="card-body">
-            <h5 class="card-title">STRATEGIES</h5>
-            <p class="card-text">We don't do unliateral work. We listen to clients' offers and provide the highest quality. Excellent consultants will listen to your requests and make the best strategy.</p>
-            <a href="#" class="btn btn-primary">See more</a>
+            <h5 class="card-title">表題３</h5>
+            <p class="card-text">内容３</p>
+            <a href="#" class="btn btn-primary">詳細</a>
           </div>
         </div>
       </div>
-      <!-- /.col-md-4 -->
+      <!--イベント４ -->
+      <div class="col-md-3 mb-3">
+          <div class="card" id="punctuality">
+            <img src="{{ asset('image/thanksimg.jpeg') }}" alt="business city" class='img-fluid card-img-top'>
+            <title>イベント４</title>
+            <div class="card-body">
+              <h5 class="card-title">表題４</h5>
+              <p class="card-text">内容４</p>
+              <a href="#" class="btn btn-primary">詳細</a>
+            </div>
+          </div>
+        </div>
+        <!--イベント５ -->
+        <div class="col-md-3 mb-3">
+            <div class="card" id="punctuality">
+              <img src="{{ asset('image/iland.jpeg') }}" alt="business city" class='img-fluid card-img-top'>
+              <title>イベント５</title>
+              <div class="card-body">
+                <h5 class="card-title">表題５</h5>
+                <p class="card-text">内容５</p>
+                <a href="#" class="btn btn-primary">詳細</a>
+              </div>
+            </div>
+          </div>
+        <!--イベント６ -->
+        <div class="col-md-3 mb-3">
+            <div class="card" id="punctuality">
+              <img src="{{ asset('image/homefootball.jpg') }}" alt="business city" class='img-fluid card-img-top'>
+              <title>イベント６</title>
+              <div class="card-body">
+                <h5 class="card-title">表題６</h5>
+                <p class="card-text">内容６</p>
+                <a href="#" class="btn btn-primary">詳細</a>
+              </div>
+            </div>
+          </div>
+        <!--イベント７ -->
+        <div class="col-md-3 mb-3">
+            <div class="card" id="punctuality">
+              <img src="{{ asset('image/thanksimg.jpeg') }}" alt="business city" class='img-fluid card-img-top'>
+              <title>イベント７</title>
+              <div class="card-body">
+                <h5 class="card-title">表題７</h5>
+                <p class="card-text">内容７</p>
+                <a href="#" class="btn btn-primary">詳細</a>
+              </div>
+            </div>
+          </div>
+        <!--イベント８ -->
+        <div class="col-md-3 mb-3">
+            <div class="card" id="punctuality">
+              <img src="{{ asset('image/iland.jpeg') }}" alt="business city" class='img-fluid card-img-top'>
+              <title>イベント８</title>
+              <div class="card-body">
+                <h5 class="card-title">表題８</h5>
+                <p class="card-text">内容８</p>
+                <a href="#" class="btn btn-primary">詳細</a>
+              </div>
+            </div>
+          </div>
+
+
     </div>
   </div>
 <!-- featureここまで -->
