@@ -19,16 +19,32 @@ Auth::routes();
 // Route::group(['middleware' => ['auth']], function()
 // {
     //この中に書かれたrouteはログインしていないと見れなくなる
-    Route::get('/home/thanks', 'HomeController@thanks')->name('home.thanks');
-    Route::get('/home/listGroup', 'ChatController@toGroup')->name('home.listGroup');
 
-    Route::get('/chat/index', 'ChatController@index')->name('get.chat.index');
+//Home
+    Route::get('/home/thanks', 'HomeController@thanks')->name('home.thanks');
     Route::post('/chat/index', 'HomeController@storeDetail')->name('post.chat.index');
 
-    Route::get('/event/index', 'EventController@index')->name('event.index');
+//Chat
+    Route::get('/chat/index', 'ChatController@index')->name('get.chat.index');
+    Route::get('/chat/listGroup', 'ChatController@toListGroup')->name('chat.listGroup');
+    Route::get('/chat/makeGroup', 'ChatController@toMakeGroup')->name('chat.makeGroup');
+    Route::post('/chat/confirm', 'ChatController@confirmGroup')->name('chat.confirm');
+    Route::post('/chat/make', 'ChatController@makeGroup')->name('chat.make');
 
+
+//Event
+    Route::get('/event/index', 'EventController@index')->name('event.index');
+    Route::get('/event/makeEvent', 'EventController@toMakeEvent')->name('event.makeEvent');
+    Route::post('/event/confirm', 'EventController@confirmEvent')->name('event.confirm');
+    Route::post('/event/make', 'EventController@makeEvent')->name('event.make');
+
+//Setting
     Route::get('/setting/index', 'SettingController@index')->name('setting.index');
+    Route::post('setting/confirmProfile', 'SettingController@confirmChangeProfile')->name('setting.confirmProfile');
+    Route::post('setting/changeProfile', 'SettingController@changeProfile')->name('setting.changeProfile');
+
     Route::get('/setting/help', 'SettingController@help')->name('setting.help');
-    Routr::post('setting/thanks', 'SettingController@thanks')->name('setting.thanks');
+    Route::post('setting/confirmHelp', 'SettingController@confirmHelp')->name('setting.confirmHelp');
+    Route::post('setting/sendHelp', 'SettingController@sendHelp')->name('setting.sendHelp');
 
 // });
