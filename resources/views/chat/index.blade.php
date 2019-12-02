@@ -15,7 +15,7 @@
   {{-- グループ一覧 --}}
 
   @endfor
-  <a class="btn btn-primary btn-lg text-white" href="{{ route('home.listGroup') }}" role="button">グループを追加する
+  <a class="btn btn-primary btn-lg text-white" href="{{ route('chat.listGroup') }}" role="button">グループを追加する
   </a>
   <button type="button" class="btn light rounded-circle p-0" style="width:2rem;height:2rem;">＋</button>
 </div>
@@ -54,9 +54,6 @@
 
 </div>
 
-<h1>mypageやで〜</h1>
-<a class="btn btn-primary btn-lg text-white" href="{{ route('chat.listGroup') }}" role="button">グループ一覧画面に移動するボタン</a>
-<a class="btn btn-primary btn-lg text-white" href="{{ route('event.index') }}" role="button">イベント一覧画面に移動するボタン</a>
 
 
 @endsection
