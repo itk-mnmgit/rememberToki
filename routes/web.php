@@ -11,7 +11,7 @@
 |
 */
 
-
+// use Symfony\Component\Routing\Annotation\Route;
 
 Route::get('/', 'HomeController@index')->name('home.index');
 Auth::routes();
