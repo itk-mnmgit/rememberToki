@@ -1,0 +1,29 @@
+/* chat.index.blade.php */
+.sidebar{
+  width:200px;
+  min-height:800px;
+  height:auto ;
+  float:left;
+}
+
+.eventbar{
+  width:400px;
+  min-height:800px;
+  height:auto;
+  float:right;
+}
+
+.chat{
+  margin-left:260px;
+  width:460px;
+  height:auto;
+}
+
+.py-4 {
+  padding: 0 !important;
+}
+
+.event-img{
+  width: 100%;
+  height: 100%;
+}
