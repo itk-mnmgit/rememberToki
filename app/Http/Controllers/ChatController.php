@@ -15,6 +15,6 @@ class ChatController extends Controller
 
     public function toGroup()
     {
-        return view('chat.group');
+        return view('chat.listGroup');
     }
 }

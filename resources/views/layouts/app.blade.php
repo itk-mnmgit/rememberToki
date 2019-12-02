@@ -44,16 +44,10 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('get.chat.index') }}">
-                                    マイDMリスト
-                                </a>
-                                <a class="dropdown-item" href="{{ route('get.chat.index') }}">
-                                    マイグループリスト
+                                    my page
                                     </a>
-                                <a class="dropdown-item" href="{{ route('home.group') }}">
-                                    グループを検索
-                                </a>
-                                <a class="dropdown-item" href="{{ route('home.group') }}">
-                                    いいねしたグループ
+                                <a class="dropdown-item" href="{{ route('home.listGroup') }}">
+                                    DM/グループを検索
                                 </a>
                             </div>
                         </li>
@@ -70,10 +64,10 @@
                                 <a class="dropdown-item" href="{{ route('get.chat.index') }}">
                                     マイイベントリスト
                                 </a>
-                                <a class="dropdown-item" href="{{ route('home.group') }}">
+                                <a class="dropdown-item" href="{{ route('home.listGroup') }}">
                                     イベントを検索
                                 </a>
-                                <a class="dropdown-item" href="{{ route('home.group') }}">
+                                <a class="dropdown-item" href="{{ route('home.listGroup') }}">
                                     お気に入りしたイベント
                                 </a>
                             </div>
@@ -99,13 +93,12 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-
-                                    <a class="dropdown-item" href="{{ route('home.group') }}">
-                                        my profile
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('home.group') }}">
+                                    <a class="dropdown-item" href="{{ route('setting.index') }}">
                                         setting
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('setting.help') }}">
+                                            help
+                                        </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

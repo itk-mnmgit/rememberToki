@@ -20,9 +20,15 @@ Auth::routes();
 // {
     //この中に書かれたrouteはログインしていないと見れなくなる
     Route::get('/home/thanks', 'HomeController@thanks')->name('home.thanks');
-    Route::post('/chat/index', 'HomeController@storeDetail')->name('post.chat.index');
+    Route::get('/home/listGroup', 'ChatController@toGroup')->name('home.listGroup');
+
     Route::get('/chat/index', 'ChatController@index')->name('get.chat.index');
-    Route::get('/home/group', 'ChatController@toGroup')->name('home.group');
+    Route::post('/chat/index', 'HomeController@storeDetail')->name('post.chat.index');
+
     Route::get('/event/index', 'EventController@index')->name('event.index');
+
+    Route::get('/setting/index', 'SettingController@index')->name('setting.index');
+    Route::get('/setting/help', 'SettingController@help')->name('setting.help');
+    Routr::post('setting/thanks', 'SettingController@thanks')->name('setting.thanks');
 
 // });
