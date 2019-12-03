@@ -41,7 +41,7 @@
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     @foreach($genres as $genre)
-                                        <input class="form-check-input" type="radio" name="genre" id="{{ $genre->name }}" {{ old('genre') ? 'checked' : '' }} value='{{ $genre->name }}'>
+                                        <input class="form-check-input" type="radio" name="genre_id" id="{{ $genre->name }}" {{ old('genre') ? 'checked' : '' }} value='{{ $genre->id }}'>
                                         <label class="form-check-label mr-5" for="{{ $genre->name }}">{{ $genre->name }}</label>
                                     @endforeach
                                 </div>
@@ -74,8 +74,8 @@
                     <div class="form-group row">
                         <label>開始時間を追加しましょう</label>
                         <div class="col-md-6 offset-md-4">
-                            <input id="date" type="date" class="text-center" required>
-                            <input id="time" type="time" class="text-center" required>
+                            <input id="date" type="date" name="date" class="text-center" required>
+                            <input id="time" type="time" name="time" class="text-center" required>
                         </div>
                     </div>
 

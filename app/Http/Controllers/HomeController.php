@@ -30,6 +30,7 @@ class HomeController extends Controller
         //DB(users)のカラムにrequestで得た奴らをぶち込む
         $user = Auth::user();
         $user->img = $imgPath;
+        $user->intro = $request->intro;
 
 
         //DBに保存
