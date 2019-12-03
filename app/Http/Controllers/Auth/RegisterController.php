@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'gender' => 'required',
             'age' => 'nullable|digits:2',
             'occupation' => 'nullable|string',
-            'tag' => 'nullable|',
+            'genre' => 'nullable|',
             'address' => 'nullable|',
         ]);
     }
@@ -75,7 +75,7 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'age' => $data['age'],
             'occupation' => $data['occupation'],
-            'tag' => $data['tag'],
+            'genre' => $data['genre'],
             'address' => $data['address'],
         ]);
     }

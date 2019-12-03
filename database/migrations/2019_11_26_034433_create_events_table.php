@@ -14,11 +14,17 @@ class CreateEventsTable extends Migration
     public function up()
     {
         Schema::create('events', function (Blueprint $table) {
+
+            $icon = '';
+
             $table->increments('id');
             $table->string('name');
-            $table->integer('tag_id');
+            $table->integer('genre_id');
             $table->integer('user_id');
             $table->timestamps();
+            $table->string('img')->default($icon);
+            $table->text('intro')->nullable();
+            $table->dateTime('startTime')->nullable;
         });
     }
 
