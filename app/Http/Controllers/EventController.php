@@ -37,22 +37,26 @@ class EventController extends Controller
 
         $event->startTime = new DateTime($request->date . ' ' . $request->time);
 
-        $event->save();
-
         //chat/confirmへ
-        return view('event.confirm');
+        return view('event.confirm', ['event' => $event]);
     }
     public function makeEvent(Request $request)
     {
         $event = new Event();
 
+        $imgPath = $this->saveProfileImage($request->img);
+
         //新しく作るグループ内容を受け取る
         $event->name = $request->name;
         $event->genre_id = $request->genre_id;
         $event->user_id = Auth::user()->id;
-        //DBに保存
+        $event->img = $imgPath;
+        $event->intro = $request->intro;
+
+        $event->startTime = new DateTime($request->date . ' ' . $request->time);
+
         $event->save();
-        //chat/confirmへ
+
         return redirect()->route('get.chat.index');
     }
 
