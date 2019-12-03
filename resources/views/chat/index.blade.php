@@ -11,13 +11,25 @@
 {{-- サイドバーを表示する --}}
 <div class="sidebar bg-primary">
 
+  <h5>グループ</h5>
+
   @for ($i = 0; $i < 3; $i++)
   {{-- グループ一覧 --}}
-
+  <a class="nav-link active text-light" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Cebu FC</a>
   @endfor
-  <a class="btn btn-primary btn-lg text-white" href="{{ route('chat.listGroup') }}" role="button">グループを追加する
-  </a>
+  <a class="btn btn-primary btn-lg text-white" href="{{ route('chat.listGroup') }}" role="button">＋ グループを追加する</a>
   <button type="button" class="btn light rounded-circle p-0" style="width:2rem;height:2rem;">＋</button>
+
+  <h5>ダイレクトメッセージ</h5>
+
+  @for ($i = 0; $i < 3; $i++)
+  {{-- DM一覧 --}}
+  <a class="nav-link active text-light" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">メンバーの名前</a>
+  @endfor
+
+  <a class="btn btn-primary btn-lg text-white" href="" role="button">＋ メンバーを招待する</a>
+  <button type="button" class="btn light rounded-circle p-0" style="width:2rem;height:2rem;">＋</button>
+
 </div>
 
 {{-- イベントのバーを表示する --}}
@@ -50,7 +62,11 @@
 
 {{-- チャットの大きな部分を表示する --}}
 <div class="chat">
-  {{-- <p>ここにチャットが表示されるよー</p> --}}
+  <p>ここにチャットが表示されるよー</p>
+  <div class="form-group">
+      <textarea id="body" class="form-control" name="body">{{old('body')}}</textarea>
+  </div>
+
 
 </div>
 
