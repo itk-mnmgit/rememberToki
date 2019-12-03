@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Group;
 
 class HomeController extends Controller
 {
@@ -37,7 +38,7 @@ class HomeController extends Controller
         $user->save();
 
         //chat.index.phpに帰る
-        return view('chat.index');
+        $groups = Group::all();        return view('chat.index', ['groups' => $groups]);
     }
 
     //profile画像を保存するためのメソッド

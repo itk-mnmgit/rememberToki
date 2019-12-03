@@ -12,11 +12,10 @@
 <div class="sidebar bg-primary">
 
   <h5>グループ</h5>
-
-  @for ($i = 0; $i < 3; $i++)
+  @foreach($groups as $group)
   {{-- グループ一覧 --}}
-  <a class="nav-link active text-light" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Cebu FC</a>
-  @endfor
+  <a class="nav-link active text-light" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">{{ $group->name }}</a>
+  @endforeach
   <a class="btn btn-primary btn-lg text-white" href="{{ route('chat.listGroup') }}" role="button">＋ グループを追加する</a>
 
   <h5>ダイレクトメッセージ</h5>

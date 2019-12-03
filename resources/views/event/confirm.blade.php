@@ -4,16 +4,16 @@
 
 @section('content')
 <h1>作成画面で入力したやつ表示させてます。</h1>
-    <label>間違いないですか的な</label>
-        <p>name : {{$event->name}}</p>
-        <p>genre_id : {{$event->genre_id}}</p>
-        <p>user_id : {{$event->user_id}}</p>
-        <p>img : {{$event->img}}</p>
-        <p>intro : {{$event->intro}}</p>
-        <p>date</p>
+<label>間違いないですか的な</label>
+<p>name : {{$event->name}}</p>
+<p>genre_id : {{$event->genre_id}}</p>
+<p>user_id : {{$event->user_id}}</p>
+<p>img : {{$event->img}}</p>
+<p>intro : {{$event->intro}}</p>
+<p>date</p>
 
-        <a class="btn btn-primary btn-lg text-white" method='post' href="{{ route('event.make') }}" role="button">OK</a>
-        <a class="btn btn-primary btn-lg text-white" method='get' href="{{ route('event.makeEvent') }}" role="button">戻る</a>
+<a class="btn btn-primary btn-lg text-white" method='post' href="{{ route('event.make') }}" role="button">OK</a>
+<a class="btn btn-primary btn-lg text-white" method='get' href="{{ route('event.makeEvent') }}" role="button">戻る</a>
 
 
 {{-- <p>{{$event->startTime}}</p> --}}

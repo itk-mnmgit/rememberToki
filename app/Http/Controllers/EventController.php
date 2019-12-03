@@ -13,7 +13,8 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::all();
-        return view('event.index', ['events' => $events]);
+        $genres = Genre::all();
+        return view('event.index', ['events' => $events, 'genres' => $genres]);
     }
 
     public function toMakeEvent()
@@ -36,6 +37,8 @@ class EventController extends Controller
         $event->intro = $request->intro;
 
         $event->startTime = new DateTime($request->date . ' ' . $request->time);
+
+        $event->save();
 
         //chat/confirmへ
         return view('event.confirm', ['event' => $event]);

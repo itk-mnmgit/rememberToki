@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
 use App\Group;
 use App\Genre;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +39,9 @@ class ChatController extends Controller
         $group->user_id = Auth::user()->id;
         $group->img = $imgPath;
         $group->intro = $request->intro;
+
+        $group->save();
+
         //chat/confirmへ
         return view('chat.confirm', ['group' => $group]);
     }
@@ -56,7 +60,7 @@ class ChatController extends Controller
 
         $group->save();
 
-        return redirect()->route('get.chat.index');
+        return redirect()->route('get.chat.index', ['group' => $group]);
     }
 
     private function saveProfileImage($image)

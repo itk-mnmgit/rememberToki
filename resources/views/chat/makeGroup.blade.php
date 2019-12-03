@@ -41,7 +41,7 @@
                                 <div class="col-md-6 offset-md-4">
                                     <div class="form-check">
                                         @foreach($genres as $genre)
-                                            <input class="form-check-input" type="radio" name="genre_id" id="{{ $genre->id }}" {{ old('genre') ? 'checked' : '' }} value='{{ $genre->name }}'>
+                                            <input class="form-check-input" type="radio" name="genre_id" id="{{ $genre->id }}" {{ old('genre') ? 'checked' : '' }} value='{{ $genre->id }}'>
                                             <label class="form-check-label mr-5" for="{{ $genre->name }}">{{ $genre->name }}</label>
                                         @endforeach
                                     </div>

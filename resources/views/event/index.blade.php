@@ -10,20 +10,17 @@
 
       <h1>参加したいイベントを見つけよう</h1>
         <div class="input-group">
-            <div class="row col-md-4"></div>
-            <input type="message" class="form-control col-md-4" placeholder="テキスト入力欄">
+            <select class="custom-select" id="inputGroupSelect04">
+                <option selected>Select Genre.</option>
+                @foreach ($genres as $genre)
+                    <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                @endforeach
+            </select>
             <span class="input-group-btn">
-            <button type="button" class="btn btn-primary btn-lg text-white text-align-center">ボタン</button>
+                <button type="button" class="btn btn-primary btn-lg text-white text-align-center">ボタン</button>
             </span>
-            <div class="row col-md-2"></div>
             <a class="btn btn-success btn-lg text-white col-md-2" href="{{ route('event.makeEvent') }}" role="button">イベント作成画面</a>
         </div>
-
-      <p>イベント作成画面btn は仮でregisterに設定。</p>
-      <p>↓</p>
-      <strong><p>イベント作成画面に変更済み(event.makeEvent : event/makeEvent.blade.php)</p></strong>
-
-
 
     <div class="row">
         @foreach($events as $event)
@@ -33,7 +30,8 @@
                 <title>Placeholder</title>
               <div class="card-body">
                   <h5 class="card-title">{{ $event->name }}</h5>
-                  <p class="card-text">内容１ </p>
+                  <p class="card-text">{{ str_limit($event->intro, $limit = 50, $end = '…') }}</p>
+                  <p class="card-text">{{ $event->startTime }}</p>
                   <a href="#" class="btn btn-primary">詳細</a>
               </div>
             </div>
