@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Event;
 use App\Genre;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use DateTime;
 
@@ -29,7 +30,6 @@ class EventController extends Controller
 
         $imgPath = $this->saveProfileImage($request->img);
 
-        //新しく作るグループ内容を受け取る
         $event->name = $request->name;
         $event->genre_id = $request->genre_id;
         $event->user_id = Auth::user()->id;
@@ -38,27 +38,21 @@ class EventController extends Controller
 
         $event->startTime = new DateTime($request->date . ' ' . $request->time);
 
-        $event->save();
+        $genre = Genre::find($event->genre_id);
+        $user = User::find($event->user_id);
 
-        //chat/confirmへ
-        return view('event.confirm', ['event' => $event]);
+        $request->session()->put('event', $event);
+
+        return view('event.confirm', ['event' => $event,'genre' => $genre, 'user' => $user]);
     }
+
     public function makeEvent(Request $request)
     {
-        $event = new Event();
-
-        $imgPath = $this->saveProfileImage($request->img);
-
-        //新しく作るグループ内容を受け取る
-        $event->name = $request->name;
-        $event->genre_id = $request->genre_id;
-        $event->user_id = Auth::user()->id;
-        $event->img = $imgPath;
-        $event->intro = $request->intro;
-
-        $event->startTime = new DateTime($request->date . ' ' . $request->time);
+        $event = $request->session()->get('event');
 
         $event->save();
+
+        $request->session()->forget('event');
 
         return redirect()->route('get.chat.index');
     }

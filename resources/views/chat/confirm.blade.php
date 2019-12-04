@@ -9,14 +9,16 @@
 <h1>作成画面で入力したやつ表示させてます。</h1>
 <label>間違いないですか的な</label>
 <p>name : {{$group->name}}</p>
-<p>genre_id : {{$group->genre_id}}</p>
-<p>user_id : {{$group->user_id}}</p>
-<p>img : {{$group->img}}</p>
+<p>genre : {{$genre->name}}</p>
+<p>作成者 : {{$user->name}}</p>
+<p>img : <img  src="{{ asset($group->img) }}" width="128" height="128" alt="groupIcon"></p>
 <p>intro : {{$group->intro}}</p>
-<p>date</p>
 
-<a class="btn btn-primary btn-lg text-white" method='post' href="{{ route('chat.make') }}" role="button">OK</a>
-<a class="btn btn-primary btn-lg text-white" method='get' href="{{ route('chat.makeGroup') }}" role="button">戻る</a>
+<form  method='post' action="{{ route('chat.make') }}">
+    @csrf
+    <input class="btn btn-primary btn-lg text-white" type='submit' value='OK'>
+
+    <a class="btn btn-primary btn-lg text-white" method='get' href="javascript:history.back()" role="button">戻る</a>
 
 
 @endsection

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Event;
 use App\Group;
 use App\Genre;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
@@ -13,12 +14,17 @@ class ChatController extends Controller
 
     public function index()
     {
-        return view('chat.index');
+        $events = Event::all();
+        $groups = Group::all();
+        $genres = Genre::all();
+        return view('chat.index', ['events' => $events, 'genres' => $genres, 'groups' => $groups]);
     }
 
     public function toListGroup()
     {
-        return view('chat.listGroup');
+        $groups = Group::all();
+        $genres = Genre::all();
+        return view('chat.listGroup', ['genres' => $genres, 'groups' => $groups]);
     }
 
     public function toMakeGroup()
@@ -33,34 +39,27 @@ class ChatController extends Controller
 
         $imgPath = $this->saveProfileImage($request->img);
 
-        //新しく作るグループ内容を受け取る
         $group->name = $request->name;
         $group->genre_id = $request->genre_id;
         $group->user_id = Auth::user()->id;
         $group->img = $imgPath;
         $group->intro = $request->intro;
 
-        $group->save();
+        $genre = Genre::find($group->genre_id);
+        $user = User::find($group->user_id);
 
-        //chat/confirmへ
-        return view('chat.confirm', ['group' => $group]);
+        $request->session()->put('group', $group);
+
+        return view('chat.confirm', ['group' => $group, 'genre' => $genre, 'user' => $user]);
     }
+
     public function makeGroup(Request $request)
     {
-        $group = new Group();
-
-        $imgPath = $this->saveProfileImage($request->img);
-
-        //新しく作るグループ内容を受け取る
-        $group->name = $request->name;
-        $group->genre_id = $request->genre_id;
-        $group->user_id = Auth::user()->id;
-        $group->img = $imgPath;
-        $group->intro = $request->intro;
+        $group = $request->session()->get('group');
 
         $group->save();
 
-        return redirect()->route('get.chat.index', ['group' => $group]);
+        return redirect()->route('get.chat.index');
     }
 
     private function saveProfileImage($image)
