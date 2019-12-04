@@ -13,7 +13,10 @@ class ChatController extends Controller
 
     public function index()
     {
-        return view('chat.index');
+        $groups = Group::all();
+        return view('chat.index', [
+            "groups" => $groups,
+        ]);
     }
 
     public function toListGroup()
