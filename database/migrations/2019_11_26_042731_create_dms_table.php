@@ -14,7 +14,6 @@ class CreateDmsTable extends Migration
     public function up()
     {
         Schema::create('dms', function (Blueprint $table) {
-            $table->increments('id');
             $table->integer('user1_id');
             $table->integer('user2_id');
             $table->timestamps();
