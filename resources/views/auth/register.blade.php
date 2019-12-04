@@ -115,14 +115,14 @@
 
                         {{-- 興味関心 --}}
                         <div class="form-group row justify-content-center">
-                            {{-- <label for="tag" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label> --}}
+                            {{-- <label for="genre" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label> --}}
 
                             <div class="col-md-6">
-                                <input id="tag" type="tag" class="form-control{{ $errors->has('tag') ? ' is-invalid' : '' }}" name="tag" value="{{ old('tag') }}"required autofocus placeholder='あなたの興味・関心'>
+                                <input id="genre" type="genre" class="form-control{{ $errors->has('genre') ? ' is-invalid' : '' }}" name="genre" value="{{ old('genre') }}"required autofocus placeholder='あなたの興味・関心'>
 
-                                @if ($errors->has('tag'))
+                                @if ($errors->has('genre'))
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('tag') }}</strong>
+                                            <strong>{{ $errors->first('genre') }}</strong>
                                         </span>
                                     @endif
                             </div>
