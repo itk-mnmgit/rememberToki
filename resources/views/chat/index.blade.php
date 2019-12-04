@@ -11,6 +11,7 @@
 {{-- サイドバーを表示する --}}
 <div class="sidebar bg-primary">
 
+
   <h5>グループ</h5>
   @foreach($groups as $group)
   {{-- グループ一覧 --}}

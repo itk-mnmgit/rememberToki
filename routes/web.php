@@ -37,6 +37,7 @@ Auth::routes();
     Route::get('/event/makeEvent', 'EventController@toMakeEvent')->name('event.makeEvent');
     Route::post('/event/confirm', 'EventController@confirmEvent')->name('event.confirm');
     Route::post('/event/make', 'EventController@makeEvent')->name('event.make');
+    Route::get('/event/modalTrial', 'EventController@modal')->name('event.modalTrial');
 
 //Setting
     Route::get('/setting/index', 'SettingController@index')->name('setting.index');
