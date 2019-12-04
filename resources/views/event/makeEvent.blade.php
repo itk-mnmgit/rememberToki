@@ -48,20 +48,6 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <div class="input-group mb-3">
-                                <select class="custom-select" id="inputGroupSelect04">
-                                    <option selected>ジャンル選択</option>
-                                    @foreach ($genres as $genre)
-                                        <option value="{{ $genre->id }}">{{ $genre->name }}</option>
-                                    @endforeach
-                                </select>
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-primary btn-lg text-white text-align-center">ボタン</button>
-                                </span> --}}
-
-
-
-
 
                     {{-- アイコン --}}
                         <div class="form-group">
