@@ -37,7 +37,7 @@
 </div>
 
 <!-- content画面 -->
-<div class="contents">
+<div class="contents text-center">
     <p>さっそくイベントに参加してみる</p>
     <p>仲間がもうすぐ開催する開催するイベントを見てみよう。</p>
   </div>

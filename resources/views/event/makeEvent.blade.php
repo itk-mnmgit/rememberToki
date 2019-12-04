@@ -6,9 +6,9 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
-                <div class="card-header">イベント作成</div>
+                <div class="card-header">イベントを作成しよう</div>
 
                 @if($errors->any())
                     <ul>
@@ -24,7 +24,7 @@
 
                     {{-- イベント名 --}}
                     <div class="form-group row">
-                        <label>イベント名を追加しましょう</label>
+                        <label for="eventname">イベント名：</label>
                         <div class="col-md-6  offset-md-4">
                             <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder='イベント名'>
                             @if ($errors->has('name'))
@@ -33,6 +33,7 @@
                                 </span>
                             @endif
                         </div>
+                        
                     </div>
 
                     {{-- ジャンル --}}
@@ -47,6 +48,20 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="input-group mb-3">
+                                <select class="custom-select" id="inputGroupSelect04">
+                                    <option selected>ジャンル選択</option>
+                                    @foreach ($genres as $genre)
+                                        <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary btn-lg text-white text-align-center">ボタン</button>
+                                </span>
+
+
+
+
 
                     {{-- アイコン --}}
                         <div class="form-group">
