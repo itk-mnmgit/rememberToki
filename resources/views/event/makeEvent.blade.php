@@ -5,10 +5,9 @@
 @section('content')
 
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="card">
-                <div class="card-header">イベントを作成しよう</div>
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="img/thanksimg.jpeg" alt width="72" height="72">
+            <h1 class="card-header text-primary">イベントを作成しよう</h1>
 
                 @if($errors->any())
                     <ul>
@@ -33,8 +32,9 @@
                                 </span>
                             @endif
                         </div>
-                        
                     </div>
+                </div>
+                </div>
 
                     {{-- ジャンル --}}
                         <div class="form-group row">
@@ -92,7 +92,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 
 @endsection
