@@ -1,61 +1,39 @@
 @extends('layouts.app')
 
-@section('title', 'listGroup')
+@section('title', 'グループ一覧')
 
 @section('content')
 
-{{-- グループ一覧画面 --}}
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <h3>興味・関心のある分野を選択してください</h3>
-    </div>
-  </div>
-</div>
+<div class="container mt-3 text-center">
 
-<div class="container form-group row justify-content-md-center">
-  <div class="col-md-5">
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>スポーツ</option>
-      <option>飲食</option>
-      <option>学習</option>
-      <option>アウトドア</option>
-      <option>その他</option>
-    </select>
-  </div>
-  
-  <div class="col-md-4">
-    <a class="btn btn-success btn-lg text-white" href="{{ route('chat.makeGroup') }}" role="button">新規グループ作成</a>
-  </div>
-
-</div>
-
-
-{{-- グループカード表示 --}}
-<div class="container mt-5">
-  <div class="row">
-    @for ($i = 0; $i < 12; $i++)
-
-    <div class="card mb-3 col-md-4" style="max-width: 540px;">
-      <div class="row no-gutters">
-        <div class="col-md-4">
-          <img src="{{ asset('image/homefootball.jpg') }}" class="card-img group-img rounded-circle" alt="football">
+      <h1>参加したいグループを見つけよう</h1>
+        <div class="input-group mb-3">
+            <select class="custom-select" id="inputGroupSelect04">
+                <option selected>ジャンル選択</option>
+                @foreach ($genres as $genre)
+                    <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                @endforeach
+            </select>
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-primary btn-lg text-white text-align-center">ボタン</button>
+            </span>
+            <a class="btn btn-success btn-lg text-white col-md-2" href="{{ route('chat.makeGroup') }}" role="button">グループ作成画面</a>
         </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Cebu FC</h5>
-            <p class="card-text">このグループは2週間に一度フットサルをします！セブでフットサルに興味のある方は一緒に汗を流しましょう！</p>
-            <a href="#" class="btn btn-primary">詳細</a>
+
+    <div class="row">
+        @foreach($groups as $group)
+          <div class="col-md-3 mb-3">
+            <div class="card" id="highreliability">
+                <img src="{{ asset($group->img) }}" alt="business city" class='img-fluid card-img-top'>
+              <div class="card-body">
+                  <h5 class="title">{{ $group->name }}</h5>
+                  <p class="card-text">{{ str_limit($group->intro, $limit = 50, $end = '…') }}</p>
+                  <a href="#" class="btn btn-primary">詳細</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        @endforeach
     </div>
-
-    @endfor
-
-  </div>
 </div>
-
-
 
 @endsection

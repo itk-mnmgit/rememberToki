@@ -7,7 +7,7 @@
 <label>間違いないですか的な</label>
 <p>name : {{$event->name}}</p>
 <p>genre_id : {{ $genre->name }}</p>
-<p>user_id : {{ $user->name }}</p>
+<p> : {{ $user->name }}</p>
 <p>img : <img  src="{{ asset($event->img) }}" width="128" height="128" alt="eventIcon"></p>
 <p>intro : {{ $event->intro}}</p>
 <p>date : {{ $event->startTime->format('M, d/Y') }}</p>
