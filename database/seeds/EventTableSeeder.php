@@ -17,6 +17,7 @@ class EventTableSeeder extends Seeder
             'name' => 'football',
             'genre_id' => '123',
             'user_id' => '123',
+            'startTime' => Carbon::now(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
@@ -25,6 +26,7 @@ class EventTableSeeder extends Seeder
             'name' => 'baseball',
             'genre_id' => '456',
             'user_id' => '456',
+            'startTime' => Carbon::now(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
@@ -33,6 +35,7 @@ class EventTableSeeder extends Seeder
             'name' => 'basketball',
             'genre_id' => '789',
             'user_id' => '789',
+            'startTime' => Carbon::now(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
