@@ -9,6 +9,7 @@ use App\Genre;
 use App\User;
 use App\Dm;
 use App\UserGroup;
+use App\EventUser;
 use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
@@ -16,13 +17,13 @@ class ChatController extends Controller
 
     public function index()
     {
-        $events = Event::all();
-        $groups = Group::all();
+        $attendEvents = EventUser::where('user_id', Auth::user()->id)->with('event')->get();
+        $attendGroups = UserGroup::where('user_id', Auth::user()->id)->with('group')->get();
+
         $genres = Genre::all();
         $dms = Dm::getDm(Auth::user()->id);
-        // $users = User::where('user_id', $dms->user1_id)->orWhere('user_id', $dms->user2_id);
 
-        return view('chat.index', ['events' => $events, 'genres' => $genres, 'groups' => $groups, 'dms' => $dms]);
+        return view('chat.index', ['attendEvents' => $attendEvents, 'genres' => $genres, 'attendGroups' => $attendGroups, 'dms' => $dms]);
     }
 
     public function toListGroup()
@@ -87,13 +88,16 @@ class ChatController extends Controller
         return 'storage/' . $imgPath;
     }
 
-    public function attendGroup()
+    public function attendGroup(Request $request)
     {
-        $userGroup = new UserGroup();
+        $user_Group = new UserGroup();
 
-        $userGroup->group_id = 
-        $userGroup->user_id = Auth::user()->id;
+        $user_Group->group_id = $request->id;
+        $user_Group->user_id = Auth::user()->id;
 
+        $user_Group->save();
+
+        return redirect()->route('get.chat.index');
     }
 
 

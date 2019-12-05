@@ -49,7 +49,11 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                                    <button type="button" class="btn btn-success">このグループに参加</button>
+                                    <form method='post' action='{{ route('group.attend') }}'>
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $group->id }}">
+                                        <button type="submit" class="btn btn-success">このイベントに参加</button>
+                                    </form>
                                 </div><!-- /.modal-footer -->
                             </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->

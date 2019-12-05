@@ -85,7 +85,6 @@ class EventController extends Controller
 
     public function attendEvent(Request $request)
     {
-        // dd($request);
         $event_User = new EventUser();
 
         $event_User->event_id = $request->id;

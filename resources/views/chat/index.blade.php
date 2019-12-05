@@ -13,9 +13,9 @@
 
 
   <h5>グループ</h5>
-  @foreach($groups as $group)
+  @foreach($attendGroups as $attendGroup)
   {{-- グループ一覧 --}}
-  <a class="nav-link active text-light" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">{{ $group->name }}</a>
+  <a class="nav-link active text-light" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">{{ $attendGroup->group->name }}</a>
   @endforeach
   <a class="btn btn-primary btn-lg text-white" href="{{ route('chat.listGroup') }}" role="button">＋ グループを追加する</a>
 
@@ -34,7 +34,7 @@
 <div class="eventbar bg-primary">
   <h3>参加予定のイベント</h3>
 
-  @for ($i = 0; $i < 3; $i++)
+  @foreach ($attendEvents as $attendEvent)
 
   {{-- イベントカード --}}
   <div class="card mb-3" style="max-width: 540px;">
@@ -44,16 +44,18 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">フットサル大会</h5>
-          <p class="card-text">メトロスポーツセンターでフットサル大会を開催します！みんなで汗を流しましょう！</p>
+          <h5 class="card-title">{{ $attendEvent->event->name }}</h5>
+          <p class="card-text">{{ $attendEvent->event->intro }}</p>
           <a href="#" class="btn btn-primary">詳細</a>
-          <p class="card-text"><small class="text-muted">12月14日 16:00 - 20:00</small></p>
+          <p class="card-text">
+            <small class="text-muted">{{ $attendEvent->event->startTime->format('M, d/Y') }}</small>
+          </p>
         </div>
       </div>
     </div>
   </div>
 
-  @endfor
+  @endforeach
 
   <a class="btn btn-primary btn-lg text-white" href="{{ route('event.index') }}" role="button">+ 他のイベントを見る
   </a>
