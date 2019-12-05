@@ -8,6 +8,7 @@ use App\Group;
 use App\Genre;
 use App\User;
 use App\Dm;
+use App\UserGroup;
 use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
@@ -29,6 +30,17 @@ class ChatController extends Controller
         $groups = Group::all();
         $genres = Genre::all();
         return view('chat.listGroup', ['genres' => $genres, 'groups' => $groups]);
+    }
+
+    public function searchGroup(Request $request)
+    {
+        if($request->selected_genre==0){
+            $groups = Group::all();
+        }else{
+            $groups = Group::where('genre_id', $request->selected_genre)->get();
+        }
+        $genres = Genre::all();
+        return view('chat.listGroup', ['groups' => $groups, 'genres' => $genres]);
     }
 
     public function toMakeGroup()
@@ -74,6 +86,16 @@ class ChatController extends Controller
 
         return 'storage/' . $imgPath;
     }
+
+    public function attendGroup()
+    {
+        $userGroup = new UserGroup();
+
+        $userGroup->group_id = 
+        $userGroup->user_id = Auth::user()->id;
+
+    }
+
 
     // ---------- ここから下はDM用 ------------
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Event;
 use App\Genre;
 use App\User;
+use App\EventUser;
 use Illuminate\Support\Facades\Auth;
 use DateTime;
 
@@ -23,6 +24,17 @@ class EventController extends Controller
         return view('event.index', ['events' => $events, 'genres' => $genres]);
     }
 
+    public function searchEvent(Request $request)
+    {
+        if($request->selected_genre==0){
+            $events = Event::all();
+        }else{
+            $events = Event::where('genre_id', $request->selected_genre)->get();
+        }
+        $genres = Genre::all();
+        return view('event.index', ['events' => $events, 'genres' => $genres]);
+    }
+
     public function toMakeEvent()
     {
         $genres = Genre::all();
@@ -33,7 +45,7 @@ class EventController extends Controller
     {
         $event = new Event();
 
-        $imgPath = $this->saveProfileImage($request->img);
+        $imgPath = $this->saveEventImage($request->img);
 
         $event->name = $request->name;
         $event->genre_id = $request->genre_id;
@@ -62,13 +74,26 @@ class EventController extends Controller
         return redirect()->route('get.chat.index');
     }
 
-    private function saveProfileImage($image)
+    private function saveEventImage($image)
     {
-        //storage/public/images/profilePictureに絶対に被らない名前で保存してくれる
+        //storage/public/images/eventに絶対に被らない名前で保存してくれる
         //保存した後、そのファイルまでのパスを返してくれる
-        $imgPath = $image->store('images/profilePicture', 'public');
+        $imgPath = $image->store('images/event', 'public');
 
         return 'storage/' . $imgPath;
+    }
+
+    public function attendEvent(Request $request)
+    {
+        // dd($request);
+        $event_User = new EventUser();
+
+        $event_User->event_id = $request->id;
+        $event_User->user_id = Auth::user()->id;
+
+        $event_User->save();
+
+        return redirect()->route('get.chat.index');
     }
 
 }

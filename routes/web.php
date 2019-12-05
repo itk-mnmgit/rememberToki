@@ -30,6 +30,8 @@ Auth::routes();
     Route::get('/chat/makeGroup', 'ChatController@toMakeGroup')->name('chat.makeGroup');
     Route::post('/chat/confirm', 'ChatController@confirmGroup')->name('chat.confirm');
     Route::post('/chat/make', 'ChatController@makeGroup')->name('chat.make');
+    Route::get('/group/search', 'ChatController@searchGroup')->name('group.search');
+    Route::post('/group/attend', 'ChatController@attendGroup')->name('group.attend');
 
 
 //Event
@@ -38,6 +40,8 @@ Auth::routes();
     Route::post('/event/confirm', 'EventController@confirmEvent')->name('event.confirm');
     Route::post('/event/make', 'EventController@makeEvent')->name('event.make');
     Route::get('/event/modalTrial', 'EventController@modal')->name('event.modalTrial');
+    Route::get('/event/search', 'EventController@searchEvent')->name('event.search');
+    Route::post('/event/attend', 'EventController@attendEvent')->name('event.attend');
 
 //Setting
     Route::get('/setting/index', 'SettingController@index')->name('setting.index');
