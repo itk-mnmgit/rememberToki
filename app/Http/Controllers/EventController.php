@@ -10,7 +10,12 @@ use Illuminate\Support\Facades\Auth;
 use DateTime;
 
 class EventController extends Controller
-{
+{   public function modal()
+    {
+        return view('event.modalTrial');
+    }
+
+
     public function index()
     {
         $events = Event::all();

@@ -7,6 +7,7 @@ use App\Event;
 use App\Group;
 use App\Genre;
 use App\User;
+use App\Dm;
 use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
@@ -17,7 +18,10 @@ class ChatController extends Controller
         $events = Event::all();
         $groups = Group::all();
         $genres = Genre::all();
-        return view('chat.index', ['events' => $events, 'genres' => $genres, 'groups' => $groups]);
+        $dms = Dm::getDm(Auth::user()->id);
+        // $users = User::where('user_id', $dms->user1_id)->orWhere('user_id', $dms->user2_id);
+
+        return view('chat.index', ['events' => $events, 'genres' => $genres, 'groups' => $groups, 'dms' => $dms]);
     }
 
     public function toListGroup()
@@ -70,6 +74,10 @@ class ChatController extends Controller
 
         return 'storage/' . $imgPath;
     }
+
+    // ---------- ここから下はDM用 ------------
+
+
 
 
 }
