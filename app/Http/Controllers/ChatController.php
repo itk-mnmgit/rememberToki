@@ -8,6 +8,7 @@ use App\Group;
 use App\Genre;
 use App\User;
 use App\Dm;
+use App\UserGroup;
 use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
@@ -85,6 +86,16 @@ class ChatController extends Controller
 
         return 'storage/' . $imgPath;
     }
+
+    public function attendGroup()
+    {
+        $userGroup = new UserGroup();
+
+        $userGroup->group_id = 
+        $userGroup->user_id = Auth::user()->id;
+
+    }
+
 
     // ---------- ここから下はDM用 ------------
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Event;
 use App\Genre;
 use App\User;
+use App\EventUser;
 use Illuminate\Support\Facades\Auth;
 use DateTime;
 
@@ -80,6 +81,19 @@ class EventController extends Controller
         $imgPath = $image->store('images/event', 'public');
 
         return 'storage/' . $imgPath;
+    }
+
+    public function attendEvent(Request $request)
+    {
+        // dd($request);
+        $event_User = new EventUser();
+
+        $event_User->event_id = $request->id;
+        $event_User->user_id = Auth::user()->id;
+
+        $event_User->save();
+
+        return redirect()->route('get.chat.index');
     }
 
 }

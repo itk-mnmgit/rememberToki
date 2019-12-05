@@ -31,38 +31,40 @@
                 <div class="card-body">
                     <h5 class="title">{{ $event->name }}</h5>
                     <p class="card-text">{{ str_limit($event->intro, $limit = 50, $end = '…') }}</p>
-        
+
                     <!-- 切り替えボタンの設定 -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{$event->id}}">詳細</button>
 
           <!-- モーダルの設定 -->
-          <div class="modal fade" id="myModal-{{$event->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="title">{{ $event->name}}</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                    <div class="modal fade" id="myModal-{{$event->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="title">{{ $event->name}}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <img src="{{ asset($event->img) }}" alt="business city" class='img-fluid card-img-top'>
+                                <div class="modal-body">
+                                    <p class="card-text">{{ $event->intro }}</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                                    <form method='post' action='{{ route('event.attend') }}'>
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $event->id }}">
+                                        <button type="submit" class="btn btn-success">このイベントに参加</button>
+                                    </form>
+                                </div><!-- /.modal-footer -->
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
                 </div>
-                <img src="{{ asset($event->img) }}" alt="business city" class='img-fluid card-img-top'>
-                <div class="modal-body">
-                  <p class="card-text">{{ $event->intro }}</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                  <button type="button" class="btn btn-success">このグループに参加</button>
-                </div><!-- /.modal-footer -->
-              </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-          </div><!-- /.modal -->
-
+            </div>
+            @endforeach
         </div>
-      </div>
     </div>
-    @endforeach
-  </div>
-
 </div>
 
 @endsection
