@@ -31,6 +31,17 @@ class ChatController extends Controller
         return view('chat.listGroup', ['genres' => $genres, 'groups' => $groups]);
     }
 
+    public function searchGroup(Request $request)
+    {
+        if($request->selected_genre==0){
+            $groups = Group::all();
+        }else{
+            $groups = Group::where('genre_id', $request->selected_genre)->get();
+        }
+        $genres = Genre::all();
+        return view('chat.listGroup', ['groups' => $groups, 'genres' => $genres]);
+    }
+
     public function toMakeGroup()
     {
         $genres = Genre::all();

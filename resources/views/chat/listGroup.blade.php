@@ -8,15 +8,18 @@
 
       <h1>参加したいグループを見つけよう</h1>
         <div class="input-group mb-3">
-            <select class="custom-select" id="inputGroupSelect04">
-                <option selected>ジャンル選択</option>
-                @foreach ($genres as $genre)
-                    <option value="{{ $genre->id }}">{{ $genre->name }}</option>
-                @endforeach
-            </select>
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-primary btn-lg text-white text-align-center">ボタン</button>
+            <form method='get' action='{{ route('group.search') }}'>
+                <select class="custom-select" name='selected_genre'>
+                        <option value='0'>all</option>
+                        @foreach ($genres as $genre)
+                            <option value="{{ $genre->id }}" {{ isset($_GET['selected_genre']) && $_GET['selected_genre'] == $genre->id ? 'selected' : ''  }}>{{ $genre->name }}
+                        </option>
+                    @endforeach
+                </select>
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary btn-lg text-white text-align-center">検索</button>
             </span>
+            </form>
             <a class="btn btn-success btn-lg text-white col-md-2" href="{{ route('chat.makeGroup') }}" role="button">グループ作成画面</a>
         </div>
 

@@ -8,15 +8,18 @@
 
       <h1>参加したいイベントを見つけよう</h1>
         <div class="input-group mb-3">
-            <select class="custom-select" id="inputGroupSelect04">
-                <option selected>ジャンル選択</option>
-                @foreach ($genres as $genre)
-                    <option value="{{ $genre->id }}">{{ $genre->name }}</option>
-                @endforeach
-            </select>
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-primary btn-lg text-white text-align-center">ボタン</button>
-            </span>
+            <form method='get' action='{{ route('event.search') }}'>
+                <select class="custom-select" name="selected_genre">
+                    <option value='0'>all</option>
+                    @foreach ($genres as $genre)
+                        <option value="{{ $genre->id }}" {{ isset($_GET['selected_genre']) && $_GET['selected_genre'] == $genre->id ? 'selected' : ''  }}>{{ $genre->name }}
+                    </option>
+                    @endforeach
+                </select>
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary btn-lg text-white text-align-center">検索</button>
+                </span>
+            </form>
             <a class="btn btn-success btn-lg text-white col-md-2" href="{{ route('event.makeEvent') }}" role="button">イベント作成画面</a>
         </div>
 

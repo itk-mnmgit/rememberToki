@@ -23,6 +23,17 @@ class EventController extends Controller
         return view('event.index', ['events' => $events, 'genres' => $genres]);
     }
 
+    public function searchEvent(Request $request)
+    {
+        if($request->selected_genre==0){
+            $events = Event::all();
+        }else{
+            $events = Event::where('genre_id', $request->selected_genre)->get();
+        }
+        $genres = Genre::all();
+        return view('event.index', ['events' => $events, 'genres' => $genres]);
+    }
+
     public function toMakeEvent()
     {
         $genres = Genre::all();
