@@ -48,7 +48,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                  <button type="button" class="btn btn-success">このグループに参加</button>
+                  <button type="button" class="btn btn-success">このイベントに参加</button>
                 </div><!-- /.modal-footer -->
               </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
