@@ -44,7 +44,7 @@ class EventController extends Controller
     {
         $event = new Event();
 
-        $imgPath = $this->saveProfileImage($request->img);
+        $imgPath = $this->saveEventImage($request->img);
 
         $event->name = $request->name;
         $event->genre_id = $request->genre_id;
@@ -73,11 +73,11 @@ class EventController extends Controller
         return redirect()->route('get.chat.index');
     }
 
-    private function saveProfileImage($image)
+    private function saveEventImage($image)
     {
-        //storage/public/images/profilePictureに絶対に被らない名前で保存してくれる
+        //storage/public/images/eventに絶対に被らない名前で保存してくれる
         //保存した後、そのファイルまでのパスを返してくれる
-        $imgPath = $image->store('images/profilePicture', 'public');
+        $imgPath = $image->store('images/event', 'public');
 
         return 'storage/' . $imgPath;
     }
