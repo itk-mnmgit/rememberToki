@@ -97,7 +97,7 @@ class EventController extends Controller
     //ユーザーが引数のグループに参加しているかどうかを返す
     public function checkEvent(Request $request)
     {
-        //$requestで event_id 取ってきて それと一致するイベントを$eventsに格納
+        //$requestで event_id 取ってきて それと一致するイベントを$eventに格納
         $event = EventUser::where('id', $request->id);
         //ログインuser_id が 取ってきたイベントのuser_id のなかにあれば true
         if(Auth::user()->id == $event->user_id){
@@ -106,5 +106,19 @@ class EventController extends Controller
             return false;
         }
     }
+
+    public function leaveEvent(Request $request)
+    {
+        // 退会するボタンが押押されたイベントのidとログイン中のユーザーidと一致するカラムを取ってくる
+        $leaveEvent = EventUser::where('id', $request->id)->where('user_id', Auth::user()->id);
+
+        //削除
+        $leaveEvent->delete();
+
+        //まとめられへんやんな？↑
+
+        return redirect()->route('get.chat.index');
+    }
+
 
 }
