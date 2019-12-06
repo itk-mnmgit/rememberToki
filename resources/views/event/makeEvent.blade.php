@@ -14,7 +14,7 @@
     @endif
 
 
-            {{-- 表示上部 --}}
+            {{-- 表示中央上部 --}}
             <div class="py-5 text-center">
                 <img class="d-block mx-auto mb-4" src="" alt width="72" height="72">
                     <h1 class="card-header text-primary">イベントを作成しよう</h1>
@@ -23,9 +23,9 @@
             
             {{-- 右上・上部 --}}
             {{-- イベント表紙の写真選択 --}}
-            <div class="row">
+            <div class="row justify-content-end">
             <div class="col-md-4 order-md-2 mb-4">
-                <h4 class="d-flex justify-content-between align-items-center mb-3">イベント写真登録</h4>
+                <h4 class="d-flex justify-content-between justify-content-endmb-3">イベント写真登録</h4>
                         {{-- ファイル選択 --}}
                         <div class="col-md-6 offset-md-4">
                             {{-- デバッグの時だるいから今だけrequired外してます --}}
@@ -68,7 +68,7 @@
                     {{-- ジャンル --}}
                     <div class="row">
                     <div class="col-md-8 order-md-1">
-                        <h4 class ="mb-3">ジャンル選択</h4>
+                        <h4 class ="mb-3 mt-3">ジャンル選択</h4>
                         <form class="needs-validation" novalidate>
                         {{-- <div class="row">
                              <div class="col-md-6 mb-3"> --}}
@@ -86,21 +86,21 @@
                     {{-- 紹介文 --}}
                     <div class="row">
                         <div class="col-md-8 order-md-1">
-                        <h4 class ="mb-3">イベント紹介文を追加しましょう</h4>
+                        <h4 class ="mb-1 mt-5">イベント紹介文を追加しましょう</h4>
                         <div class="form-group">
                             <label for="exampleInputPassword1"></label>
-                            <textarea name="intro" rows="4" cols="120" class="col p-4 d-flex flex-column position-static text-center"></textarea>
+                            <textarea name="intro" rows="4" cols="120" class="col p-2 d-flex flex-column position-static text-center"></textarea>
                         </div>
                         </div>
                     </div>
 
                     {{-- 開始時間 --}}
                     <div class="form-group row">
-                        <label>開始時間</label>
-                        <div class="col-md-6 offset-md-4">
+                        <h4 class="mr-3 mb-3">開始時間</label>
+                        {{-- <div class="col-md-6 offset-md-4"> --}}
                             <input id="date" type="date" name="date" class="text-center" required>
                             <input id="time" type="time" name="time" class="text-center" required>
-                        </div>
+                        {{-- </div> --}}
                     </div>
 
                     {{-- 登録ボタン --}}
