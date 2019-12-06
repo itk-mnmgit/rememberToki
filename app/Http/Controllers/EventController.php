@@ -19,9 +19,14 @@ class EventController extends Controller
 
     public function index()
     {
+        $user_id = Auth::user()->id;
         $events = Event::all();
         $genres = Genre::all();
-        return view('event.index', ['events' => $events, 'genres' => $genres]);
+        $attendEvents = EventUser::where('user_id', $user_id)->get(['event_id'])->toArray();
+        if(!isset($attendEvents[0])) {
+            $attendEvents[0] = [];
+        }
+        return view('event.index', ['events' => $events, 'genres' => $genres, 'attendEventsId' => $attendEvents[0]]);
     }
 
     public function searchEvent(Request $request)
@@ -94,23 +99,12 @@ class EventController extends Controller
 
         return redirect()->route('get.chat.index');
     }
-    //ユーザーが引数のグループに参加しているかどうかを返す
-    public function checkEvent(Request $request)
-    {
-        //$requestで event_id 取ってきて それと一致するイベントを$eventに格納
-        $event = EventUser::where('id', $request->id);
-        //ログインuser_id が 取ってきたイベントのuser_id のなかにあれば true
-        if(Auth::user()->id == $event->user_id){
-            return true;
-        }else{
-            return false;
-        }
-    }
 
     public function leaveEvent(Request $request)
     {
         // 退会するボタンが押押されたイベントのidとログイン中のユーザーidと一致するカラムを取ってくる
-        $leaveEvent = EventUser::where('id', $request->id)->where('user_id', Auth::user()->id);
+        $leaveEvent = EventUser::where('event_id', $request->id)->where('user_id', Auth::user()->id);
+        // EventUser::where('id', $request->id)->where('user_id', Auth::user()->id)->delete();
 
         //削除
         $leaveEvent->delete();

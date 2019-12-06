@@ -51,7 +51,7 @@
                                         <form method='post' action='{{ route('group.attend') }}'>
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $group->id }}">
-                                            <button type="submit" class="btn btn-success">このイベントに参加</button>
+                                            <button type="submit" class="btn btn-success">このグループに参加</button>
                                         </form>
                                     </div><!-- /.modal-footer -->
                                 </div><!-- /.modal-content -->

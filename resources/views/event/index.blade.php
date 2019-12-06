@@ -47,11 +47,19 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                                        <form method='post' action='{{ route('event.attend') }}'>
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $event->id }}">
-                                            <button type="submit" class="btn btn-success">このイベントに参加</button>
-                                        </form>
+                                        @if( in_array($event->id, $attendEventsId) )
+                                            <form method='post' action='{{ route('event.leave') }}'>
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $event->id }}">
+                                                    <button type="submit" class="btn btn-danger">このイベントから退会</button>
+                                                </form>
+                                        @else
+                                            <form method='post' action='{{ route('event.attend') }}'>
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{ $event->id }}">
+                                                <button type="submit" class="btn btn-success">このイベントに参加</button>
+                                            </form>
+                                        @endif
                                     </div><!-- /.modal-footer -->
                                 </div><!-- /.modal-content -->
                             </div><!-- /.modal-dialog -->

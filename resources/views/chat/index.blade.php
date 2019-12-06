@@ -55,18 +55,10 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                                            @if(true)
-                                            {{-- @if(checkEvent(Auth::user()->id)) --}}
-                                                <form method='post' action='{{ route('event.leave') }}'>
-                                                    @csrf
-                                                    <input type="hidden" name="id" value="{{ $attendEvent->event->id }}">
-                                                    <button type="submit" class="btn btn-danger">このイベントから退会</button>
-                                            @else
-                                                <form method='post' action='{{ route('event.attend') }}'>
-                                                    @csrf
-                                                    <input type="hidden" name="id" value="{{ $attendEvent->event->id }}">
-                                                    <button type="submit" class="btn btn-success">このイベントに参加</button>
-                                            @endif
+                                        <form method='post' action='{{ route('event.leave') }}'>
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $attendEvent->event->id }}">
+                                            <button type="submit" class="btn btn-danger">このイベントから退会</button>
                                         </form>
                                     </div>
                                 </div>
