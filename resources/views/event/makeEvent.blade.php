@@ -14,7 +14,7 @@
     @endif
 
 
-            {{-- 表示上部 --}}
+            {{-- 表示中央上部 --}}
             <div class="py-5 text-center">
                 <img class="d-block mx-auto mb-4" src="" alt width="72" height="72">
                     <h1 class="card-header text-primary">イベントを作成しよう</h1>
@@ -23,9 +23,9 @@
             
             {{-- 右上・上部 --}}
             {{-- イベント表紙の写真選択 --}}
-            <div class="row">
+            <div class="row justify-content-end">
             <div class="col-md-4 order-md-2 mb-4">
-                <h4 class="d-flex justify-content-between align-items-center mb-3">イベント写真登録</h4>
+                <h4 class="d-flex justify-content-between justify-content-endmb-3">イベント写真登録</h4>
                         {{-- ファイル選択 --}}
                         <div class="col-md-6 offset-md-4">
                             {{-- デバッグの時だるいから今だけrequired外してます --}}
