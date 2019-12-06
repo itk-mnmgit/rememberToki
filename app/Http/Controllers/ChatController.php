@@ -30,7 +30,14 @@ class ChatController extends Controller
     {
         $groups = Group::all();
         $genres = Genre::all();
-        return view('chat.listGroup', ['genres' => $genres, 'groups' => $groups]);
+
+        $user_id = Auth::user()->id;
+        $attendGroups = UserGroup::where('user_id', $user_id)->get(['group_id'])->toArray();
+        if(!isset($attendGroups[0])) {
+            $attendGroups[0] = [];
+        }
+
+        return view('chat.listGroup', ['genres' => $genres, 'groups' => $groups, 'attendGroupsId' => $attendGroups[0]]);
     }
 
     public function searchGroup(Request $request)
@@ -96,6 +103,17 @@ class ChatController extends Controller
         $user_Group->user_id = Auth::user()->id;
 
         $user_Group->save();
+
+        return redirect()->route('get.chat.index');
+    }
+
+    public function leaveGroup(Request $request)
+    {
+        // 退会するボタンが押押されたイベントのidとログイン中のユーザーidと一致するカラムを取ってくる
+        $leaveGroup = UserGroup::where('group_id', $request->id)->where('user_id', Auth::user()->id);
+
+        //削除
+        $leaveGroup->delete();
 
         return redirect()->route('get.chat.index');
     }

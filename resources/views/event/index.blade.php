@@ -28,7 +28,7 @@
                     <img src="{{ asset($event->img) }}" alt="business city" class='img-fluid card-img-top'>
                     <div class="card-body">
                         <h5 class="title">{{ $event->name }}</h5>
-                        <p class="card-text">{{ str_limit($event->intro, $limit = 50, $end = '…') }}</p>
+                        <p class="card-text">{{ str_limit($event->intro, $limit = 20, $end = '…') }}</p>
                     <!-- 切り替えボタンの設定 -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{$event->id}}">詳細</button>
                     <!-- モーダルの設定 -->
@@ -60,10 +60,10 @@
                                                 <button type="submit" class="btn btn-success">このイベントに参加</button>
                                             </form>
                                         @endif
-                                    </div><!-- /.modal-footer -->
-                                </div><!-- /.modal-content -->
-                            </div><!-- /.modal-dialog -->
-                        </div><!-- /.modal -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

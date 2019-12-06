@@ -13,8 +13,7 @@
          </ul>
     @endif
 
-
-    {{-- 表示中央上部 --}}
+{{-- 表示中央上部 --}}
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="" alt width="72" height="72">
         <h1 class="card-header text-primary">イベントを作成しよう</h1>
@@ -33,7 +32,6 @@
                     {{-- ファイル選択 --}}
                 <div class="col-md-6 offset-md-4">
                     <input id="img" type="file" class="form-control{{ $errors->has('img') ? ' is-invalid' : '' }}" name="img" required>
-                {{-- cssでform-control絡んでるから変更 --}}
                     @if ($errors->has('img'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('img') }}</strong>
@@ -84,7 +82,7 @@
             <div class="col-md-8 order-md-1">
                 <h4 class ="mb-1 mt-5">イベント紹介文を追加しましょう</h4>
                 <div class="form-group">
-                    <label for="exampleInputPassword1"></label>
+                    <label></label>
                     <textarea name="intro" rows="4" cols="120" class="col p-2 d-flex flex-column position-static text-center"></textarea>
                 </div>
             </div>

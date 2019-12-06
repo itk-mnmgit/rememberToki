@@ -104,12 +104,9 @@ class EventController extends Controller
     {
         // 退会するボタンが押押されたイベントのidとログイン中のユーザーidと一致するカラムを取ってくる
         $leaveEvent = EventUser::where('event_id', $request->id)->where('user_id', Auth::user()->id);
-        // EventUser::where('id', $request->id)->where('user_id', Auth::user()->id)->delete();
 
         //削除
         $leaveEvent->delete();
-
-        //まとめられへんやんな？↑
 
         return redirect()->route('get.chat.index');
     }
