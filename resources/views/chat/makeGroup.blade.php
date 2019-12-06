@@ -2,12 +2,22 @@
 
 @section('title', 'makeGroup')
 
+@section('custom_js')
+  <script src="{{ asset('js/croppie.js') }}" defer></script>
+  <script src="{{ asset('js/event-cropper.js') }}" defer></script>
+@endsection
+
+@section('custom_css')
+  <link href="{{ asset('css/croppie.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/event-cropper.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <div class="card">
+      <div class="crop-card">
         <div class="card-header">グループ作成</div>
 
         @if($errors->any())
@@ -53,42 +63,61 @@
               <label for="exampleInputPassword1">アイコンを追加しましょう</label>
               <div class="col-md-6 offset-md-4">
                 {{-- デバッグの時だるいから今だけrequired外してます --}}
-                {{-- <input id="picture" type="file" class="form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture" required> --}}
-                  {{-- <input id="picture" type="file" class="item-img file center-block form-control3{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="img" > --}}
+                <input id="picture" type="file" class="input-file form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture" required>
+                {{-- <input id="picture" type="file" class="item-img file center-block form-control3{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="img" > --}}
 
-                  <label class="cabinet center-block">
-                    <img src="" class="gambar img-responsive img-thumbnail" id="item-img-output" />
-                    <figcaption><i class="fa fa-camera"></i></figcaption>
-                    <input type="file" class="item-img file center-block" name="file_photo"/>
-            </label>
-
-                  {{-- 画像切り抜き --}}
-                  <div class="modal fade" id="cropImagePop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel"> </h4>
-                        </div>
-                        <div class="modal-body">
-                          <div id="upload-demo" class="center-block"></div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                          <button type="button" id="cropImageBtn" class="btn btn-primary">Cortar</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {{-- cssでform-control絡んでるから変更 --}}
-                  @if ($errors->has('picture'))
+                {{-- cssでform-control絡んでるから変更 --}}
+                @if ($errors->has('picture'))
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('picture') }}</strong>
                   </span>
-                  @endif
+                @endif
+              </div>
+            </div>
+
+            <img id="cropped-img" src="" alt="" style="width: 100%">
+
+            {{-- 画像加工用モーダル開始 --}}
+            <div class="modal fade" id="cropper-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"> </h4>
+                  </div>
+                  <div class="modal-body">
+                    <div id="upload-demo" class="js-croppie center-block"></div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <button type="button" id="cropImageBtn" class="btn btn-primary crop">Cortar</button>
+                  </div>
                 </div>
               </div>
+            </div>
+
+
+            {{-- <div class="modal fade" id="cropper-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">イベント アイコン</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="js-croppie center-block"></div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                    <button type="button" class="btn btn-primary crop">切り抜き</button>
+                  </div>
+                </div>
+              </div>
+            </div> --}}
+            {{-- 画像加工用モーダル終了 --}}
+
 
               {{-- 紹介文 --}}
               <div class="form-group">
