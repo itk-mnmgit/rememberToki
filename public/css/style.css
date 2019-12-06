@@ -15,8 +15,23 @@
 
 .comment1{
   font-size:18px;
+  margin-top: 165px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.mypage {
+  padding-left: 0;
+  margin: 0 auto;
+}
+
+.connect {
+  text-align: right;
+}
+
+.comment-con {
+  margin: auto 0 2rem;
+}
 /* .btn{
 
 } */
