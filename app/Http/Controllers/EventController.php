@@ -94,5 +94,17 @@ class EventController extends Controller
 
         return redirect()->route('get.chat.index');
     }
+    //ユーザーが引数のグループに参加しているかどうかを返す
+    public function checkEvent(Request $request)
+    {
+        //$requestで event_id 取ってきて それと一致するイベントを$eventsに格納
+        $event = EventUser::where('id', $request->id);
+        //ログインuser_id が 取ってきたイベントのuser_id のなかにあれば true
+        if(Auth::user()->id == $event->user_id){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }
