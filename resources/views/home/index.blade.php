@@ -56,9 +56,7 @@
     </div>
 </div>
 
-<!-- footer -->
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel bg-primary">
-<div class="footer">
-    <p>コピーライトCPIC</p>
-</div>
+{{-- サブビューでfooterを読み込んでいます(views/components/footer) --}}
+@include('components.footer', ['a' => 'なんか持ってきたい値あれば', 'b' => 'こんな感じで'])
+
 @endsection
