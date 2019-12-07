@@ -2,16 +2,27 @@
 
 @section('title', 'makeGroup')
 
+
+@section('custom_js')
+  <script src="{{ asset('js/croppie.js') }}" defer></script>
+  <script src="{{ asset('js/event-cropper.js') }}" defer></script>
+@endsection
+
+@section('custom_css')
+  <link href="{{ asset('css/croppie.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/event-cropper.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 
 <div class="container">
-    @if($errors->any())
-         <ul>
-             @foreach($errors->all() as $message)
-            <li class="alert alert-danger">{{$message}}</li>
-            @endforeach
-         </ul>
-    @endif
+            @if($errors->any())
+                <ul>
+                    @foreach($errors->all() as $message)
+                    <li class="alert alert-danger">{{$message}}</li>
+                    @endforeach
+                </ul>
+            @endif
 
 {{-- 表示中央上部 --}}
     <div class="py-5 text-center">
@@ -107,5 +118,6 @@
         </div>
     </form>
 </div>
+
 
 @endsection

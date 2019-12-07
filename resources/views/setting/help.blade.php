@@ -6,28 +6,43 @@
 
 <body>
         <div class="container mt-2 mb-2">
-        <h1>help画面</h1>
-        <h1>カミーユさん時の課題のコンタクトフォーム貼り付けといたのでここから変更よろです</h1>
+        <h1>設定変更フォーム</h1>
         <form method="POST" action="check.php">
-            <div class="input-group">
+            {{-- <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">お名前</span>
                 </div>
                 <input type="text" class="form-control" placeholder="姓" name="familyname" required>
                 <input type="text" class="form-control" placeholder="名" name="lastname" required>
-            </div>
-            <br>
-            <div class="input-group">
+            </div> --}}
+            {{-- <br> --}}
+            <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">E-mail adress</span>
                 </div>
-                <input type="email" class="form-control" placeholder="email.hoge.com" name="email" required>
+                <input type="email" class="form-control" name="email" required>
             </div>
-            <input type="checkbox" name="checkmail" value=true>
+
+            <div class="input-group mb-3">
+                    {{-- <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label> --}}
+
+                    <div class="input-group-prepend">
+                            <span class="input-group-text">パスワード</span>
+                    </div>
+                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required autofocus>
+
+                        @if ($errors->has('password'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                        @endif
+            </div>
+            
+            {{-- <input type="checkbox" name="checkmail" value=true>
             <label>予約日前日にも確認メッセージを希望します</label>
-            <br>
-            <div>
-                <div class="input-group mb-3">
+            <br> --}}
+            {{-- <div> --}}
+                {{-- <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
                             <input type="checkbox" name="checkcontent[]" value="カット" checked>
@@ -92,20 +107,20 @@
                         <label class="input-group-text">時間</label>
                     </div>
                 <input type="time" class="form-control" name="reservetime" min="09:00" max="19:00" step="1800" required>
-        </div>
+        </div> --}}
             <div class="input-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text">その他ご相談</span>
+                    <span class="input-group-text">自己紹介</span>
                 </div>
                 <textarea class="form-control" aria-label="With textarea" name="inquery"></textarea>
-                </div>
+            </div>
             <br>
             <div>
                 <input type="checkbox" required>
                 <label>入力内容に間違いはありません</label>
-              </div>
+            </div>
               <br>
-            <input type="submit" value="予約！">
+            <input type="submit" value="変更">
         </form>
     </div>
 

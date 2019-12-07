@@ -71,7 +71,7 @@
                             </div>
                         </div>
 
-                        <img id="cropped-img" src="" alt="" style="width: 100%">
+                        <img id="cropped-img" src="" alt="" style="width: 60%">
 
 {{-- 画像加工用モーダル開始 --}}
                         <div class="modal fade" id="cropper-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -115,7 +115,6 @@
 </div>
 </div> --}}
 {{-- 画像加工用モーダル終了 --}}
-
 
 {{-- 紹介文 --}}
                         <div class="form-group row">
