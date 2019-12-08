@@ -38,7 +38,7 @@
 
             <div class="col-md-4 order-md-2 mb-4">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span>イベント写真登録</span></h4>
+                    <span class="text-muted">イベント写真登録</span></h4>
                         {{-- ファイル選択 --}}
                         {{-- デバッグの時だるいから今だけrequired外してます --}}
                 <input id="picture" type="file" class="input-file form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture" required>
@@ -52,7 +52,7 @@
                 @endif
               
                 <img id="cropped-img" src="" alt="" style="width: 100%">
-            </div>
+           
 
 
             {{-- 画像加工用モーダル開始 --}}
@@ -73,14 +73,14 @@
                 </div>
               </div>
             </div>
-
+        
 
 
             <div class="card-body">
             <form method="POST" action="{{ route('event.confirm') }}" enctype="multipart/form-data">
             @csrf
             </div>
-            
+            </div>
 
             {{-- 左側記入欄 --}}
             <div class="col-md-8 order-md-1">
@@ -88,7 +88,7 @@
                     <h4 class ="mb-3">イベント名</h4>
                     <form class="needs-validation" novalidate>
                     <div class="row">
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-12 mb-3">
                             <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder='イベント名'>
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
@@ -112,7 +112,7 @@
                                     @endforeach
                             </div>
                 </div>
-                    
+            
 
                     {{-- 紹介文 --}}
 
@@ -128,23 +128,29 @@
                     {{-- 開始時間 --}}
                 <div class="form-group">
                         <h4 class="mr-3 mb-3">開始時間</label>
-                        {{-- <div class="col-md-6 offset-md-4"> --}}
                             <input id="date" type="date" name="date" class="text-center" required>
                             <input id="time" type="time" name="time" class="text-center" required>
-                        {{-- </div> --}}
+                </div>
+                <div class="form-group">
+                        <h4 class="mr-3 mb-3">終了時間</label>
+                            <input id="date" type="date" name="date" class="text-center" required>
+                            <input id="time" type="time" name="time" class="text-center" required>
                 </div>
 
-                    {{-- 登録ボタン --}}
-                <div class="form-group mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('登録') }}
-                                </button>
-                            </div>
-                </div>
-            </form>
+            </div>
         </div>
-    </div>
+                    {{-- 登録ボタン --}}
+                <div class="row">
+                    <div class="col-md-12">
+                    <div class="form-group mb-5">
+                        <div class="col-md-4 offset-md-4 text-center">
+                            <button type="submit" class="btn btn-primary">
+                                            {{ __('登録') }}
+                            </button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
 </div>
 
 
