@@ -4,6 +4,30 @@
   min-height:800px;
   height:auto ;
   float:left;
+  font-family: YuMincho;
+}
+
+.group{
+  margin-top:20px;
+  margin-bottom: 20px;
+}
+
+.btn{
+  font-weight:bold;
+  border-style:none;
+  box-shadow:2px 2px 3px 1px #666;
+  -moz-box-shadow: 2px 2px 3px 1px #666;
+  -webkit-box-shadow: 2px 2px 3px 1px #666;
+  text-shadow: 1px 1px 2px #000;
+  background: -moz-linear-gradient(bottom, #36d, #248 50%, #36d);
+  background: -webkit-gradient(linear, left bottom, left top, from(#36d), color-stop(0.5, #248), to(#36d));
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.btn:hover{
+  opacity:0.8;
 }
 
 .eventbar{
@@ -11,6 +35,11 @@
   min-height:800px;
   height:auto;
   float:right;
+  font-family: YuMincho;
+}
+
+.event{
+  margin-top:20px;
 }
 
 .chat{
