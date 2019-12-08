@@ -16,8 +16,8 @@
 Route::get('/', 'HomeController@index')->name('home.index');
 Auth::routes();
 
-// Route::group(['middleware' => ['auth']], function()
-// {
+Route::group(['middleware' => ['auth']], function()
+{
     //この中に書かれたrouteはログインしていないと見れなくなる
 
 //Home
@@ -32,6 +32,7 @@ Auth::routes();
     Route::post('/chat/make', 'ChatController@makeGroup')->name('chat.make');
     Route::get('/group/search', 'ChatController@searchGroup')->name('group.search');
     Route::post('/group/attend', 'ChatController@attendGroup')->name('group.attend');
+    Route::post('/group/leave', 'ChatController@leaveGroup')->name('group.leave');
 
 
 //Event
@@ -42,6 +43,7 @@ Auth::routes();
     Route::get('/event/modalTrial', 'EventController@modal')->name('event.modalTrial');
     Route::get('/event/search', 'EventController@searchEvent')->name('event.search');
     Route::post('/event/attend', 'EventController@attendEvent')->name('event.attend');
+    Route::post('/event/leave', 'EventController@leaveEvent')->name('event.leave');
 
 //Setting
     Route::get('/setting/index', 'SettingController@index')->name('setting.index');
@@ -52,4 +54,4 @@ Auth::routes();
     Route::post('setting/confirmHelp', 'SettingController@confirmHelp')->name('setting.confirmHelp');
     Route::post('setting/sendHelp', 'SettingController@sendHelp')->name('setting.sendHelp');
 
-// });
+});

@@ -19,9 +19,14 @@ class EventController extends Controller
 
     public function index()
     {
+        $user_id = Auth::user()->id;
         $events = Event::all();
         $genres = Genre::all();
-        return view('event.index', ['events' => $events, 'genres' => $genres]);
+        $attendEvents = EventUser::where('user_id', $user_id)->get(['event_id'])->toArray();
+        if(!isset($attendEvents[0])) {
+            $attendEvents[0] = [];
+        }
+        return view('event.index', ['events' => $events, 'genres' => $genres, 'attendEventsId' => $attendEvents[0]]);
     }
 
     public function searchEvent(Request $request)
@@ -94,5 +99,17 @@ class EventController extends Controller
 
         return redirect()->route('get.chat.index');
     }
+
+    public function leaveEvent(Request $request)
+    {
+        // 退会するボタンが押押されたイベントのidとログイン中のユーザーidと一致するカラムを取ってくる
+        $leaveEvent = EventUser::where('event_id', $request->id)->where('user_id', Auth::user()->id);
+
+        //削除
+        $leaveEvent->delete();
+
+        return redirect()->route('get.chat.index');
+    }
+
 
 }
