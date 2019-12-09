@@ -65,7 +65,7 @@
                 </div>
                 <p class="card-text">
                     <small class="text-muted">
-                        {{ $attendEvent->event->startTime->format('M, d/Y') }}
+                        {{ $attendEvent->event->startTime->format('M, d/Y h:i A') }} - {{ $attendEvent->event->finishTime->format('M, d/Y h:i A') }}
                     </small>
                 </p>
             </div>

@@ -10,7 +10,8 @@
 <p> : {{ $user->name }}</p>
 <p>img : <img  src="{{ asset($event->img) }}" width="128" height="128" alt="eventIcon"></p>
 <p>intro : {{ $event->intro}}</p>
-<p>date : {{ $event->startTime->format('M, d/Y') }}</p>
+<p>startTime : {{ $event->startTime->format('M, d/Y h:i A') }}</p>
+<p>finishTime : {{ $event->finishTime->format('M, d/Y h:i A') }}</p>
 
 <form  method='post' action="{{ route('event.make') }}">
     @csrf
@@ -19,8 +20,6 @@
 </form>
 <a class="btn btn-primary btn-lg text-white" method='get' href="javascript:history.back()" role="button">戻る</a>
 
-
-{{-- <p>{{$event->startTime}}</p> --}}
 
 
 

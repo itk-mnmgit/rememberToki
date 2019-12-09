@@ -65,7 +65,8 @@ class EventController extends Controller
         $event->img = $imgPath;
         $event->intro = $request->intro;
 
-        $event->startTime = new DateTime($request->date . ' ' . $request->time);
+        $event->startTime = new DateTime($request->dateStart . ' ' . $request->timeStart);
+        $event->finishTime = new DateTime($request->dateFinish . ' ' . $request->timeFinish);
 
         $genre = Genre::find($event->genre_id);
         $user = User::find($event->user_id);

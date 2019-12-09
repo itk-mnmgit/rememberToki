@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'makeGroup')
-
+@section('title', 'makeEvent')
 
 @section('custom_js')
   <script src="{{ asset('js/croppie.js') }}" defer></script>
@@ -88,18 +87,16 @@
                             @endif
                         </div>
                     </div>
-                </div>
 
-            {{-- ジャンル --}}
-                <div class="form-group">
-                    <h4 class ="mb-3 mt-3">ジャンル選択</h4>
-                    <div class="form-check">
-                        @foreach($genres as $genre)
-                            <input class="form-check-input" type="radio" name="genre_id" id="{{ $genre->name }}" {{ old('genre') ? 'checked' : '' }} value='{{ $genre->id }}'>
-                            <label class="form-check-label mr-5" for="{{ $genre->name }}">{{ $genre->name }}</label>
-                        @endforeach
+                    <div class="form-group">
+                        <h4 class ="mb-3 mt-3">ジャンル選択</h4>
+                        <div class="form-check">
+                            @foreach($genres as $genre)
+                                <input class="form-check-input" type="radio" name="genre_id" id="{{ $genre->name }}" {{ old('genre') ? 'checked' : '' }} value='{{ $genre->id }}'>
+                                <label class="form-check-label mr-5" for="{{ $genre->name }}">{{ $genre->name }}</label>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
 
     {{-- 紹介文 --}}
                 <div class="form-group">
@@ -118,20 +115,20 @@
                     <input id="time" type="time" name="time" class="text-center" required>
                 </div>
             </div>
-        </div>
-                    {{-- 登録ボタン --}}
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group mb-5">
-                    <div class="col-md-4 offset-md-4 text-center">
-                        <button type="submit" class="btn btn-primary">
-                            {{ __('登録') }}
-                        </button>
+    {{-- 登録ボタン --}}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group mb-5">
+                        <div class="col-md-4 offset-md-4 text-center">
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('登録') }}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 
 @endsection
