@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DmTableSeeder::class);
         $this->call(EventTableSeeder::class);
         $this->call(GenresTableSeeder::class);
+        $this->call(GroupTableSeeder::class);
     }
 }
