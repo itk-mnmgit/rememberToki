@@ -25,6 +25,7 @@ class CreateEventsTable extends Migration
             $table->string('img')->default($icon);
             $table->text('intro')->nullable();
             $table->dateTime('startTime')->nullable;
+            $table->dateTime('finishTime')->nullable;
         });
     }
 

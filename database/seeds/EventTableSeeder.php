@@ -22,6 +22,7 @@ class EventTableSeeder extends Seeder
             'img' => 'storage/images/event/G2wrOA4DISiBmj9lYCbhxtdGINl9TOOgSNzKuM5f.jpeg',
             'intro' => 'バスケするよーーーーーーーーーー',
             'startTime' => '2019-12-03 00:00:00',
+            'finishTime' => '2019-12-03 01:00:00',
         ]);
         DB::table('events')->insert([
             'name' => 'football',
@@ -32,6 +33,7 @@ class EventTableSeeder extends Seeder
             'img' => 'storage/images/event/G2wrOA4DISiBmj9lYCbhxtdGINl9TOOgSNzKuM5f.jpeg',
             'intro' => 'サッカーするよーーーーーーーーーー',
             'startTime' => '2019-11-13 00:00:00',
+            'finishTime' => '2019-11-13 02:00:00',
         ]);
         DB::table('events')->insert([
             'name' => 'volleyball',
@@ -42,6 +44,7 @@ class EventTableSeeder extends Seeder
             'img' => 'storage/images/event/G2wrOA4DISiBmj9lYCbhxtdGINl9TOOgSNzKuM5f.jpeg',
             'intro' => 'バレーーするよーーーーーーーーーー',
             'startTime' => '2019-12-15 09:00:00',
+            'finishTime' => '2019-12-15 12:00:00',
         ]);
         DB::table('events')->insert([
             'name' => 'baseball',
@@ -51,7 +54,8 @@ class EventTableSeeder extends Seeder
             'updated_at' => Carbon::now(),
             'img' => 'storage/images/event/G2wrOA4DISiBmj9lYCbhxtdGINl9TOOgSNzKuM5f.jpeg',
             'intro' => '野球するよーーーーーーーーーー',
-            'startTime' => '2019-11-27 14:00:00',
+            'startTime' => '2019-11-27 16:00:00',
+            'finishTime' => '2019-11-27 18:00:00',
         ]);
 
     }
