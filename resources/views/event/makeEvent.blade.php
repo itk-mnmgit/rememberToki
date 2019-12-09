@@ -25,17 +25,18 @@
     @endif
 
 
-            {{-- 表示中央上部 --}}
-            <div class="py-5 text-center">
-                <img class="d-block mx-auto mb-4" src="" alt width="72" height="72">
-                    <h1 class="card-header text-primary">イベントを作成しよう</h1>
-                    <p class="lead">イベント作成画面の詳細を書くならここに書く</p>
-            </div>
-            
-            {{-- 右上・上部 --}}
-            {{-- イベント表紙の写真選択 --}}
-        <div class="row">
+    {{-- 表示中央上部 --}}
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="" alt width="72" height="72">
+        <h1 class="card-header text-primary">イベントを作成しよう</h1>
+        <p class="lead">イベント作成画面の詳細を書くならここに書く</p>
+    </div>
 
+{{-- 右上・上部 --}}
+{{-- イベント表紙の写真選択 --}}
+    <div class="row">
+        <form method="POST" action="{{ route('event.confirm') }}" enctype="multipart/form-data">
+            @csrf
             <div class="col-md-4 order-md-2 mb-4">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                     <span class="text-muted">イベント写真登録</span>
@@ -43,9 +44,9 @@
             {{-- ファイル選択 --}}
                 <input id="picture" type="file" class="input-file form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture" required>
                 @if ($errors->has('picture'))
-                  <span class="invalid-feedback" role="alert">
+                    <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('picture') }}</strong>
-                  </span>
+                    </span>
                 @endif
 
                 <img id="cropped-img" src="" alt="" style="width: 100%">
@@ -65,78 +66,76 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                         <button type="button" id="cropImageBtn" class="btn btn-primary crop">Cortar</button>
                     </div>
-                    </div>
                 </div>
-                </div>
-        
+            </div>
 
     {{-- 左側記入欄 --}}
-        <div class="row">
-            <div class="col-md-8 order-md-1">
-                <div class="form-group">
-                    <h4 class ="mb-3">イベント名</h4>
-                    <div class="row">
-                        <div class="col-md-12 mb-3">
-                            <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder='イベント名'>
-                            @if ($errors->has('name'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('name') }}</strong>
-                                </span>
-                            @endif
+            <div class="row">
+                <div class="col-md-8 order-md-1">
+                    <div class="form-group">
+                        <h4 class ="mb-3">イベント名</h4>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder='イベント名'>
+                                @if ($errors->has('name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            {{-- ジャンル --}}
-                <div class="form-group">
-                    <h4 class ="mb-3 mt-3">ジャンル選択</h4>
-                    <div class="form-check">
-                        @foreach($genres as $genre)
-                            <input class="form-check-input" type="radio" name="genre_id" id="{{ $genre->name }}" {{ old('genre') ? 'checked' : '' }} value='{{ $genre->id }}'>
-                            <label class="form-check-label mr-5" for="{{ $genre->name }}">{{ $genre->name }}</label>
-                        @endforeach
+                {{-- ジャンル --}}
+                    <div class="form-group">
+                        <h4 class ="mb-3 mt-3">ジャンル選択</h4>
+                        <div class="form-check">
+                            @foreach($genres as $genre)
+                                <input class="form-check-input" type="radio" name="genre_id" id="{{ $genre->name }}" {{ old('genre') ? 'checked' : '' }} value='{{ $genre->id }}'>
+                                <label class="form-check-label mr-5" for="{{ $genre->name }}">{{ $genre->name }}</label>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
 
 
-                    {{-- 紹介文 --}}
+                {{-- 紹介文 --}}
 
-                 <div class="form-group">
+                    <div class="form-group">
                         <h4 class ="mb-1 mt-5">イベント紹介文を追加しましょう</h4>
                         <div class="form-group">
                             <label for="exampleInputPassword1"></label>
                             <textarea name="intro" rows="4" cols="120" class="col p-2 d-flex flex-column position-static text-center"></textarea>
                         </div>
-                </div>
+                    </div>
 
 
-                    {{-- 開始時間 --}}
-                <div class="form-group">
-                        <h4 class="mr-3 mb-3">開始時間</label>
-                            <input id="date" type="date" name="date" class="text-center" required>
-                            <input id="time" type="time" name="time" class="text-center" required>
-                </div>
-                {{-- <div class="form-group">
+                {{-- 時間 --}}
+                    <div class="form-group">
+                            <h4 class="mr-3 mb-3">開始時間</label>
+                            <input id="dateStart" type="date" name="dateStart" class="text-center" required>
+                            <input id="timeStart" type="time" name="timeStart" class="text-center" required>
+                    </div>
+                    <div class="form-group">
                         <h4 class="mr-3 mb-3">終了時間</label>
-                            <input id="date" type="date" name="date" class="text-center" required>
-                            <input id="time" type="time" name="time" class="text-center" required>
-                </div> --}}
-
-            </div>
-        </div>
-                    {{-- 登録ボタン --}}
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group mb-5">
-                    <div class="col-md-4 offset-md-4 text-center">
-                        <button type="submit" class="btn btn-primary">
-                            {{ __('登録') }}
-                        </button>
+                        <input id="dateFinish" type="date" name="dateFinish" class="text-center" required>
+                        <input id="timeFinish" type="time" name="timeFinish" class="text-center" required>
                     </div>
                 </div>
             </div>
-        </div>
-    </form>
+        {{-- 登録ボタン --}}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group mb-5">
+                        <div class="col-md-4 offset-md-4 text-center">
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('登録') }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 @endsection
