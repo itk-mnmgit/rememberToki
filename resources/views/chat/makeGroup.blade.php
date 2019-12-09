@@ -31,7 +31,6 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('chat.confirm') }}" enctype="multipart/form-data">
                         @csrf
-
 {{-- グループ名 --}}
                         <div class="form-group row">
                             <label>グループ名を追加しましょう</label>
@@ -44,7 +43,6 @@
                                 @endif
                             </div>
                         </div>
-
 {{-- ジャンル --}}
                         <div class="form-group row">
                             <label>ジャンルを追加しましょう</label>
@@ -57,7 +55,6 @@
                                 </div>
                             </div>
                         </div>
-
 {{-- アイコン --}}
                         <div class="form-group row">
                             <label>アイコンを追加しましょう</label>
@@ -72,7 +69,6 @@
                         </div>
 
                         <img id="cropped-img" src="" alt="" style="width: 60%">
-
 {{-- 画像加工用モーダル開始 --}}
                         <div class="modal fade" id="cropper-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -93,29 +89,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-{{-- <div class="modal fade" id="cropper-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="exampleModalLabel">イベント アイコン</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-<div class="js-croppie center-block"></div>
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
-<button type="button" class="btn btn-primary crop">切り抜き</button>
-</div>
-</div>
-</div>
-</div> --}}
-{{-- 画像加工用モーダル終了 --}}
-
 {{-- 紹介文 --}}
                         <div class="form-group row">
                             <label>グループ紹介文を追加しましょう</label>
@@ -123,7 +96,6 @@
                                 <textarea name="intro" rows="4" cols="120" class="col p-4 d-flex flex-column position-static text-center"></textarea>
                             </div>
                         </div>
-
 {{-- 登録ボタン --}}
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

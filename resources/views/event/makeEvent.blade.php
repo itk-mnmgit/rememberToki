@@ -43,11 +43,7 @@
                     <span class="text-muted">イベント写真登録</span>
                 </h4>
             {{-- ファイル選択 --}}
-            {{-- デバッグの時だるいから今だけrequired外してます --}}
                 <input id="picture" type="file" class="input-file form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture" required>
-                {{-- <input id="picture" type="file" class="item-img file center-block form-control3{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="img" > --}}
-
-                {{-- cssでform-control絡んでるから変更 --}}
                 @if ($errors->has('picture'))
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('picture') }}</strong>
@@ -77,13 +73,6 @@
                 </div>
             </div>
 
-
-            <div class="card-body">
-                <form method="POST" action="{{ route('event.confirm') }}" enctype="multipart/form-data">
-                @csrf
-            </div>
-            </div>
-
     {{-- 左側記入欄 --}}
         <div class="row">
             <div class="col-md-8 order-md-1">
@@ -96,7 +85,7 @@
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('name') }}</strong>
                                 </span>
-                                @endif
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -160,5 +149,6 @@
             </div>
         </div>
     </form>
+</div>
 
 @endsection
