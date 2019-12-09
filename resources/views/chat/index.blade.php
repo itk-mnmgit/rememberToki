@@ -13,12 +13,12 @@
 
     <div class="group">
         <h5 class="text-light">グループ</h5>
-            @foreach($attendGroups as $attendGroup)
+        @foreach($attendGroups as $attendGroup)
 
     {{-- グループ一覧 --}}
-                <a class="nav-link active text-light" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">{{ $attendGroup->group->name }}</a>
-            @endforeach
-            <a class="btn btn-info text-white" href="{{ route('chat.listGroup') }}" role="button">＋ グループを追加する</a>
+            <a class="nav-link active text-light" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">{{ $attendGroup->group->name }}</a>
+        @endforeach
+        <a class="btn btn-info text-white" href="{{ route('chat.listGroup') }}" role="button">＋ グループを追加する</a>
     </div>
     <div class="dm">
         <h5 class="text-light">ダイレクトメッセージ</h5>
@@ -29,7 +29,6 @@
         @endfor
         <a class="btn btn-info text-white" href="" role="button">＋ メンバーを招待する</a>
     </div>
-
 </div>
 
 {{-- イベントのバーを表示する --}}
@@ -64,19 +63,16 @@
                         </div>
                     </div>
                 </div>
-                        {{-- modal 終わり --}}
                 <p class="card-text">
-                    <small class="text-muted">{{ $attendEvent->event->startTime->format('M, d/Y') }}</small>
+                    <small class="text-muted">
+                        {{ $attendEvent->event->startTime->format('M, d/Y') }}
+                    </small>
                 </p>
             </div>
-        </div>
+        @endforeach
     </div>
 </div>
-@endforeach
 <a class="btn btn-info btn-lg text-white" href="{{ route('event.index') }}" role="button">+ 他のイベントを見る</a>
-    </div>
-</div>
-
 {{-- チャットの大きな部分を表示する --}}
 <div class="chat">
     <p>ここにチャットが表示されるよー</p>

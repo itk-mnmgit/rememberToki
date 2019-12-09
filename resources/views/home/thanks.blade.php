@@ -15,15 +15,9 @@
                         <strong class="inline-block">プロフィールをもっと追加しよう！</strong>
                         <a class="btn btn-lg text-primary" href="{{ route('get.chat.index') }}" role="button">skip▶︎▶︎</a>
                         <p class="card-text mb-auto">写真を追加して、あなたのことをもっと他のメンバーに知ってもらおう</p>
-                        {{-- 質問２ skip右に移動さしたい --}}
-                    {{-- アイコン入れる --}}
-                        {{--イツキ質問 １,自己紹介データベースに保存？  --}}
-
                         <div class="card-body">
-                            {{-- enctype="multipart/form-data" : 画像送れるようにする --}}
                             <form method="POST" action="{{ route('post.chat.index') }}" enctype="multipart/form-data">
                                 @csrf
-
                                 <div class="form-group">
                                     <div class="col-md-6 offset-md-4">
                                         <input id="img" type="file" class="form-control{{ $errors->has('img') ? ' is-invalid' : '' }}" name="img" required>
@@ -34,18 +28,17 @@
                                         @endif
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label>自己紹介を追加しましょう</label>
                                     <textarea name="intro" rows="4" cols="120" class="col p-4 d-flex flex-column position-static text-center"></textarea>
                                 </div>
-
                                 <div class="form-group row mb-0">
                                     <div class="col-md-4 offset-md-4">
                                         <button type="submit" class="btn btn-primary">
                                             {{ __('登録') }}
                                         </button>
                                     </div>
+                                </div>
                             </form>
                         </div>
                     </div>
