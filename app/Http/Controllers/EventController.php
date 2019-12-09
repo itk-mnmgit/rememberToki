@@ -37,7 +37,14 @@ class EventController extends Controller
             $events = Event::where('genre_id', $request->selected_genre)->get();
         }
         $genres = Genre::all();
-        return view('event.index', ['events' => $events, 'genres' => $genres]);
+
+        $user_id = Auth::user()->id;
+        $attendEvents = EventUser::where('user_id', $user_id)->get(['event_id'])->toArray();
+        if(!isset($attendEvents[0])) {
+            $attendEvents[0] = [];
+        }
+
+        return view('event.index', ['events' => $events, 'genres' => $genres, 'attendEventsId' => $attendEvents[0]]);
     }
 
     public function toMakeEvent()
