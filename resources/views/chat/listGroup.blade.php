@@ -29,7 +29,7 @@
                     <img src="{{ asset($group->img) }}" alt="business city" class='img-fluid card-img-top'>
                     <div class="card-body">
                         <h5 class="title">{{ $group->name }}</h5>
-                        <p class="card-text">{{ str_limit($group->intro, $limit = 50, $end = '…') }}</p>
+                        <p class="card-text">{{ str_limit($group->intro, $limit = 20, $end = '…') }}</p>
                     <!-- 切り替えボタンの設定 -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{$group->id}}">詳細</button>
                     <!-- モーダルの設定 -->
@@ -48,15 +48,23 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                                        <form method='post' action='{{ route('group.attend') }}'>
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $group->id }}">
-                                            <button type="submit" class="btn btn-success">このイベントに参加</button>
-                                        </form>
-                                    </div><!-- /.modal-footer -->
-                                </div><!-- /.modal-content -->
-                            </div><!-- /.modal-dialog -->
-                        </div><!-- /.modal -->
+                                        @if( in_array($group->id, $attendGroupsId) )
+                                            <form method='post' action='{{ route('group.leave') }}'>
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $group->id }}">
+                                                    <button type="submit" class="btn btn-danger">このグループから退会</button>
+                                                </form>
+                                        @else
+                                            <form method='post' action='{{ route('group.attend') }}'>
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{ $group->id }}">
+                                                <button type="submit" class="btn btn-success">このグループに参加</button>
+                                            </form>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth']], function()
     Route::post('/chat/make', 'ChatController@makeGroup')->name('chat.make');
     Route::get('/group/search', 'ChatController@searchGroup')->name('group.search');
     Route::post('/group/attend', 'ChatController@attendGroup')->name('group.attend');
+    Route::post('/group/leave', 'ChatController@leaveGroup')->name('group.leave');
 
 
 //Event

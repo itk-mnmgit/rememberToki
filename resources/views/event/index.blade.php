@@ -28,7 +28,7 @@
                     <img src="{{ asset($event->img) }}" alt="business city" class='img-fluid card-img-top'>
                     <div class="card-body">
                         <h5 class="title">{{ $event->name }}</h5>
-                        <p class="card-text">{{ str_limit($event->intro, $limit = 50, $end = '…') }}</p>
+                        <p class="card-text">{{ str_limit($event->intro, $limit = 20, $end = '…') }}</p>
                     <!-- 切り替えボタンの設定 -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{$event->id}}">詳細</button>
                     <!-- モーダルの設定 -->
@@ -47,15 +47,23 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                                        <form method='post' action='{{ route('event.attend') }}'>
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $event->id }}">
-                                            <button type="submit" class="btn btn-success">このイベントに参加</button>
-                                        </form>
-                                    </div><!-- /.modal-footer -->
-                                </div><!-- /.modal-content -->
-                            </div><!-- /.modal-dialog -->
-                        </div><!-- /.modal -->
+                                        @if( in_array($event->id, $attendEventsId) )
+                                            <form method='post' action='{{ route('event.leave') }}'>
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $event->id }}">
+                                                    <button type="submit" class="btn btn-danger">このイベントから退会</button>
+                                                </form>
+                                        @else
+                                            <form method='post' action='{{ route('event.attend') }}'>
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{ $event->id }}">
+                                                <button type="submit" class="btn btn-success">このイベントに参加</button>
+                                            </form>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

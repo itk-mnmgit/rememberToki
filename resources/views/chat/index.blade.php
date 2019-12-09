@@ -38,49 +38,29 @@
         <h3 class="text-light">参加予定のイベント</h3>
         @foreach ($attendEvents as $attendEvent)
 
-    {{-- イベントカード --}}
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="{{ asset($attendEvent->event->img) }}" class="card-img event-img" alt="football">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $attendEvent->event->name }}</h5>
-                            <p class="card-text">{{ $attendEvent->event->intro }}</p>
-
-    {{-- name='id' value ='{{ $attendEvent->event->id }}' でmodalにid渡したい --}}
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{ $attendEvent->event->id}}" name='id' value ='{{ $attendEvent->event->id }}'>詳細</button>
-                        {{-- modal --}}
-                            <div class="modal fade" id="myModal-{{ $attendEvent->event->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="title">{{ $attendEvent->event->name}}</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <img src="{{ asset($attendEvent->event->img) }}" alt="business city" class='img-fluid card-img-top'>
-                                        <div class="modal-body">
-                                            <p class="card-text">{{ $attendEvent->event->intro }}</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                                                @if(true)
-                                                {{-- @if(checkEvent(Auth::user()->id)) --}}
-                                                    <form method='post' action='{{ route('event.leave') }}'>
-                                                        @csrf
-                                                        <input type="hidden" name="id" value="{{ $attendEvent->event->id }}">
-                                                        <button type="submit" class="btn btn-danger">このイベントから退会</button>
-                                                @else
-                                                    <form method='post' action='{{ route('event.attend') }}'>
-                                                        @csrf
-                                                        <input type="hidden" name="id" value="{{ $attendEvent->event->id }}">
-                                                        <button type="submit" class="btn btn-success">このイベントに参加</button>
-                                                @endif
-                                            </form>
-                                        </div>
+{{-- name='id' value ='{{ $attendEvent->event->id }}' でmodalにid渡したい --}}
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{ $attendEvent->event->id}}" name='id' value ='{{ $attendEvent->event->id }}'>詳細</button>
+                    {{-- modal --}}
+                        <div class="modal fade" id="myModal-{{ $attendEvent->event->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="title">{{ $attendEvent->event->name}}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <img src="{{ asset($attendEvent->event->img) }}" alt="business city" class='img-fluid card-img-top'>
+                                    <div class="modal-body">
+                                        <p class="card-text">{{ $attendEvent->event->intro }}</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                                        <form method='post' action='{{ route('event.leave') }}'>
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $attendEvent->event->id }}">
+                                            <button type="submit" class="btn btn-danger">このイベントから退会</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
