@@ -48,7 +48,14 @@ class ChatController extends Controller
             $groups = Group::where('genre_id', $request->selected_genre)->get();
         }
         $genres = Genre::all();
-        return view('chat.listGroup', ['groups' => $groups, 'genres' => $genres]);
+
+        $user_id = Auth::user()->id;
+        $attendGroups = UserGroup::where('user_id', $user_id)->get(['group_id'])->toArray();
+        if(!isset($attendGroups[0])) {
+            $attendGroups[0] = [];
+        }
+
+        return view('chat.listGroup', ['groups' => $groups, 'genres' => $genres, 'attendGroupsId' => $attendGroups[0]]);
     }
 
     public function toMakeGroup()
