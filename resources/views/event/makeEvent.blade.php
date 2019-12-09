@@ -24,17 +24,18 @@
         </ul>
     @endif
 
-{{-- 表示中央上部 --}}
-    <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="" alt width="72" height="72">
-            <h1 class="card-header text-primary">イベントを作成しよう</h1>
-            <p class="lead">イベント作成画面の詳細を書くならここに書く</p>
-    </div>
-
-{{-- 右上・上部 --}}
-{{-- イベント表紙の写真選択 --}}
     <form method="POST" action="{{ route('event.confirm') }}" enctype="multipart/form-data">
         @csrf
+
+    {{-- 表示中央上部 --}}
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="" alt width="72" height="72">
+                <h1 class="card-header text-primary">イベントを作成しよう</h1>
+                <p class="lead">イベント作成画面の詳細を書くならここに書く</p>
+        </div>
+
+    {{-- 右上・上部 --}}
+    {{-- イベント表紙の写真選択 --}}
         <div class="row">
             <div class="col-md-4 order-md-2 mb-4">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -72,10 +73,8 @@
                     </div>
                 </div>
             </div>
-        </div>
 
     {{-- 左側記入欄 --}}
-        <div class="row">
             <div class="col-md-8 order-md-1">
                 <div class="form-group">
                     <h4 class ="mb-3">イベント名</h4>
@@ -115,12 +114,12 @@
     {{-- 開始時間 --}}
                 <div class="form-group">
                     <h4 class="mr-3 mb-3">開始時間</h4>
-                    <input id="date" type="date" name="date" class="text-center" required>
+                        <input id="date" type="date" name="date" class="text-center" required>
                     <input id="time" type="time" name="time" class="text-center" required>
                 </div>
             </div>
         </div>
-                        {{-- 登録ボタン --}}
+                    {{-- 登録ボタン --}}
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group mb-5">
@@ -134,6 +133,5 @@
         </div>
     </form>
 </div>
-
 
 @endsection
