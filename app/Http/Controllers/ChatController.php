@@ -116,7 +116,7 @@ class ChatController extends Controller
 
     public function leaveGroup(Request $request)
     {
-        // 退会するボタンが押押されたイベントのidとログイン中のユーザーidと一致するカラムを取ってくる
+        // 退会するボタンが押されたイベントのidとログイン中のユーザーidと一致するカラムを取ってくる
         $leaveGroup = UserGroup::where('group_id', $request->id)->where('user_id', Auth::user()->id);
 
         //削除

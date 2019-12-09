@@ -29,7 +29,7 @@
                     </ul>
                 @endif
                 <div class="card-body">
-                    <form method="POST" action="{{ route('chat.confirm') }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('chat.confirm') }}" enctype="multipart/form-data">
                         @csrf
 {{-- グループ名 --}}
                         <div class="form-group row">
