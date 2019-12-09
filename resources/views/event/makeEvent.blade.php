@@ -10,6 +10,7 @@
 @section('custom_css')
     <link href="{{ asset('css/croppie.css') }}" rel="stylesheet">
     <link href="{{ asset('css/event-cropper.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/event.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -28,8 +29,8 @@
 
     {{-- 表示中央上部 --}}
         <div class="py-5 text-center">
-            <img class="d-block mx-auto mb-4" src="" alt width="72" height="72">
-                <h1 class="card-header text-primary">イベントを作成しよう</h1>
+            {{-- <img class="d-block mx-auto mb-4" src="" alt width="72" height="72"> --}}
+                <h1 class="card-header text-white bg-primary">イベントを作成しよう!</h1><br>
                 <p class="lead">イベント作成画面の詳細を書くならここに書く</p>
         </div>
 
@@ -38,8 +39,9 @@
         <div class="row">
             <div class="col-md-4 order-md-2 mb-4">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-muted">イベント写真登録</span>
+                    <span class>イベント写真登録</span>
                 </h4>
+
     {{-- ファイル選択 --}}
                 <input id="picture" type="file" class="input-file form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture" required>
                 @if ($errors->has('picture'))
@@ -87,6 +89,7 @@
                             @endif
                         </div>
                     </div>
+                </div>
 
                     <div class="form-group">
                         <h4 class ="mb-3 mt-3">ジャンル選択</h4>
@@ -115,20 +118,20 @@
                     <input id="time" type="time" name="time" class="text-center" required>
                 </div>
             </div>
+        </div>
+
     {{-- 登録ボタン --}}
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group mb-5">
-                        <div class="col-md-4 offset-md-4 text-center">
-                            <button type="submit" class="btn btn-primary">
-                                {{ __('登録') }}
-                            </button>
-                        </div>
-                    </div>
+        <div class="row-2">
+            <div class="col-md-12">
+                <div class="form-group mb-5 text-center">
+                        <button type="submit" class="btn btn-primary">
+                            {{ __('登録') }}
+                        </button>
                 </div>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
+
 
 @endsection
