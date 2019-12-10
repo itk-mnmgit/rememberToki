@@ -3,11 +3,14 @@
 @section('title', 'makeEvent')
 
 @section('custom_js')
-  <script src="{{ asset('js/croppie.js') }}" defer></script>
-  <script src="{{ asset('js/event-cropper.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
+    <script src="{{ asset('js/croppie.js') }}" defer></script>
+    <script src="{{ asset('js/event-cropper.js') }}" defer></script>
+    <script src="{{ asset('js/date-picker.js') }}" defer></script>
 @endsection
 
 @section('custom_css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link href="{{ asset('css/croppie.css') }}" rel="stylesheet">
     <link href="{{ asset('css/event-cropper.css') }}" rel="stylesheet">
     <link href="{{ asset('css/event.css') }}" rel="stylesheet">
@@ -51,6 +54,7 @@
                 @endif
 
                 <img id="cropped-img" src="" alt="" style="width: 100%">
+                <textarea id="base64" name="base64" style="display: none"></textarea>
 
     {{-- 画像加工用モーダル開始 --}}
                 <div class="modal fade" id="cropper-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -114,8 +118,13 @@
     {{-- 開始時間 --}}
                 <div class="form-group">
                     <h4 class="mr-3 mb-3">開始時間</h4>
-                        <input id="date" type="date" name="date" class="text-center" required>
-                    <input id="time" type="time" name="time" class="text-center" required>
+                    <input id="date" type="date" name="start_date_time" class="form-control date-time-picker" required style="background: white" placeholder="開始時間">
+                </div>
+
+    {{-- 終了時間 --}}
+                <div class="form-group">
+                    <h4 class="mr-3 mb-3">終了時間</h4>
+                    <input id="date" type="date" name="end_date_time" class="form-control date-time-picker" required style="background: white" placeholder="終了時間">
                 </div>
             </div>
         </div>

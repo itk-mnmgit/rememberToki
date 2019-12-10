@@ -9,6 +9,9 @@ use App\User;
 use App\EventUser;
 use Illuminate\Support\Facades\Auth;
 use DateTime;
+use Storage;
+use File;
+use Illuminate\Support\Str;
 
 class EventController extends Controller
 {   public function modal()
@@ -55,25 +58,23 @@ class EventController extends Controller
 
     public function confirmEvent(Request $request)
     {
+        // イベント作成
         $event = new Event();
-
-        $imgPath = $this->saveEventImage($request->img);
-
         $event->name = $request->name;
         $event->genre_id = $request->genre_id;
         $event->user_id = Auth::user()->id;
-        $event->img = $imgPath;
         $event->intro = $request->intro;
+        $event->startTime = new DateTime($request->start_date_time);
+        $event->finishTime = new DateTime($request->end_date_time);
+        $event->img = $request->base64;
 
-        $event->startTime = new DateTime($request->dateStart . ' ' . $request->timeStart);
-        $event->finishTime = new DateTime($request->dateFinish . ' ' . $request->timeFinish);
-
+        // 画面にジャンル名表示ように選択されたジャンル取得
         $genre = Genre::find($event->genre_id);
-        $user = User::find($event->user_id);
 
+        // セッションに、作成中のイベントと、画像の文字データを保存
         $request->session()->put('event', $event);
 
-        return view('event.confirm', ['event' => $event,'genre' => $genre, 'user' => $user]);
+        return view('event.confirm', compact('event', 'genre'));
     }
 
     public function makeEvent(Request $request)
@@ -85,15 +86,6 @@ class EventController extends Controller
         $request->session()->forget('event');
 
         return redirect()->route('get.chat.index');
-    }
-
-    private function saveEventImage($image)
-    {
-        //storage/public/images/eventに絶対に被らない名前で保存してくれる
-        //保存した後、そのファイルまでのパスを返してくれる
-        $imgPath = $image->store('images/event', 'public');
-
-        return 'storage/' . $imgPath;
     }
 
     public function attendEvent(Request $request)

@@ -34,7 +34,7 @@
     @foreach($events as $event)
         <div class="col-md-3 mb-3">
             <div class="card" id="highreliability">
-                <img src="{{ asset($event->img) }}" alt="business city" class='img-fluid card-img-top'>
+                <img src="{{ $event->img }}" alt="business city" class='img-fluid card-img-top'>
                 <div class="card-body">
                     <h5 class="title">{{ $event->name }}</h5>
                     <p class="card-text">{{ str_limit($event->intro, $limit = 20, $end = '…') }}</p>
@@ -50,7 +50,7 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <img src="{{ asset($event->img) }}" alt="business city" class='img-fluid card-img-top'>
+                                <img src="{{ $event->img }}" alt="business city" class='img-fluid card-img-top'>
                                 <div class="modal-body">
                                     <p class="card-text">{{ $event->intro }}</p>
                                 </div>

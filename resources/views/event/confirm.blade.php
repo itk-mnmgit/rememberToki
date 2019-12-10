@@ -6,28 +6,29 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="crop-card">
                 <div class="card-header">
                     以下の入力内容でよろしいですか？
                 </div>
                 <form action="{{ route('event.make') }}" method="post" class="form-horizontal">
+                    @csrf
                     <div class="row">
                         <label class="col-sm-2 control-label">名前：</label>
                         <div class="col-sm-10">{{ $event->name }}</div>
                     </div>
                     <div class="row">
                         <label class="col-sm-2 control-label">ジャンル：</label>
-                        <div class="col-sm-10">{{  $genre }}</div>
+                        <div class="col-sm-10">{{  $genre->name }}</div>
                     </div>
                     <div class="row">
                         <label class="col-sm-2 control-label">作成者：</label>
-                        <div class="col-sm-2">{{ $user }}</div>
+                        <div class="col-sm-2">{{ Auth::user()->name }}</div>
                     </div>
                     <div class="row">
                         <label class="col-sm-2 control-label">イメージ画像：</label>
                         <div class="col-sm-2">
-                            <img  src="{{ asset($event->img) }}" width="128" height="128" alt="groupIcon">
+                            <img  src="{{ $event->img }}" width="128" height="128" alt="groupIcon">
                         </div>
                     </div>
                     <div class="row">

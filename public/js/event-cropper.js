@@ -62,6 +62,7 @@ $('.crop').on('click', () => {
     formData.append('croppedImage', resp);
 
     $('#cropped-img').attr('src', resp);
+    $('#base64').text(resp);
   });
   $('#cropper-modal').modal('hide');
 });
