@@ -21,7 +21,7 @@
           <p>仲良くなって一緒にイベントを開催しよう</p>
           <p>CPICをはじめよう</p>
         </div>
-        <div class="col-md-4 mypage">
+        <div class="col-md-8 mypage">
 
       {{-- ログインしてないときは アカウント作成/ログインボタン を表示 --}}
             @guest
