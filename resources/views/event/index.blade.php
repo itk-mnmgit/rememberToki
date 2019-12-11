@@ -5,29 +5,31 @@
 @section('content')
 
 
-<main role="main">
-    <section class="jumbotron text-center">
-        <div class="container">
-            <h1 class="jumbotron-heading">参加したいイベントを見つけよう</h1>
-            <div class="row justify-content-end">
-                <div class="col-5">
-                    <form method='get' class="form-inline col-ml-3" action='{{ route('event.search') }}'>
-                        <select class="custom-select" name="selected_genre">
-                            <option value='0'>all</option>
-                            @foreach ($genres as $genre)
-                            <option value="{{ $genre->id }}" {{ isset($_GET['selected_genre']) && $_GET['selected_genre'] == $genre->id ? 'selected' : ''  }}>{{ $genre->name }}
-                            </option>
-                            @endforeach
-                        </select>
-                        <span class="input-group-btn">
-                            <button type="submit" class="btn btn-primary btn-lg text-white text-align-center col-ml-3">検索</button>
-                        </span>
-                    </form>
-                </div>
-                <a class="btn btn-success btn-lg text-white col-md-2" href="{{ route('event.makeEvent') }}" role="button">イベント作成画面</a>
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="heading">参加したいイベントを見つけよう</h1><br>
+        <div class="row justify-content-end">
+            <div class="col-4">
+                <form method='get' class="form-inline" action='{{ route('event.search') }}'>
+                    <select class="custom-select col-10" name="selected_genre">
+                        <option value='0'>all</option>
+                        @foreach ($genres as $genre)
+                        <option value="{{ $genre->id }}" {{ isset($_GET['selected_genre']) && $_GET['selected_genre'] == $genre->id ? 'selected' : ''  }}>{{ $genre->name }}
+                        </option>
+                        @endforeach
+                    </select>
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary text-white text-align-center">検索</button>
+                    </span>
+                </form>
+            </div>
+            <div class="col-4">
+                <a class="btn btn-success text-white" href="{{ route('event.makeEvent') }}" role="button">イベント作成画面</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 {{-- 現在進行中のイベント表示 --}}
 <div class="row">
