@@ -34,7 +34,6 @@ Route::group(['middleware' => ['auth']], function()
     Route::post('/group/attend', 'ChatController@attendGroup')->name('group.attend');
     Route::post('/group/leave', 'ChatController@leaveGroup')->name('group.leave');
 
-
 //Event
     Route::get('/event/index', 'EventController@index')->name('event.index');
     Route::get('/event/makeEvent', 'EventController@toMakeEvent')->name('event.makeEvent');
@@ -47,7 +46,7 @@ Route::group(['middleware' => ['auth']], function()
 
 //Setting
     Route::get('/setting/index', 'SettingController@index')->name('setting.index');
-    Route::post('setting/confirmProfile', 'SettingController@confirmChangeProfile')->name('setting.confirmProfile');
+    Route::post('setting/confirmProfile', 'SettingController@confirmProfile')->name('setting.confirmProfile');
     Route::post('setting/changeProfile', 'SettingController@changeProfile')->name('setting.changeProfile');
 
     Route::get('/setting/help', 'SettingController@help')->name('setting.help');
