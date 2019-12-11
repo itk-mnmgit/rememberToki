@@ -68,7 +68,7 @@ class EventController extends Controller
         $event->finishTime = new DateTime($request->end_date_time);
         $event->img = $request->base64;
 
-        // 画面にジャンル名表示ように選択されたジャンル取得
+        // 画面にジャンル名表示用に選択されたジャンル取得
         $genre = Genre::find($event->genre_id);
 
         // セッションに、作成中のイベントと、画像の文字データを保存
@@ -102,10 +102,9 @@ class EventController extends Controller
 
     public function leaveEvent(Request $request)
     {
-        // 退会するボタンが押押されたイベントのidとログイン中のユーザーidと一致するカラムを取ってくる
+        // 退会するボタンが押されたイベントのidとログイン中のユーザーidと一致するカラムを取ってくる
         $leaveEvent = EventUser::where('event_id', $request->id)->where('user_id', Auth::user()->id);
 
-        //削除
         $leaveEvent->delete();
 
         return redirect()->route('get.chat.index');

@@ -11,7 +11,7 @@
                 <div class="card-header">
                     以下の入力内容でよろしいですか？
                 </div>
-                <form action="{{ route('event.make') }}" method="post" class="form-horizontal">
+                <form action="{{ route('event.make') }}" method="POST" class="form-horizontal">
                     @csrf
                     <div class="row">
                         <label class="col-sm-2 control-label">名前：</label>

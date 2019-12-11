@@ -10,25 +10,41 @@ class SettingController extends Controller
     public function index()
     {
         $user = User::find(Auth::user()->id);
+
         return view('setting.index', compact('user'));
     }
 
-    public function confirmProfile()
+    public function confirmProfile(Request $request)
     {
-        //プロフィール変更をrequestで受け取る
+        $user = Auth::user();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->gender = $request->gender;
+        $user->age = $request->age;
+        $user->address = $request->address;
+        $user->occupation = $request->occupation;
+        $user->intro = $request->intro;
+        if($request->base64==''){
+            $user->img ='';
+        }else{
+            $user->img = $request->base64;
+        }
 
-        //setting/confirmを返す
-        return view('setting.confirmProfile');
+        $request->session()->put('user', $user);
+
+        return view('setting.confirmProfile', compact('user'));
     }
 
-    public function changeProfile()
+    public function changeProfile(Request $request)
     {
-        //プロフィール変更をrequestで受け取る
+        $user = $request->session()->get('user');
 
-        //DBに保存
+        $user->save();
 
-        //my pageへ
-        return redirect()->route('chat.index');
+        $request->session()->forget('user');
+
+        return redirect()->route('get.chat.index');
     }
 
     public function help()

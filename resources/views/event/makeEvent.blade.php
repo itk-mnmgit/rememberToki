@@ -27,7 +27,7 @@
         </ul>
     @endif
 
-    <form method="POST" action="{{ route('event.confirm') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('event.confirm') }}">
         @csrf
 
     {{-- 表示中央上部 --}}
@@ -46,7 +46,7 @@
                 </h4>
 
     {{-- ファイル選択 --}}
-                <input id="picture" type="file" class="input-file form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture" required>
+                <input id="picture" type="file" class="input-file form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture">
                 @if ($errors->has('picture'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('picture') }}</strong>
