@@ -5,7 +5,6 @@
 @section('content')
 
 <div class="container mt-3 text-center">
-
     <h1>参加したいグループを見つけよう</h1>
     <div class="input-group mb-3">
         <form method='get' action='{{ route('group.search') }}'>
@@ -21,7 +20,6 @@
         </form>
         <a class="btn btn-success btn-lg text-white col-md-2" href="{{ route('chat.makeGroup') }}" role="button">グループ作成画面</a>
     </div>
-
     <div class="row">
         @foreach($groups as $group)
             <div class="col-md-3 mb-3">
@@ -50,10 +48,10 @@
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
                                         @if( in_array($group->id, $attendGroupsId) )
                                             <form method='post' action='{{ route('group.leave') }}'>
-                                                    @csrf
-                                                    <input type="hidden" name="id" value="{{ $group->id }}">
-                                                    <button type="submit" class="btn btn-danger">このグループから退会</button>
-                                                </form>
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{ $group->id }}">
+                                                <button type="submit" class="btn btn-danger">このグループから退会</button>
+                                            </form>
                                         @else
                                             <form method='post' action='{{ route('group.attend') }}'>
                                                 @csrf

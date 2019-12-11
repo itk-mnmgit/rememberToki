@@ -18,8 +18,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="crop-card">
-                <div class="card-header">グループ作成</div>
-
+                <div class="card-header">
+                    グループ作成
+                </div>
                 @if($errors->any())
                     <ul>
                         @foreach($errors->all() as $message)
@@ -27,9 +28,8 @@
                         @endforeach
                     </ul>
                 @endif
-
                 <div class="card-body">
-                    <form method="POST" action="{{ route('chat.confirm') }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('chat.confirm') }}" enctype="multipart/form-data">
                         @csrf
 {{-- グループ名 --}}
                         <div class="form-group row">
@@ -67,7 +67,6 @@
                                 @endif
                             </div>
                         </div>
-
                         <img id="cropped-img" src="" alt="" style="width: 60%">
 {{-- 画像加工用モーダル開始 --}}
                         <div class="modal fade" id="cropper-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

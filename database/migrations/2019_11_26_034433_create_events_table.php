@@ -22,9 +22,10 @@ class CreateEventsTable extends Migration
             $table->integer('genre_id');
             $table->integer('user_id');
             $table->timestamps();
-            $table->string('img')->default($icon);
+            $table->longText('img')->nullable();
             $table->text('intro')->nullable();
             $table->dateTime('startTime')->nullable;
+            $table->dateTime('finishTime')->nullable;
         });
     }
 
