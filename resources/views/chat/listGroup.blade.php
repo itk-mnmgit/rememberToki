@@ -4,22 +4,30 @@
 
 @section('content')
 
-<div class="container mt-3 text-center">
-    <h1>参加したいグループを見つけよう</h1>
-    <div class="input-group mb-3">
-        <form method='get' action='{{ route('group.search') }}'>
-            <select class="custom-select" name='selected_genre'>
-                <option value='0'>all</option>
-                @foreach ($genres as $genre)
-                    <option value="{{ $genre->id }}" {{ isset($_GET['selected_genre']) && $_GET['selected_genre'] == $genre->id ? 'selected' : ''  }}>{{ $genre->name }}</option>
-                @endforeach
-            </select>
-            <span class="input-group-btn">
-                <button type="submit" class="btn btn-primary btn-lg text-white text-align-center">検索</button>
-            </span>
-        </form>
-        <a class="btn btn-success btn-lg text-white col-md-2" href="{{ route('chat.makeGroup') }}" role="button">グループ作成画面</a>
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="heading">参加したいグループを見つけよう</h1><br>
+        <div class="row justify-content-end my-5">
+            <div class="col-4">
+                <form method='get' class="form-inline" action='{{ route('group.search') }}'>
+                    <select class="custom-select col-10" name="selected_genre">
+                        <option value='0'>all</option>
+                        @foreach ($genres as $genre)
+                        <option value="{{ $genre->id }}" {{ isset($_GET['selected_genre']) && $_GET['selected_genre'] == $genre->id ? 'selected' : ''  }}>{{ $genre->name }}
+                        </option>
+                        @endforeach
+                    </select>
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary text-white text-align-center">検索</button>
+                    </span>
+                </form>
+            </div>
+            <div class="col-4">
+                <a class="btn btn-success text-white" href="{{ route('chat.makeGroup') }}" role="button">グループ作成画面</a>
+            </div>
+        </div>
     </div>
+
     <div class="row">
         @foreach($groups as $group)
             <div class="col-md-3 mb-3">
@@ -68,6 +76,6 @@
             </div>
         @endforeach
     </div>
-</div>
+</section>
 
 @endsection
