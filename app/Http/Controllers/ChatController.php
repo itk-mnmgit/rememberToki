@@ -66,22 +66,20 @@ class ChatController extends Controller
 
     public function confirmGroup(Request $request)
     {
+        $request->session()->reflash();
+
         $group = new Group();
-
-        $imgPath = $this->saveProfileImage($request->img);
-
         $group->name = $request->name;
         $group->genre_id = $request->genre_id;
         $group->user_id = Auth::user()->id;
-        $group->img = $imgPath;
         $group->intro = $request->intro;
+        $group->img = $request->base64;
 
         $genre = Genre::find($group->genre_id);
-        $user = User::find($group->user_id);
 
         $request->session()->put('group', $group);
 
-        return view('chat.confirm', ['group' => $group, 'genre' => $genre, 'user' => $user]);
+        return view('chat.confirm', ['group' => $group, 'genre' => $genre]);
     }
 
     public function makeGroup(Request $request)
@@ -90,16 +88,9 @@ class ChatController extends Controller
 
         $group->save();
 
+        $request->session()->forget('group');
+
         return redirect()->route('get.chat.index');
-    }
-
-    private function saveProfileImage($image)
-    {
-        //storage/public/images/profilePictureに絶対に被らない名前で保存してくれる
-        //保存した後、そのファイルまでのパスを返してくれる
-        $imgPath = $image->store('images/profilePicture', 'public');
-
-        return 'storage/' . $imgPath;
     }
 
     public function attendGroup(Request $request)

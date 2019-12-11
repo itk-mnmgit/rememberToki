@@ -25,7 +25,7 @@ class AddColumnsToUsersTable extends Migration
             $table->tinyInteger('age')->unsigned();
             $table->string('address');
             $table->text('intro')->nullable();
-            $table->string('img')->default($icon);
+            $table->longText('img')->nullable();
             $table->string('occupation');
             // $table->timestamp('email_verified_at')->nullable();
             // $table->string('password');

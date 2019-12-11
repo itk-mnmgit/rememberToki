@@ -2,6 +2,16 @@
 
 @section('title', 'thanks')
 
+@section('custom_js')
+<script src="{{ asset('js/croppie.js') }}" defer></script>
+<script src="{{ asset('js/event-cropper.js') }}" defer></script>
+@endsection
+
+@section('custom_css')
+<link href="{{ asset('css/croppie.css') }}" rel="stylesheet">
+<link href="{{ asset('css/event-cropper.css') }}" rel="stylesheet">
+@endsection
+
 
 @section('content')
 
@@ -17,16 +27,39 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('post.chat.index') }}" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
-                                <div class="col-md-6 offset-md-3">
-                                    <input id="img" type="file" class="form-control{{ $errors->has('img') ? ' is-invalid' : '' }}" name="img" required>
-                                    @if ($errors->has('img'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('img') }}</strong>
-                                        </span>
-                                    @endif
+                                   {{-- ファイル選択 --}}
+                    <input id="picture" type="file" class="input-file form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture">
+                    @if ($errors->has('picture'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('picture') }}</strong>
+                        </span>
+                    @endif
+
+                    <img id="cropped-img" src="{{ old('base64') }}" alt="" style="width: 100%">
+                    <textarea id="base64" name="base64" style="display: none"></textarea>
+
+        {{-- 画像加工用モーダル開始 --}}
+                    <div class="modal fade" id="cropper-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel"></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="upload-demo" class="js-croppie center-block">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+                                    <button type="button" id="cropImageBtn" class="btn btn-primary crop">切り取る</button>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
                             <div class="form-group">
                                 <label>自己紹介を追加しましょう</label>
                                 <textarea name="intro" rows="4" cols="120" class="col p-4 d-flex flex-column position-static text-center"></textarea>

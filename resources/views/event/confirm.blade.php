@@ -11,7 +11,7 @@
                 <div class="card-header">
                     以下の入力内容でよろしいですか？
                 </div>
-                <form action="{{ route('event.make') }}" method="post" class="form-horizontal">
+                <form action="{{ route('event.make') }}" method="POST" class="form-horizontal">
                     @csrf
                     <div class="row">
                         <label class="col-sm-2 control-label">名前：</label>
@@ -46,7 +46,7 @@
                     <div class="row">
                         <div class="col-sm-offset-2 col-sm-10">
                             <input class="btn btn-primary btn-lg text-white" type='submit' value='OK'>
-                            <a class="btn btn-primary btn-lg text-white" method='get' href="javascript:history.back()" role="button">戻る</a>
+                            <a class="btn btn-primary btn-lg text-white" href="javascript:history.back()">戻る</a>
                         </div>
                     </div>
                 </form>
