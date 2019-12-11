@@ -22,6 +22,7 @@
           <p>CPICをはじめよう</p>
         </div>
         <div class="col-md-8 mypage">
+            
 
       {{-- ログインしてないときは アカウント作成/ログインボタン を表示 --}}
             @guest
