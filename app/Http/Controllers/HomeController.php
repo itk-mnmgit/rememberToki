@@ -25,12 +25,10 @@ class HomeController extends Controller
 
     public function storeDetail(Request $request)
     {
-        $imgPath = $this->saveProfileImage($request->img);
-
         //img,intro 等を保存
         //DB(users)のカラムにrequestで得た奴らをぶち込む
         $user = Auth::user();
-        $user->img = $imgPath;
+        $user->img = $request->base64;
         $user->intro = $request->intro;
 
 
@@ -38,23 +36,8 @@ class HomeController extends Controller
         $user->save();
 
         //chat.index.phpに帰る
-        $groups = Group::all();        return view('chat.index', ['groups' => $groups]);
+        $groups = Group::all();
+        return redirect()->route('post.chat.index');
     }
-
-    //profile画像を保存するためのメソッド
-    //引数 : $image : 保存したい画像
-    private function saveProfileImage($image)
-    {
-        //storage/public/images/profilePictureに絶対に被らない名前で保存してくれる
-        //保存した後、そのファイルまでのパスを返してくれる
-        $imgPath = $image->store('images/profilePicture', 'public');
-
-        return 'storage/' . $imgPath;
-    }
-
-
-
-
-
 
 }

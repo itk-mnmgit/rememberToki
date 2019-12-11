@@ -46,7 +46,7 @@
                     <div class="row">
                         <div class="col-sm-offset-2 col-sm-10">
                             <input class="btn btn-primary btn-lg text-white" type='submit' value='OK'>
-                            <a class="btn btn-primary btn-lg text-white" method='get' href="javascript:history.back()" role="button">戻る</a>
+                            <a class="btn btn-primary btn-lg text-white" href="javascript:history.back()">戻る</a>
                         </div>
                     </div>
                 </form>

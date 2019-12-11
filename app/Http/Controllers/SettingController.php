@@ -1,14 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
+use App\User;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
     public function index()
     {
-        return view('setting.index');
+        $user = User::find(Auth::user()->id);
+        return view('setting.index', compact('user'));
     }
 
     public function confirmProfile()

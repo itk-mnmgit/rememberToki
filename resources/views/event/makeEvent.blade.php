@@ -53,7 +53,7 @@
                     </span>
                 @endif
 
-                <img id="cropped-img" src="" alt="" style="width: 100%">
+                <img id="cropped-img" src="{{ old('base64') }}" alt="" style="width: 100%">
                 <textarea id="base64" name="base64" style="display: none"></textarea>
 
     {{-- 画像加工用モーダル開始 --}}
@@ -71,8 +71,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                <button type="button" id="cropImageBtn" class="btn btn-primary crop">Cortar</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+                                <button type="button" id="cropImageBtn" class="btn btn-primary crop">切り取る</button>
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                     <h4 class ="mb-1 mt-5">イベント紹介文を追加しましょう</h4>
                     <div class="form-group">
                         <label for="exampleInputPassword1"></label>
-                        <textarea name="intro" rows="4" cols="120" class="col p-2 d-flex flex-column position-static text-center"></textarea>
+                        <textarea name="intro" rows="4" cols="120" class="col p-2 d-flex flex-column position-static text-center">{{ old('intro') }}</textarea>
                     </div>
                 </div>
 
@@ -118,13 +118,13 @@
     {{-- 開始時間 --}}
                 <div class="form-group">
                     <h4 class="mr-3 mb-3">開始時間</h4>
-                    <input id="date" type="date" name="start_date_time" class="form-control date-time-picker" required style="background: white" placeholder="開始時間">
+                    <input id="date" type="date" name="start_date_time" class="form-control date-time-picker" required style="background: white" placeholder="開始時間" value='{{ old('start_date_time') }}'>
                 </div>
 
     {{-- 終了時間 --}}
                 <div class="form-group">
                     <h4 class="mr-3 mb-3">終了時間</h4>
-                    <input id="date" type="date" name="end_date_time" class="form-control date-time-picker" required style="background: white" placeholder="終了時間">
+                    <input id="date" type="date" name="end_date_time" class="form-control date-time-picker" required style="background: white" placeholder="終了時間" value='{{ old('end_date_time') }}'>
                 </div>
             </div>
         </div>
