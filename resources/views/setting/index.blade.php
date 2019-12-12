@@ -29,10 +29,10 @@
     <div class="row">
 
         <div class="col-md-4 order-md-2 mb-4">
-            <h4 class="d-flex justify-content-between mb-3">
-                プロフィール写真
-            </h4>
-            <input id="picture" type="file" class="input-file form-control mb-3{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture">
+            <div class="custom-file mb-5">
+                <input type="file" class="input-file custom-file-input" id="picture" name="picture">
+                <label class="custom-file-label" for="picture">プロフィール画像</label>
+            </div>
 
             <img id="cropped-img" src="{{ old('base64') }}" alt="" style="width: 100%">
 
