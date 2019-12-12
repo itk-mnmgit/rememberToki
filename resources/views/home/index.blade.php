@@ -43,7 +43,6 @@
             </div>
         </div>
     </div>
-</div>
 
     <div class="event">
         <div class="contents text-center">
@@ -63,9 +62,9 @@
                             <p class="card-text"><small class="text-muted">参加者 25人</small></p>
                         </div>
                     </div>
-                </div>
+                @endfor
             </div>
-        @endfor
+        </div>
     </div>
     {{-- グループ一覧表示 --}}
     <div class="group">
@@ -141,7 +140,7 @@
                 <p>シゲさんが語るセブの良いところ</p>
                 </a>
             </li>
-            </ul>
+        </ul>
     </div>
 </div>
 
