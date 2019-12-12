@@ -71,8 +71,9 @@
             </div>
         @endforeach
     </div>
+    <a class="btn btn-info btn-lg text-white" href="{{ route('event.index') }}" role="button">+ 他のイベントを見る</a>
 </div>
-<a class="btn btn-info btn-lg text-white" href="{{ route('event.index') }}" role="button">+ 他のイベントを見る</a>
+{{-- <a class="btn btn-info btn-lg text-white" href="{{ route('event.index') }}" role="button">+ 他のイベントを見る</a> --}}
 {{-- チャットの大きな部分を表示する --}}
 <div class="chat">
     <p>ここにチャットが表示されるよー</p>
