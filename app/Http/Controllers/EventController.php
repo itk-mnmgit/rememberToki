@@ -58,7 +58,8 @@ class EventController extends Controller
 
     public function confirmEvent(Request $request)
     {
-        // イベント作成
+        $request->session()->reflash();
+
         $event = new Event();
         $event->name = $request->name;
         $event->genre_id = $request->genre_id;
@@ -68,10 +69,8 @@ class EventController extends Controller
         $event->finishTime = new DateTime($request->end_date_time);
         $event->img = $request->base64;
 
-        // 画面にジャンル名表示用に選択されたジャンル取得
         $genre = Genre::find($event->genre_id);
 
-        // セッションに、作成中のイベントと、画像の文字データを保存
         $request->session()->put('event', $event);
 
         return view('event.confirm', compact('event', 'genre'));

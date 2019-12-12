@@ -79,7 +79,7 @@ class ChatController extends Controller
 
         $request->session()->put('group', $group);
 
-        return view('chat.confirm', ['group' => $group, 'genre' => $genre]);
+        return view('chat.confirm', compact('group', 'genre'));
     }
 
     public function makeGroup(Request $request)

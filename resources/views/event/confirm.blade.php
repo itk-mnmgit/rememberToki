@@ -33,13 +33,18 @@
                         <span class="input-group-text col-12">開始時間</span>
                     </div>
                     <input type="text" name="start_date_time" class="form-control col-9" value="{{ $event->startTime->format('M, d/Y h:m') }}" readonly>
-                   
                 </div>
                 <div class="input-group mb-4">
                     <div class="input-group-prepend col-3 px-0">
                         <span class="input-group-text col-12">終了時間</span>
                     </div>
                     <input type="text" name="end_date_time" class="form-control col-9" value="{{ $event->finishTime->format('M, d/Y h:m') }}" readonly>
+                </div>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend col-3 px-0">
+                        <span class="input-group-text col-12">作成者</span>
+                    </div>
+                    <input type="text" class="form-control  col-9" value="{{ Auth::user()->name }}" readonly>
                 </div>
                 <div class="input-group mb-4">
                     <div class="input-group-prepend col-3 px-0">
