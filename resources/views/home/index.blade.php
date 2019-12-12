@@ -15,6 +15,8 @@
 <div class="main">
     <div class="bg-image" style="background-image: url({{ asset('image/homebackground6.jpg') }})">
         <div class="row">
+            <div class="col-md-6 d-flex flex-column justify-content-center pl-4 connect">
+            </div>
             <div class="col-md-6 d-flex flex-column pl-4 text-light comment-con text-center">
                 <div class="title">
                     <h3 class="display-4-1 text-light"><strong>最高に『ワクワクする出会い』を</strong></h3>
@@ -34,7 +36,6 @@
                         <a class="btn btn-primary btn-lg text-white mr-1" href="{{ route('register') }}" role="button">アカウント作成</a>
                         <a class="btn btn-primary btn-lg text-white" href="{{ route('login') }}" role="button">ログイン</a>
                     @endguest
-                {{-- ログイン時は mypageへ ボタン --}}
                     @if(Auth::check())
                         <a class="btn btn-primary btn-lg text-white" href="{{ route('get.chat.index') }}" role="button">My Page へ</a>
                     @endif
@@ -42,6 +43,7 @@
             </div>
         </div>
     </div>
+</div>
 
     <div class="event">
         <div class="contents text-center">
@@ -61,9 +63,9 @@
                             <p class="card-text"><small class="text-muted">参加者 25人</small></p>
                         </div>
                     </div>
-                @endfor
+                </div>
             </div>
-        </div>
+        @endfor
     </div>
     {{-- グループ一覧表示 --}}
     <div class="group">
@@ -142,7 +144,6 @@
             </ul>
     </div>
 </div>
-
 
 {{-- サブビューでfooterを読み込んでいます(views/components/footer) --}}
 @include('components.footer', ['a' => 'なんか持ってきたい値あれば', 'b' => 'こんな感じで'])

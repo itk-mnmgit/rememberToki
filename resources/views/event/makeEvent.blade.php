@@ -33,15 +33,11 @@
     <div class="row">
 
         <div class="col-md-4 order-md-2 mb-4">
-            <h4 class="d-flex justify-content-between mb-3">
-                プロフィール写真
-            </h4>
-            <input id="picture" type="file" class="input-file form-control mb-3{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture">
-            @if ($errors->has('picture'))
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('picture') }}</strong>
-                </span>
-            @endif
+            <div class="custom-file mb-5">
+                <input type="file" class="input-file custom-file-input" id="picture" name="picture">
+                <label class="custom-file-label" for="picture">イベント画像</label>
+            </div>
+
             <img id="cropped-img" src="{{ old('base64') }}" alt="" style="width: 100%">
 
             <div class="modal fade" id="cropper-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
