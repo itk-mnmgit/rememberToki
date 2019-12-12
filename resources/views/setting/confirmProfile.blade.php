@@ -11,9 +11,7 @@
     <div class="row">
 
         <div class="col-md-4 order-md-2 mb-4">
-            <div class="border">
-                <img  src="{{ $user->img }}" width="350" height="350" alt="groupIcon">
-            </div>
+            <img  src="{{ $user->img }}" width="350" height="350" alt="groupIcon">
         </div>
 
         <div class="col-md-8 order-md-1">
