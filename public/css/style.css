@@ -34,9 +34,6 @@
 .comment-con {
   margin: auto 0 2rem;
 }
-/* .btn{
-
-} */
 
 .container-fluid section {
     margin: 10px;
@@ -63,11 +60,58 @@
     width:100%;
   }
 
-  /* CPICの仕組み */
-  .description{
-    background-color: #0f1721;
+  /* グループ一覧 */
+  /* 矢印用スタイル */
+  .prev-arrow,
+  .next-arrow {
+    position: absolute;
+    top: 50%;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-weight: bold;
   }
 
+  .prev-arrow {
+    left: -20px;
+  }
+
+  .next-arrow {
+    right: -20px;
+  }
+
+
+  /* CPICの仕組み */
+  .description-wrapper{
+    height:350px;
+    padding-bottom:30px;
+    background-color: #0f1721;
+    text-align:center;
+  }
+
+  .heading{
+    padding-top:40px;
+    padding-bottom:20px;
+  }
+
+  .heading h2{
+    font-weight:normal;
+  }
+
+  .description{
+    float:left;
+    width:33.3%;
+  }
+
+  .txt-contents{
+    width:80%;
+    display:inline-block;
+    margin:20px;
+    font-size:15px;
+  }
   /* news一覧 */
   .msr_newslist02 {
     width: 100%;
@@ -124,7 +168,7 @@
   .msr_newslist02 li .cpic02 {
     background-color: #0E3A5F;
   }
-
+  /* footer */
   .footer {
     color:#fff;
     height: 120px;

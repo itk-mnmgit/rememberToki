@@ -15,15 +15,13 @@
 <div class="main">
     <div class="bg-image" style="background-image: url({{ asset('image/homebackground6.jpg') }})">
         <div class="row">
-            <div class="col-md-6 d-flex flex-column justify-content-center pl-4 connect">
-            </div>
             <div class="col-md-6 d-flex flex-column pl-4 text-light comment-con text-center">
                 <div class="title">
                     <h3 class="display-4-1 text-light"><strong>最高に『ワクワクする出会い』を</strong></h3>
                     <h1 class="display-4-2 text-light"><strong>Connect People In Cebu</strong></h1>
                 </div>
             </div>
-            <div class="col-md-6 d-flex text-light comment-on text-center">
+            <div class="col-md-8 d-flex text-light comment-on text-center">
                 <div class="comment1">
                     <p class="right">セブで『仲間』を見つけよう</p>
                     <p>同じ趣味、関心を持った仲間たちとチャットを始めよう</p>
@@ -72,7 +70,7 @@
             <h2>人気のグループ</h2>
             <p>セブで人気のグループを見てみよう。</p>
         </div>
-        <div class="row slider">
+        <div class="row slider2">
             @for ($i = 0; $i < 8; $i++)
                 <div class="card" style="width: 12rem; margin-right: 30px;">
                     <img src="{{ asset('image/homefootball.jpg') }}" class="img-fluid card-img-top">
@@ -85,19 +83,34 @@
             @endfor
         </div>
     </div>
-    <div class="description text-light">
-        <h2>CPICの仕組み</h2>
-        <div class="group">
-            <h3>グループ</h3>
-            <p>あなたが楽しめるいろいろなイベントを主催しているグループを見つけよう。</p>
-        </div>
-        <div class="chat">
-            <h3>チャット</h3>
-            <p>グループで仲良くなった人とチャットを通してもっと仲良くなろう。</p>
-        </div>
-        <div class="event">
-            <h3>イベント</h3>
-            <p>仲の良いメンバーとイベントを開催しよう。</p>
+    <div class="description-wrapper text-light">
+        <div class="container">
+            <div class="heading">
+                <h2>CPICの仕組み</h2>
+            </div>
+            <div class="descriptions">
+                <div class="description">
+                    <h3>グループ</h3>
+                    <ul class="txt-contents">
+                        <li>気になるグループに入ってセブに関する役立つ情報を交換しよう。</li>
+                        <li>みんなが参加したくなるグループを自分で作ってみよう。</li>
+                    </ul>
+                </div>
+                <div class="description">
+                    <h3>チャット</h3>
+                    <ul class="txt-contents">
+                        <li>同じグループの仲間たちとチャットをしよう。</li>
+                        <li>グループで仲良くなった人とは個人でチャットをしよう。</li>
+                    </ul>
+                </div>
+                <div class="description">
+                    <h3>イベント</h3>
+                    <ul class="txt-contents">
+                        <li>あなたが楽しめるいろいろなイベントに参加しよう。</li>
+                        <li>慣れてきたら自分でイベントを開催してみよう。</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
     {{-- news一覧表示 --}}
