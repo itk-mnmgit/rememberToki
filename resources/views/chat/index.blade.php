@@ -59,6 +59,49 @@
                 <i class="fa fa-info-circle" aria-hidden="true"></i> Information
             </a>
         </li>
+        <!-- 3,ナビゲーション -->
+        <li class="header">参加予定のイベント</li>
+        <li>
+            <a href="{{ route('event.index') }}">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>+ 他のイベントを見る
+            </a>
+        </li>
+        <li>
+            @foreach ($attendEvents as $attendEvent)
+            {{-- name='id' value ='{{ $attendEvent->event->id }}' でmodalにid渡したい --}}
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{ $attendEvent->event->id}}" name='id' value ='{{ $attendEvent->event->id }}'>詳細</button>
+            {{-- modal --}}
+                <div class="modal fade" id="myModal-{{ $attendEvent->event->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="title">{{ $attendEvent->event->name}}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <img src="{{ asset($attendEvent->event->img) }}" alt="business city" class='img-fluid card-img-top'>
+                            <div class="modal-body">
+                                <p class="card-text">{{ $attendEvent->event->intro }}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                                <form method='post' action='{{ route('event.leave') }}'>
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $attendEvent->event->id }}">
+                                    <button type="submit" class="btn btn-danger">このイベントから退会</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            {{ $attendEvent->event->startTime }} - {{ $attendEvent->event->finishTime }}
+                        </small>
+                    </p>
+                </div>
+            @endforeach
+        </li>
     </ul>
 </div>
 
@@ -78,19 +121,19 @@
 
 
 
-
         {{-- 以下まだ書いてない --}}
         {{-- イベントのバーを表示する --}}
-        {{-- <div class="col-md-3 left-content">
+        <div class="col-md-3 left-content">
             <div class="eventbar text-center">
                 <div class="event">
-                    <h3 class="text-light">参加予定のイベント</h3>
-                    @foreach ($attendEvents as $attendEvent) --}}
+                    {{-- <h3 class="text-light">参加予定のイベント</h3> --}}
 
-            {{-- name='id' value ='{{ $attendEvent->event->id }}' でmodalにid渡したい --}}
-                        {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{ $attendEvent->event->id}}" name='id' value ='{{ $attendEvent->event->id }}'>詳細</button> --}}
+                    @foreach ($attendEvents as $attendEvent)
+
+                        {{-- name='id' value ='{{ $attendEvent->event->id }}' でmodalにid渡したい --}}
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{ $attendEvent->event->id}}" name='id' value ='{{ $attendEvent->event->id }}'>詳細</button>
                     {{-- modal --}}
-                        {{-- <div class="modal fade" id="myModal-{{ $attendEvent->event->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal fade" id="myModal-{{ $attendEvent->event->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -121,10 +164,10 @@
                         </div>
                     @endforeach
                 </div>
-                <a class="btn btn-info btn-lg text-white" href="{{ route('event.index') }}" role="button">+ 他のイベントを見る</a>
-            </div>
+                {{-- <a class="btn btn-info btn-lg text-white" href="{{ route('event.index') }}" role="button">+ 他のイベントを見る</a> --}}
+                </div>
         </div>
-    </div> --}}
+    </div>
 
 
 </div>
