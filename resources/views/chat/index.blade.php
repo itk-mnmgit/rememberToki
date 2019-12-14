@@ -61,7 +61,7 @@
         </li>
         @foreach($attendEvents as $attendEvent)
         <li>
-            <h5 class="title">{{ $attendEvent->event->name}}</h5>
+            <h5 class="title">&ensp;&ensp;&ensp;&ensp;&ensp;{{ $attendEvent->event->name}}</h5>
         </li>
         @endforeach
     </ul>
