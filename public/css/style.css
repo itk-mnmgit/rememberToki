@@ -9,9 +9,7 @@
 .stay-right {
     position:relative;
 }
-.row{
-    height:100%;
-}
+
 
 .comment1{
     font-size:18px;
@@ -19,7 +17,7 @@
     margin-left: auto;
     margin-right: auto;
   }
-
+/* ヘッダーの文字に影つける */
   .comment1 p{
     text-shadow: #0f1721 3px 0px 10px;
   }
@@ -33,13 +31,19 @@
   .connect {
     text-align: right;
   }
-
+  /* ヘッダーの文字に影をつける */
   .comment-con {
     padding-top:70px;
     text-shadow: #0f1721 3px 0px 10px;
   }
 
-.container-fluid section {
+  /* イベント */
+  .event{
+    margin-top:50px;
+    margin-bottom:50px;
+  }
+
+  .container-fluid section {
     margin: 10px;
     border-radius: 5px;
     background: #F5F0CF;
@@ -65,6 +69,9 @@
   }
 
   /* グループ一覧 */
+  .group{
+    margin-bottom:50px;
+  }
   /* 矢印用スタイル */
   .prev-arrow,
   .next-arrow {
@@ -94,6 +101,7 @@
     padding-bottom:30px;
     background-color: #0f1721;
     text-align:center;
+    margin-bottom:50px;
   }
 
   .heading{
@@ -116,6 +124,9 @@
     font-size:15px;
   }
   /* news一覧 */
+  .news{
+    margin-bottom:50px;
+  }
   .msr_newslist02 {
     width: 100%;
   }
@@ -171,6 +182,7 @@
   .msr_newslist02 li .cpic02 {
     background-color: #0E3A5F;
   }
+
   /* footer */
   .footer {
     color:#fff;
