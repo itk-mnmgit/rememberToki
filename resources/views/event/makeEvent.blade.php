@@ -18,6 +18,8 @@
 
 @section('content')
 
+@include('components.header')
+
 <div class="container">
     @if($errors->any())
         <ul>

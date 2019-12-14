@@ -12,7 +12,7 @@
 {{-- <div class="container-fluid"> --}}
 <div class="sidebar-container">
     <div class="sidebar-logo">
-        CPICメニュー
+            <a class="btn btn-blac text-white" href="{{ route('home.index') }}" role="button">CPIC</a>
     </div>
     <ul class="sidebar-navigation">
         <!-- 1 ,ナビゲーション -->
@@ -67,28 +67,44 @@
     </ul>
 </div>
 
-    {{-- 中央・チャット --}}
-    <div class="content-container">
-        <div class="container-fluid">
-            <div class="jumbotron">
-                {{-- <p>{{ $group->name }}</p> --}}
-                <p><i class="fas fa-user-friends"></i> 23人</p>
-                <div class="card-header">
-                    <ul id="chat">
-                        @foreach($posts as $post)
-                        <li>{{ $post->text }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="form-group">
-                    <div class="card-body">
-                        <input type="text" id="text">
-                        <input type="submit" value="送信" id="submit">
+{{-- 中央・チャット --}}
+<div class="chat-container">
+
+
+    <div class="line__container">
+        <div class="line__title">
+          グループ名
+        </div>
+        <!-- ▼会話エリア scrollを外すと高さ固定解除 -->
+        <div class="line__contents scroll">
+            @foreach($posts as $post)
+                <div class="line__left">
+                    <figure>
+                        <img  src="{{ Auth::user()->img }}" width="30" height="30" alt="userIcon">
+                    </figure>
+                    <div class="line__left-text">
+                    <div class="name">{{Auth::user()->name }}</div>
+                    <div class="text">{{ $post->text }}</div>
+                    {{-- <span class="date">0:30</span> --}}
                     </div>
                 </div>
+            @endforeach
+            <div class="line__right">
+                <div class="text">どーやって自分のと相手のを識別するんや</div>
+                <span class="date">0:30</span>
             </div>
         </div>
     </div>
+    <div class="inputFiles">
+        <i class="fas fa-camera"></i>
+        <i class="fas fa-images"></i>
+    </div>
+    <div class='inputText'>
+        <textarea rows="4" id="text" class="form-control" placeholder="Shift+Enterで送信はまだできません"></textarea>
+        <input type="submit" value="送信" id="submit" class="btn btn-info chat-btn">
+    </div>
+</div>
+
 
 
 @endsection

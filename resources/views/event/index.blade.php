@@ -4,6 +4,8 @@
 
 @section('content')
 
+@include('components.header')
+
 <section class="jumbotron text-center">
     <div class="container">
         <h1 class="heading">参加したいイベントを見つけよう</h1><br>

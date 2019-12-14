@@ -15,6 +15,8 @@
 
 @section('content')
 
+@include('components.header')
+
 {{-- 質問１これはつけた方がいいのかデザイン崩れるdiv class="container-fluid" --}}
 <div class="container">
     <div class="row">
