@@ -40,9 +40,9 @@
         </div>
     </div>
 
-    <div class="event">
-        <div class="contents text-center">
-            <h2>もうすぐ開催のイベント</h2>
+    <div class="event container-fluid">
+        <div class="contents text-left">
+            <h2><strong>もうすぐ開催のイベント</strong></h2>
             <p>セブでもうすぐ開催のイベントを見てみよう。</p>
         </div>
         {{-- イベント一覧表示 --}}
@@ -52,7 +52,7 @@
                     <div class="card" style="width: 20rem; margin-right: 30px;">
                         <div class="card-body">
                             <p class="card-text"><small class="text-primary">12月20日(金), 18:00</small></p>
-                            <h5 class="card-title">IT PARK WordPress勉強会</h5>
+                            <h5 class="card-title"><strong>IT PARK WordPress勉強会</strong></h5>
                             <h6 class="card-subtitle mb-2 text-muted">かみーゆ</h6>
                             <p class="card-text">IT PARK にあるコワーキングスペースで WordPress の勉強会を開催します。</p>
                             <p class="card-text"><small class="text-muted">参加者 25人</small></p>
@@ -65,7 +65,7 @@
     {{-- グループ一覧表示 --}}
     <div class="group container-fluid">
         <div class="contents text-left">
-            <h2>人気のグループ</h2>
+            <h2><strong>人気のグループ</strong></h2>
             <p>セブで人気のグループを見てみよう。</p>
         </div>
         <div class="row slider2">
@@ -73,7 +73,7 @@
                 <div class="card" style="width: 12rem; margin-right: 30px;">
                     <img src="{{ asset('image/homefootball.jpg') }}" class="img-fluid card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">Cebu FC</h5>
+                        <h5 class="card-title"><strong>Cebu FC</strong></h5>
                         <h6 class="card-subtitle mb-2 text-muted">イツキ</h6>
                         <p class="card-text">毎月2週目と4週目の土曜日の朝10時から Metro Sports Center でフットサルしてます。みんなで汗を流しましょう。</p>
                     </div>
@@ -84,7 +84,7 @@
     <div class="description-wrapper text-light">
         <div class="container">
             <div class="heading">
-                <h2>CPICの仕組み</h2>
+                <h2><strong>CPICの仕組み</strong></h2>
             </div>
             <div class="description col-md-4">
                 <h3>グループ</h3>
@@ -116,8 +116,8 @@
         </div>
     </div>
     {{-- news一覧表示 --}}
-    <div class="news">
-        <h2>最新情報</h2>
+    <div class="news container-fluid">
+        <h2><strong>最新情報</strong></h2>
         <ul class="msr_newslist02">
             <li>
                 <a href="#">
