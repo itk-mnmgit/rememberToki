@@ -109,11 +109,20 @@
     <div class="content-container">
         <div class="container-fluid">
             <div class="jumbotron">
-                <h1>ここにチャットが表示されるよー</h1>
-                <p>You can see CHAT. Since it is currently being adjusted, please wait a little ...</p>
-                <p>See you later.....</p>
+                {{-- <p>{{ $group->name }}</p> --}}
+                <p><i class="fas fa-user-friends"></i> 23人</p>
+                <div class="card-header">
+                    <ul id="chat">
+                        @foreach($posts as $post)
+                        <li>{{ $post->text }}</li>
+                        @endforeach
+                    </ul>
+                </div>
                 <div class="form-group">
-                     <textarea id="body" class="form-control" name="body">{{old('body')}}</textarea>
+                    <div class="card-body">
+                        <input type="text" id="text">
+                        <input type="submit" value="送信" id="submit">
+                    </div>
                 </div>
             </div>
         </div>

@@ -6,12 +6,18 @@ use Illuminate\Http\Request;
 use App\Events\GroupPosted;
 use App\Group;
 use App\GroupChatMessage;
+use Carbon\Carbon;
 
 class GroupMessageController extends Controller
 {
     public function create(Request $request)
     {
-        $post = new GroupChatMessage($request->all());
+        $post = new GroupChatMessage();
+        $post->group_chat_id = 1;
+        $post->text = $request->text;
+        $post->user_id = 1;
+        $sent_time = Carbon::now();
+
         $post->save();
         event(new GroupPosted($post));
 

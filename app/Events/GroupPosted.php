@@ -24,6 +24,6 @@ class GroupPosted implements ShouldBroadcast
 
     public function broadcastOn()
     {
-        return new PrivateChannel('post');
+        return new Channel('post');
     }
 }

@@ -26,6 +26,8 @@ class ChatController extends Controller
 
         $posts = GroupChatMessage::all();
 
+        // $userNum = UserGroup::where($group_id)->count();
+
         return view('chat.index', compact('attendEvents', 'genres', 'attendGroups', 'dms', 'posts'));
     }
 
