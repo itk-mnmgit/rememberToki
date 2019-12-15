@@ -2,7 +2,13 @@
 
 @section('title', 'イベント一覧')
 
+@section('custom_css')
+<link href="{{ asset('css/event.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
+
+@include('components.header')
 
 <section class="jumbotron text-center">
     <div class="container">
@@ -39,35 +45,55 @@
                         <p class="card-text">{{ str_limit($event->intro, $limit = 20, $end = '…') }}</p>
                         <!-- 切り替えボタンの設定 -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{$event->id}}">詳細</button>
-                        <!-- モーダルの設定 -->
-                        <div class="modal fade" id="myModal-{{$event->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="title">{{ $event->name}}</h5>
+                    </div>
+                </div>
+                </div>
+            
+
+        <!-- モーダルの設定 -->
+        <div class="modal fade" id="myModal-{{$event->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="modal-header">
+                                    <h5 class="title">{{ $event->name}}</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 col-sm-6">
+                                        <img src="{{ $event->img }}" alt="business city" class='img-fluid card-img-top'>
                                     </div>
-                                    <img src="{{ $event->img }}" alt="business city" class='img-fluid card-img-top'>
-                                    <div class="modal-body">
-                                        <p class="card-text">{{ $event->intro }}</p>
+
+                                    <div class="col-8 col-sm-6">
+                                        <div class="modal-body">
+                                            {{-- <p class="card-text">{{ $event->intro }}</p> --}}
+                                            <p>イベント内容<br />
+                                                <textarea name="message" cols="40" rows="14" class="textlines">{{ $event->intro }}</textarea>
+                                                  </p>
+                                        </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                                        @if( in_array($event->id, $attendEventsId))
-                                        <form method='post' action='{{ route('event.leave') }}'>
-                                        @csrf
-                                            <input type="hidden" name="id" value="{{ $event->id }}">
-                                                <button type="submit" class="btn btn-danger">このイベントから退会</button>
-                                        </form>
-                                        @else
-                                        <form method='post' action='{{ route('event.attend') }}'>
-                                        @csrf
-                                            <input type="hidden" name="id" value="{{ $event->id }}">
-                                            <button type="submit" class="btn btn-success">このイベントに参加</button>
-                                        </form>
-                                        @endif
+
+                                    <div class="col-12">
+                                        <div class="modal-footer text-right">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                                            @if( in_array($event->id, $attendEventsId))
+                                            <form method='post' action='{{ route('event.leave') }}'>
+                                            @csrf
+                                                <input type="hidden" name="id" value="{{ $event->id }}">
+                                                    <button type="submit" class="btn btn-danger">このイベントから退会</button>
+                                            </form>
+                                            @else
+                                            <form method='post' action='{{ route('event.attend') }}'>
+                                            @csrf
+                                                <input type="hidden" name="id" value="{{ $event->id }}">
+                                                <button type="submit" class="btn btn-success">このイベントに参加</button>
+                                            </form>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -75,6 +101,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         @endforeach
     </div>
 </section>

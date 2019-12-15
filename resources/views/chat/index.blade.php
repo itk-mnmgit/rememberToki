@@ -12,7 +12,7 @@
 {{-- <div class="container-fluid"> --}}
 <div class="sidebar-container">
     <div class="sidebar-logo">
-        CPICメニュー
+            <a class="btn btn-blac text-white" href="{{ route('home.index') }}" role="button">CPIC</a>
     </div>
     <ul class="sidebar-navigation">
         <!-- 1 ,ナビゲーション -->
@@ -61,25 +61,52 @@
         </li>
         @foreach($attendEvents as $attendEvent)
         <li>
-            <h5 class="title">{{ $attendEvent->event->name}}</h5>
+            <a class="nav-link active text-light" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">{{ $attendEvent->event->name }}</a>
         </li>
         @endforeach
     </ul>
 </div>
 
-    {{-- 中央・チャット --}}
-    <div class="content-container">
-        <div class="container-fluid">
-            <div class="jumbotron">
-                <h1>ここにチャットが表示されるよー</h1>
-                <p>You can see CHAT. Since it is currently being adjusted, please wait a little ...</p>
-                <p>See you later.....</p>
-                <div class="form-group">
-                     <textarea id="body" class="form-control" name="body">{{old('body')}}</textarea>
+{{-- 中央・チャット --}}
+<div class="chat-container">
+    <div class="line__container">
+        <div class="line__title">
+            <div id="title">XD 勉強会</div>
+            <div id="member">
+                20人
+                <i class="fas fa-users fa-lg"></i>
+            </div>
+        </div>
+        <!-- ▼会話エリア scrollを外すと高さ固定解除 -->
+        <div class="line__contents scroll">
+            @foreach($posts as $post)
+                <div class="line__left">
+                    <figure>
+                        <img  src="{{ Auth::user()->img }}" alt="userIcon">
+                    </figure>
+                    <div class="line__left-text">
+                    <div class="name">{{Auth::user()->name }}</div>
+                    <div class="text">{{ $post->text }}</div>
+                    {{-- <span class="date">0:30</span> --}}
+                    </div>
                 </div>
+            @endforeach
+            <div class="line__right">
+                <div class="text">どーやって自分のと相手のを識別するんや</div>
+                <span class="date">0:30</span>
             </div>
         </div>
     </div>
+    <div class="inputFiles">
+        <i class="fas fa-camera fa-2x"></i>
+        <i class="fas fa-images fa-2x"></i>
+    </div>
+    <div id="bms_send">
+        <textarea id="bms_send_message" placeholder="Shift+Enterで送信はまだできません"></textarea>
+        <input type="submit" value="送信" id="bms_send_btn">
+    </div>
+</div>
+
 
 
 @endsection

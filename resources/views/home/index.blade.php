@@ -12,6 +12,9 @@
 
 @section('content')
 <!-- ここからホームページのメイン画面 -->
+
+@include('components.header')
+
 <div class="main">
     <div class="bg-image d-flex" style="background-image: url({{ asset('image/homebackground6.jpg') }})">
         <div class="col-md-6 d-flex flex-column pl-4 text-light comment-con text-center">

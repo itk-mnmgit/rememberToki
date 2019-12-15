@@ -4,6 +4,8 @@
 
 @section('content')
 
+@include('components.header')
+
 <div class="container mt-2 mb-2">
     <h1>設定変更フォーム</h1>
     <form method="POST" action="check.php">

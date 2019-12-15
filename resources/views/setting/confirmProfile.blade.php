@@ -3,6 +3,9 @@
 @section('title', 'confirm')
 
 @section('content')
+
+@include('components.header')
+
 <div class="container">
     <div class="py-5 text-center">
         <h1 class="card-header text-white bg-primary">以下の内容でよろしいですか？</h1><br>

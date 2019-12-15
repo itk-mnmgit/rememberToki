@@ -10,6 +10,7 @@ use App\User;
 use App\Dm;
 use App\UserGroup;
 use App\EventUser;
+use App\GroupChatMessage;
 use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
@@ -23,8 +24,13 @@ class ChatController extends Controller
         $genres = Genre::all();
         $dms = Dm::getDm(Auth::user()->id);
 
-        return view('chat.index', ['attendEvents' => $attendEvents, 'genres' => $genres, 'attendGroups' => $attendGroups, 'dms' => $dms]);
+        $posts = GroupChatMessage::all();
+
+        // $userNum = UserGroup::where($group_id)->count();
+
+        return view('chat.index', compact('attendEvents', 'genres', 'attendGroups', 'dms', 'posts'));
     }
+
 
     public function toListGroup()
     {

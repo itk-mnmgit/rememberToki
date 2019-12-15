@@ -20,3 +20,25 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+$(function () {
+    window.Echo.channel('post')
+      .listen('GroupPosted', (e) => {
+          console.log(e);
+        $("#chat").append('<li>' + e.post.text + '</li>');
+        $("#text").val('');
+    });
+    $('#submit').on('click', () => {
+      const url = "/groupChat/create";
+      $.ajax({
+        url: url,
+        type: 'POST',
+        data: {
+            text: $("#text").val()
+        },
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      })
+    })
+  })
