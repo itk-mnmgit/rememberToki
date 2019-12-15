@@ -57,13 +57,21 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="modal-header">
-                                    {{-- 左上にジャンル表示 --}}
-                                    <h5 class="genre">{{$event->name}}</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
+                                    <div class="row">
+                                        {{-- 左上にイベントタイトル表示 --}}
+                                        <div class="col-sm-7 modal-header-tittle">
+                                            <h5 class="tittle">{{$event->name}}</h5>
+                                        </div>
+                                         {{-- 右上にイベントタイトル表示 --}}
+                                        <div class="col-sm-3 modal-header-genre">
+                                        <h5 class="genre text-center">{{$genre->name}}
+                                        </div>
+                                        <div class="col-sm-2 modal-header-delete">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button></h5>
+                                        </div>
+                                    </div>
                                 {{-- 左側中央に写真を表示 --}}
                                 <div class="row">
                                     <div class="col-4 col-sm-6 img-left">
