@@ -72,7 +72,7 @@
     <div class="line__container">
         <div class="line__title">
             <div id="title">XD 勉強会</div>
-            <div id="member">
+            <div id="member text-center">
                 20人
                 <i class="fas fa-users fa-lg"></i>
             </div>
