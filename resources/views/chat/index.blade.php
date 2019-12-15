@@ -69,8 +69,6 @@
 
 {{-- 中央・チャット --}}
 <div class="chat-container">
-
-
     <div class="line__container">
         <div class="line__title">
           グループ名
@@ -80,7 +78,7 @@
             @foreach($posts as $post)
                 <div class="line__left">
                     <figure>
-                        <img  src="{{ Auth::user()->img }}" width="30" height="30" alt="userIcon">
+                        <img  src="{{ Auth::user()->img }}" alt="userIcon">
                     </figure>
                     <div class="line__left-text">
                     <div class="name">{{Auth::user()->name }}</div>
@@ -99,9 +97,9 @@
         <i class="fas fa-camera"></i>
         <i class="fas fa-images"></i>
     </div>
-    <div class='inputText'>
-        <textarea rows="4" id="text" class="form-control" placeholder="Shift+Enterで送信はまだできません"></textarea>
-        <input type="submit" value="送信" id="submit" class="btn btn-info chat-btn">
+    <div id="bms_send">
+        <textarea id="bms_send_message" placeholder="Shift+Enterで送信はまだできません"></textarea>
+        <input type="submit" value="送信" id="bms_send_btn">
     </div>
 </div>
 
