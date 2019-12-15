@@ -61,7 +61,7 @@
         </li>
         @foreach($attendEvents as $attendEvent)
         <li>
-            <h5 class="title">&ensp;&ensp;&ensp;&ensp;&ensp;{{ $attendEvent->event->name}}</h5>
+            <a class="nav-link active text-light" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">{{ $attendEvent->event->name }}</a>
         </li>
         @endforeach
     </ul>
@@ -71,7 +71,11 @@
 <div class="chat-container">
     <div class="line__container">
         <div class="line__title">
-          グループ名
+            <div id="title">XD 勉強会</div>
+            <div id="member">
+                20人
+                <i class="fas fa-users fa-lg"></i>
+            </div>
         </div>
         <!-- ▼会話エリア scrollを外すと高さ固定解除 -->
         <div class="line__contents scroll">
@@ -94,8 +98,8 @@
         </div>
     </div>
     <div class="inputFiles">
-        <i class="fas fa-camera"></i>
-        <i class="fas fa-images"></i>
+        <i class="fas fa-camera fa-2x"></i>
+        <i class="fas fa-images fa-2x"></i>
     </div>
     <div id="bms_send">
         <textarea id="bms_send_message" placeholder="Shift+Enterで送信はまだできません"></textarea>

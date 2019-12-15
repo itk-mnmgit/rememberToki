@@ -99,6 +99,12 @@
   background: #273246;
   color: #ffffff;
 }
+
+i{
+  padding: 4px 5px 4px 5px;
+  float: right;
+}
+
 .inputText{
   text-align: right;
 }
@@ -121,9 +127,22 @@
   background: #273246;
   /* padding: 10px; */
   text-align: center;
-  font-size: 150%;
   color: #ffffff;
 }
+ #title{
+  height: 60%;
+  font-size: 200%;
+ }
+ #member{
+  height: 40%;
+  font-size: 150%;
+  text-align: right;
+ }
+ #member i{
+   text-align: center;
+   padding-right: 45%;
+ }
+
 
 /* 会話部分 */
 .line__container .line__contents {
