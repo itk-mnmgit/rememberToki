@@ -41,15 +41,15 @@
     </div>
 
     <div class="event container-fluid">
-        <div class="contents text-left">
+        <div class="contents">
             <h2><strong>もうすぐ開催のイベント</strong></h2>
             <p>セブでもうすぐ開催のイベントを見てみよう。</p>
         </div>
         {{-- イベント一覧表示 --}}
-        <div class="container mt-3 text-left mb-3">
+        <div class="container mt-3 mb-3">
             <div class="row slider">
                 @for ($i = 0; $i < 8; $i++)
-                    <div class="card" style="width: 20rem; margin-right: 30px;">
+                    <div class="card" style="width: 20rem; margin-left: 15px; margin-right: 15px;">
                         <div class="card-body">
                             <p class="card-text"><small class="text-primary">12月20日(金), 18:00</small></p>
                             <h5 class="card-title"><strong>IT PARK WordPress勉強会</strong></h5>
@@ -64,59 +64,64 @@
     </div>
     {{-- グループ一覧表示 --}}
     <div class="group container-fluid">
-        <div class="contents text-left">
+        <div class="contents">
             <h2><strong>人気のグループ</strong></h2>
             <p>セブで人気のグループを見てみよう。</p>
         </div>
-        <div class="row slider2">
-            @for ($i = 0; $i < 8; $i++)
-                <div class="card" style="width: 12rem; margin-right: 30px;">
-                    <img src="{{ asset('image/homefootball.jpg') }}" class="img-fluid card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title"><strong>Cebu FC</strong></h5>
-                        <h6 class="card-subtitle mb-2 text-muted">イツキ</h6>
-                        <p class="card-text">毎月2週目と4週目の土曜日の朝10時から Metro Sports Center でフットサルしてます。みんなで汗を流しましょう。</p>
+        <div class="container mt-3 mb-3">
+            <div class="row slider2">
+                @for ($i = 0; $i < 8; $i++)
+                    <div class="card" style="width: 12rem; margin-left: 15px; margin-right: 15px;">
+                        <img src="{{ asset('image/homefootball.jpg') }}" class="img-fluid card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>Cebu FC</strong></h5>
+                            <h6 class="card-subtitle mb-2 text-muted">イツキ</h6>
+                            <p class="card-text">毎月2週目と4週目の土曜日の朝10時から Metro Sports Center でフットサルしてます。みんなで汗を流しましょう。</p>
+                        </div>
                     </div>
-                </div>
-            @endfor
+                @endfor
+            </div>
         </div>
     </div>
+    {{-- CPICの仕組み --}}
     <div class="description-wrapper text-light">
         <div class="container">
             <div class="heading">
                 <h2><strong>CPICの仕組み</strong></h2>
             </div>
-            <div class="description col-md-4">
-                <h3>グループ</h3>
-                <ul class="txt-contents">
-                    <li>気になるグループに入ってセブに関する役立つ情報を交換しよう。</li>
-                    <li>みんなが参加したくなるグループを自分で作ってみよう。</li>
-                </ul>
-            </div>
-            <div class="description col-md-4 d-flex">
-                <i class="fas fa-plus align-self-center fa-3x text-primary"></i>
-                <div>
-                    <h3>チャット</h3>
+            <div class="descriptions">
+                <div class="description col-md-4">
+                    <h3>グループ</h3>
                     <ul class="txt-contents">
-                        <li>同じグループの仲間たちとチャットをしよう。</li>
-                        <li>グループで仲良くなった人とは個人でチャットをしよう。</li>
+                        <li>気になるグループに入ってセブに関する役立つ情報を交換しよう。</li>
+                        <li>みんなが参加したくなるグループを自分で作ってみよう。</li>
                     </ul>
                 </div>
-            </div>
-            <div class="description col-md-4 d-flex">
-                <i class="fas fa-plus align-self-center fa-3x text-primary"></i>
-                <div>
-                    <h3>イベント</h3>
-                    <ul class="txt-contents">
-                        <li>あなたが楽しめるいろいろなイベントに参加しよう。</li>
-                        <li>慣れてきたら自分でイベントを開催してみよう。</li>
-                    </ul>
+                <div class="description col-md-4 d-flex">
+                    <i class="fas fa-plus align-self-center fa-3x text-primary"></i>
+                    <div>
+                        <h3>チャット</h3>
+                        <ul class="txt-contents">
+                            <li>同じグループの仲間たちとチャットをしよう。</li>
+                            <li>グループで仲良くなった人とは個人でチャットをしよう。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="description col-md-4 d-flex">
+                    <i class="fas fa-plus align-self-center fa-3x text-primary"></i>
+                    <div>
+                        <h3>イベント</h3>
+                        <ul class="txt-contents">
+                            <li>あなたが楽しめるいろいろなイベントに参加しよう。</li>
+                            <li>慣れてきたら自分でイベントを開催してみよう。</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     {{-- news一覧表示 --}}
-    <div class="news container-fluid">
+    <div class="news container-fluid container">
         <h2><strong>最新情報</strong></h2>
         <ul class="msr_newslist02">
             <li>

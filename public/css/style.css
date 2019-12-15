@@ -1,17 +1,17 @@
 /* ホームページメイン画面 */
-.bg-image{
+  .bg-image{
     height:600px;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-}
+  }
 
-.stay-right {
+  .stay-right {
     position:relative;
-}
+  }
 
 
-.comment1{
+  .comment1{
     font-size:18px;
     margin-top: 300px;
     margin-left: auto;
@@ -31,16 +31,16 @@
   .connect {
     text-align: right;
   }
-  /* ヘッダーの文字に影をつける */
+/* ヘッダーの文字に影をつける */
   .comment-con {
-    padding-top:70px;
+    padding-top:75px;
     text-shadow: #0f1721 3px 0px 10px;
   }
 
-  /* イベント */
+/* イベント */
   .event{
-    margin-top:50px;
-    margin-bottom:50px;
+    margin-top:40px;
+    margin-bottom:40px;
   }
 
   .container-fluid section {
@@ -50,29 +50,21 @@
     padding: 15px;
     display: flex;
   }
-
+/* イベント・グループの説明欄 */
   .contents{
     font-size:20px;
+    margin-left: 146px;
   }
 
-
-  .contents-into h1 {
-    color: #E6AC27;
-    font-size: 1.5rem;
-  }
   .contents-into p {
     margin-top: 10px;
   }
-
+/* グループカードの画像のサイズ */
   .card img{
     width:100%;
   }
 
-  /* グループ一覧 */
-  .group{
-    margin-bottom:50px;
-  }
-  /* 矢印用スタイル */
+/* 矢印用スタイル */
   .prev-arrow,
   .next-arrow {
     position: absolute;
@@ -87,13 +79,17 @@
   }
 
   .prev-arrow {
-    left: -20px;
+    left: -40px;
   }
 
   .next-arrow {
-    right: -20px;
+    right: -40px;
   }
 
+/* グループ一覧 */
+  .group{
+    margin-bottom:40px;
+  }
 
   /* CPICの仕組み */
   .description-wrapper{
@@ -101,7 +97,7 @@
     padding-bottom:30px;
     background-color: #0f1721;
     text-align:center;
-    margin-bottom:50px;
+    margin-bottom:40px;
   }
 
   .heading{
@@ -111,6 +107,10 @@
 
   .heading h2{
     font-weight:normal;
+  }
+
+  .descriptions{
+    margin-right: 45px;
   }
 
   .description{
@@ -125,7 +125,11 @@
   }
   /* news一覧 */
   .news{
-    margin-bottom:50px;
+    margin-bottom:40px;
+  }
+
+  .news h2{
+    margin-bottom:20px;
   }
   .msr_newslist02 {
     width: 100%;
