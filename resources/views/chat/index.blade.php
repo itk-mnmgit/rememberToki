@@ -97,7 +97,7 @@
             </div>
         </div>
     </div>
-    <div class="inputFiles">
+    <div class="inputFiles text-right">
         <i class="fas fa-camera fa-2x"></i>
         <i class="fas fa-images fa-2x"></i>
     </div>
