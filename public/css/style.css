@@ -6,11 +6,6 @@
     background-attachment: fixed;
   }
 
-  .stay-right {
-    position:relative;
-  }
-
-
   .comment1{
     font-size:18px;
     margin-top: 300px;
@@ -91,7 +86,7 @@
     margin-bottom:40px;
   }
 
-  /* CPICの仕組み */
+/* CPICの仕組み */
   .description-wrapper{
     height:350px;
     padding-bottom:30px;
@@ -185,30 +180,4 @@
   }
   .msr_newslist02 li .cpic02 {
     background-color: #0E3A5F;
-  }
-
-  /* footer */
-  .footer {
-    color:#fff;
-    height: 120px;
-    margin-top: 50px;
-    padding:10px;
-    margin-bottom:0px;
-  }
-
-  .footer-logo{
-    font-size:32px;
-    float:left;
-    padding-top:25px;
-    padding-left:15px;
-  }
-
-  .footer-list{
-    float:right;
-    padding-top:10px;
-    padding-right:15px;
-  }
-
-  .footer-list li{
-    padding-bottom:5px;
   }

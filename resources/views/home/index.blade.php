@@ -25,7 +25,7 @@
         </div>
         <div class="col-md-6 d-flex text-light text-center">
             <div class="comment1">
-                <p class="right">セブで『仲間』を見つけよう</p>
+                <p>セブで『仲間』を見つけよう</p>
                 <p>同じ趣味、関心を持った仲間たちとチャットを始めよう</p>
                 <p>仲良くなって一緒にイベントを開催しよう</p>
                 <p>CPICをはじめよう</p>
