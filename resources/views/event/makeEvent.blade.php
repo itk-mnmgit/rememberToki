@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link href="{{ asset('css/croppie.css') }}" rel="stylesheet">
     <link href="{{ asset('css/event-cropper.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/event.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/event.makeevent.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
