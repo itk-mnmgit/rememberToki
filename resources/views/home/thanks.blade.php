@@ -33,7 +33,7 @@
                                 <div class="custom-file mb-2">
                                     <input type="file" class="input-file custom-file-input" id="picture" name="picture">
                                     <textarea id="base64" name="base64" style="display: none"></textarea>
-                                    <label class="custom-file-label" for="picture">グループ画像</label>
+                                    <label class="custom-file-label" for="picture">プロフィール画像</label>
                                 </div>
                                 <img id="cropped-img" src="{{ old('base64') }}" alt="" style="width: 100%">
                                 <div class="modal fade" id="cropper-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
