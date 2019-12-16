@@ -14204,6 +14204,7 @@ window.Vue = __webpack_require__(41);
  */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 =======
 Vue.component('example-component', __webpack_require__(50));
@@ -14212,6 +14213,9 @@ Vue.component('example-component', __webpack_require__(50));
 // const app = new Vue({
 //     el: '#app'
 // });
+=======
+Vue.component('example-component', __webpack_require__(50));
+>>>>>>> newtakahome
 
 
 var theirMessage = function theirMessage(_ref) {
@@ -58910,7 +58914,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 // removed by extract-text-webpack-plugin
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> newtakahome
 /***/ }),
 /* 46 */,
 /* 47 */,
@@ -59143,6 +59150,9 @@ if (false) {
   }
 }
 
+<<<<<<< HEAD
 >>>>>>> feature/new_sige
+=======
+>>>>>>> newtakahome
 /***/ })
 /******/ ]);
