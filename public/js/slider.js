@@ -6,8 +6,8 @@ $(document).ready(function(){
         // arrows: false,
         autoplaySpeed: 3000,
         autoplay: true,
-        prevArrow: '<span class="prev-arrow">&lt;</span>',
-        nextArrow: '<span class="next-arrow">&gt;</span>',
+        prevArrow: '<span class="prev-arrow"><i class="fas fa-chevron-circle-left fa-2x text-primary"></i></span>',
+        nextArrow: '<span class="next-arrow"><i class="fas fa-chevron-circle-right fa-2x text-primary"></i></span>',
     });
 
     $('.slider2').slick({
