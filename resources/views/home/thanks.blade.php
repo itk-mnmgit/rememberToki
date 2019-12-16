@@ -24,7 +24,7 @@
             <div class="row no gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static text-center">
                     <strong class="inline-block">プロフィールをもっと追加しよう！</strong>
-                    <a class="btn btn-lg text-primary" href="{{ route('get.chat.index') }}" role="button">skip▶︎▶︎</a>
+                    <a class="btn btn-lg text-primary" href="{{ route('saveImg') }}" role="button">skip▶︎▶︎</a>
                     <p class="card-text mb-auto">写真を追加して、あなたのことをもっと他のメンバーに知ってもらおう</p>
                     <div class="card-body">
                         <form method="POST" action="{{ route('post.chat.index') }}" enctype="multipart/form-data">

@@ -112,7 +112,7 @@ window.Laravel.user_id = {{ Auth::user()->id }}
         <i class="fas fa-images fa-2x"></i>
     </div>
     <div id="bms_send">
-        <textarea id="bms_send_message" placeholder="Shift+Enterで送信はまだできません"></textarea>
+        <textarea id="bms_send_message" placeholder="Shift+Enterで送信はまだできません" autofocus></textarea>
         <input type="submit" value="送信" id="bms_send_btn">
     </div>
 </div>
