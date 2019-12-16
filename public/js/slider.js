@@ -8,6 +8,15 @@ $(document).ready(function(){
         autoplay: true,
         prevArrow: '<span class="prev-arrow"><i class="fas fa-chevron-circle-left fa-2x text-primary"></i></span>',
         nextArrow: '<span class="next-arrow"><i class="fas fa-chevron-circle-right fa-2x text-primary"></i></span>',
+        // レスポンシブデザイン
+        responsive: [{
+            breakpoint:640,
+            settings:{
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+            }
+        }]
     });
 
     $('.slider2').slick({
@@ -16,6 +25,15 @@ $(document).ready(function(){
         slidesToScroll: 1,
         arrows: false,
         autoplaySpeed: 1000,
-        autoplay: true
+        autoplay: true,
+        // レスポンシブデザイン
+        responsive: [{
+            breakpoint:640,
+            settings:{
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            }
+        }]
     });
+
 });
