@@ -24,7 +24,7 @@ class ChatController extends Controller
         $genres = Genre::all();
         $dms = Dm::getDm(Auth::user()->id);
 
-        $posts = GroupChatMessage::all();
+        $posts = GroupChatMessage::with('user')->get();
 
         // $userNum = UserGroup::where($group_id)->count();
 
@@ -90,13 +90,21 @@ class ChatController extends Controller
 
     public function makeGroup(Request $request)
     {
-        $group = $request->session()->get('group');
+        // session()使ってるからか全部表示されなくなる
 
-        $group->save();
+        // $action = $request->get('action', 'back');
+        // if($action == 'back'){
+        //     return redirect()->route('chat.makeGroup');
+        // }else{
 
-        $request->session()->forget('group');
+            $group = $request->session()->get('group');
 
-        return redirect()->route('get.chat.index');
+            $group->save();
+
+            $request->session()->forget('group');
+
+            return redirect()->route('get.chat.index');
+        // }
     }
 
     public function attendGroup(Request $request)

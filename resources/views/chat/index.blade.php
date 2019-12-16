@@ -8,6 +8,13 @@
 
 @section('content')
 
+<script>
+window.Laravel = {};
+window.Laravel.user_id = {{ Auth::user()->id }}
+
+</script>
+
+
 {{-- サイドバーを表示する --}}
 {{-- <div class="container-fluid"> --}}
 <div class="sidebar-container">
@@ -80,21 +87,24 @@
         <!-- ▼会話エリア scrollを外すと高さ固定解除 -->
         <div class="line__contents scroll">
             @foreach($posts as $post)
-                <div class="line__left">
-                    <figure>
-                        <img  src="{{ Auth::user()->img }}" alt="userIcon">
-                    </figure>
-                    <div class="line__left-text">
-                    <div class="name">{{Auth::user()->name }}</div>
-                    <div class="text">{{ $post->text }}</div>
-                    {{-- <span class="date">0:30</span> --}}
+                @if($post->user_id != Auth::user()->id)
+                    <div class="line__left">
+                        <figure>
+                            <img  src="{{ $post->user->img }}" alt="userIcon">
+                        </figure>
+                        <div class="line__left-text">
+                        <div class="name">{{$post->user->name }}</div>
+                        <div class="text">{{ $post->text }}</div>
+                        <span class="date">{{ date('h:m', strtotime($post->sent_time)) }}</span>
+                        </div>
                     </div>
-                </div>
+                @else
+                    <div class="line__right">
+                        <div class="text">{{ $post->text }}</div>
+                        <span class="date">{{ date('h:m', strtotime($post->sent_time)) }}</span>
+                    </div>
+                @endif
             @endforeach
-            <div class="line__right">
-                <div class="text">どーやって自分のと相手のを識別するんや</div>
-                <span class="date">0:30</span>
-            </div>
         </div>
     </div>
     <div class="inputFiles">

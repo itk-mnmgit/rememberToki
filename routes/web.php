@@ -53,6 +53,8 @@ Route::group(['middleware' => ['auth']], function()
     Route::post('setting/confirmHelp', 'SettingController@confirmHelp')->name('setting.confirmHelp');
     Route::post('setting/sendHelp', 'SettingController@sendHelp')->name('setting.sendHelp');
 
-    Route::post("groupChat/create", 'GRoupMessageController@create')->name('post.create');
+    Route::post("/groupChat/create", 'GroupMessageController@create')->name('post.create');
+
+    Route::post("/groupMessage/getDetail", 'GroupMessageController@getDetail')->name('getDetail');
 
 });

@@ -31,11 +31,11 @@
                             @csrf
                             <div class="order-md-2">
                                 <div class="custom-file mb-2">
-                                    <input type="file" class="input-file custom-file-input" id="picture" name="picture">
+                                    <input type="file" class="input-file custom-file-input" id="picture" name="picture" autofocus>
                                     <textarea id="base64" name="base64" style="display: none"></textarea>
-                                    <label class="custom-file-label" for="picture">グループ画像</label>
+                                    <label class="custom-file-label" for="picture">プロフィール画像</label>
                                 </div>
-                                <img id="cropped-img" src="{{ old('base64') }}" alt="" style="width: 100%">
+                                <img id="cropped-img" src="{{ old('base64') }}" alt="" style="width: 60%" class="my-3">
                                 <div class="modal fade" id="cropper-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -58,8 +58,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>自己紹介を追加しましょう</label>
-                                <textarea name="intro" rows="4" cols="120" class="col p-4 d-flex flex-column position-static text-center"></textarea>
+                                <label>自己紹介文を追加しましょう</label>
+                                <textarea name="intro" rows="4" cols="120" class="col p-4 d-flex flex-column position-static"></textarea>
                             </div>
                             <div class="form-group row mb-0">
                                 <div class="col-md-4 offset-md-4">

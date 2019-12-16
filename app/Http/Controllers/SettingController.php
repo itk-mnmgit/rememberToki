@@ -11,6 +11,7 @@ class SettingController extends Controller
     {
         $user = User::find(Auth::user()->id);
 
+        // dd($user);
         return view('setting.index', compact('user'));
     }
 
