@@ -85,6 +85,14 @@
   background-color: transparent;
 }
 
+/* .navbar-toggler{
+  background: rgb(246, 247, 248);
+}
+
+.navbar-toggler-icon{
+  background: white;
+} */
+
 
 /* ↓↓↓↓↓↓↓↓↓↓↓↓chat用↓↓↓↓↓↓↓↓↓↓↓ */
 
@@ -329,4 +337,8 @@
   #bms_send_btn:hover {
       background: #2574A9; /*マウスポインタを当てた時にアクティブな色になる*/
       cursor: pointer;/*マウスポインタを当てた時に、カーソルが指の形になる*/
+  }
+
+  .fa-2x{
+    padding: 0px 4px 2px;
   }

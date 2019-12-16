@@ -57,27 +57,45 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="modal-header">
-                                    <h5 class="title">{{ $event->name}}</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                </div>
+                                    <div class="row">
+                                        {{-- 左上にイベントタイトル表示 --}}
+                                        <div class="col-sm-7 modal-header-tittle">
+                                            <h5 class="tittle">{{$event->name}}</h5>
+                                        </div>
+                                         {{-- 右上にイベントタイトル表示 --}}
+                                        <div class="col-sm-3 modal-header-genre">
+                                            <h5 class="genre text-center">{{$event->genre->name}}
+                                            </div>
+                                            <div class="col-sm-2 modal-header-delete">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                {{-- 左側中央に写真を表示 --}}
                                 <div class="row">
-                                    <div class="col-4 col-sm-6">
+                                    <div class="col-4 col-sm-6 img-left">
                                         <img src="{{ $event->img }}" alt="business city" class='img-fluid card-img-top'>
                                     </div>
-
+                                    {{-- イベントタイトル,内容 --}}
                                     <div class="col-8 col-sm-6">
                                         <div class="modal-body">
                                             {{-- <p class="card-text">{{ $event->intro }}</p> --}}
-                                            <p>イベント内容<br />
-                                                <textarea name="message" cols="40" rows="14" class="textlines">{{ $event->intro }}</textarea>
+                                            <p class="title">{{ $event->name}}</p>
+                                            <p>
+                                                <textarea name="message" cols="45" rows="15" class="textlines">{{ $event->intro }}</textarea>
                                                   </p>
                                         </div>
                                     </div>
 
                                     <div class="col-12">
+                                            <div class="modal-footer text-right">
+                                                {{-- 開始、終了時間、イベント作成者 --}}
+                                                <P class="start_date">{{ $event->startTime }}</P>
+                                                <P class="finish_date">〜&ensp;{{$event->finishTime}}</P>
+                                                <p class="representative">イベント代表者：{{ Auth::user()->name }}</p>
+                                            </div>
                                         <div class="modal-footer text-right">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
                                             @if( in_array($event->id, $attendEventsId))
