@@ -4,11 +4,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
   }
 
   .comment1{
     font-size:18px;
-    margin-top: 300px;
+    /* margin-top: 300px; */
     margin-left: auto;
     margin-right: auto;
   }
@@ -49,6 +51,7 @@
   .contents{
     font-size:20px;
     margin-left: 146px;
+    text-align: left;
   }
 
   .contents-into p {
@@ -88,7 +91,7 @@
 
 /* CPICの仕組み */
   .description-wrapper{
-    height:350px;
+    /* height:22rem; */
     padding-bottom:30px;
     background-color: #0f1721;
     text-align:center;
@@ -104,8 +107,8 @@
     font-weight:normal;
   }
 
-  .descriptions{
-    margin-right: 45px;
+  .icon{
+    padding-left:20px;
   }
 
   .description{
@@ -113,7 +116,7 @@
   }
 
   .txt-contents{
-    width:80%;
+    /* width:80%; */
     display:inline-block;
     margin:20px;
     font-size:15px;
@@ -180,4 +183,12 @@
   }
   .msr_newslist02 li .cpic02 {
     background-color: #0E3A5F;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .contents{
+      /* font-size:20px; */
+      margin-left: 0;
+      text-align: center;
+    }
   }
