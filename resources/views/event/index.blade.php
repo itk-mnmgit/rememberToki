@@ -64,12 +64,13 @@
                                         </div>
                                          {{-- 右上にイベントタイトル表示 --}}
                                         <div class="col-sm-3 modal-header-genre">
-                                        <h5 class="genre text-center">{{$genre->name}}
-                                        </div>
-                                        <div class="col-sm-2 modal-header-delete">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button></h5>
+                                            <h5 class="genre text-center">{{$event->genre->name}}
+                                            </div>
+                                            <div class="col-sm-2 modal-header-delete">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </h5>
                                         </div>
                                     </div>
                                 {{-- 左側中央に写真を表示 --}}
