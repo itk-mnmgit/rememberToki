@@ -14228,6 +14228,11 @@ $(function () {
     window.Echo.channel('post').listen('GroupPosted', function (e) {
         console.log(e);
 
+		//group_idとmessageのgroup_idが一致しなかったらajaxと通信しない->何も表示されない
+		if(e.post.group_id != $("#group_id").val()){
+			return;
+		}
+
         $.ajax({
             url: '/groupMessage/getDetail',
             type: 'POST',
@@ -14260,7 +14265,8 @@ $(function () {
             url: url,
             type: 'POST',
             data: {
-                text: $("#bms_send_message").val()
+                text: $("#bms_send_message").val(),
+                group_id: $("#group_id").val()
             },
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

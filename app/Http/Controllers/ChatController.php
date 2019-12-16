@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 class ChatController extends Controller
 {
 
-    public function index()
+    public function index(int $id)
     {
         $attendEvents = EventUser::where('user_id', Auth::user()->id)->with('event')->get();
         $attendGroups = UserGroup::where('user_id', Auth::user()->id)->with('group')->get();
@@ -24,11 +24,13 @@ class ChatController extends Controller
         $genres = Genre::all();
         $dms = Dm::getDm(Auth::user()->id);
 
-        $posts = GroupChatMessage::with('user')->get();
+        $posts = GroupChatMessage::where('group_id', $id)->with('user')->get();
+        $group = Group::find($id);
+        $userNum = UserGroup::where('group_id', $id)->count();
 
         // $userNum = UserGroup::where($group_id)->count();
 
-        return view('chat.index', compact('attendEvents', 'genres', 'attendGroups', 'dms', 'posts'));
+        return view('chat.index', compact('attendEvents', 'genres', 'attendGroups', 'dms', 'posts', 'group', 'userNum'));
     }
 
 
@@ -103,7 +105,9 @@ class ChatController extends Controller
 
             $request->session()->forget('group');
 
-            return redirect()->route('get.chat.index');
+            return redirect()->route('get.chat.index',[
+                'id' => 0
+            ]);
         // }
     }
 
@@ -116,7 +120,9 @@ class ChatController extends Controller
 
         $user_Group->save();
 
-        return redirect()->route('get.chat.index');
+        return redirect()->route('get.chat.index',[
+            'id' => 0
+        ]);
     }
 
     public function leaveGroup(Request $request)
@@ -127,7 +133,9 @@ class ChatController extends Controller
         //削除
         $leaveGroup->delete();
 
-        return redirect()->route('get.chat.index');
+        return redirect()->route('get.chat.index',[
+            'id' => 0
+        ]);
     }
 
 

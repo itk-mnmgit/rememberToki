@@ -14,7 +14,7 @@ class GroupMessageController extends Controller
     public function create(Request $request)
     {
         $post = new GroupChatMessage();
-        $post->group_chat_id = 1;
+        $post->group_id = $request->group_id;
         $post->text = $request->text;
         $post->user_id = Auth::user()->id;
         $post->sent_time = Carbon::now();

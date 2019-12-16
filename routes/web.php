@@ -26,7 +26,7 @@ Route::group(['middleware' => ['auth']], function()
     Route::post('/chat/index', 'HomeController@storeDetail')->name('post.chat.index');
 
 //Chat
-    Route::get('/chat/index', 'ChatController@index')->name('get.chat.index');
+    Route::get('/chat/{id}/index', 'ChatController@index')->name('get.chat.index');
     Route::get('/chat/listGroup', 'ChatController@toListGroup')->name('chat.listGroup');
     Route::get('/chat/makeGroup', 'ChatController@toMakeGroup')->name('chat.makeGroup');
     Route::post('/chat/confirm', 'ChatController@confirmGroup')->name('chat.confirm');

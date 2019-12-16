@@ -45,7 +45,9 @@ class SettingController extends Controller
 
         $request->session()->forget('user');
 
-        return redirect()->route('get.chat.index');
+        return redirect()->route('get.chat.index',[
+            'id' => 0
+        ]);
     }
 
     public function help()

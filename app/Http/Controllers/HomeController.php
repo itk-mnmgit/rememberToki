@@ -35,7 +35,9 @@ class HomeController extends Controller
 
         $user->save();
 
-        return redirect()->route('get.chat.index');
+        return redirect()->route('get.chat.index',[
+            'id' => 0
+        ]);
     }
 
     public function storeDetail(Request $request)
