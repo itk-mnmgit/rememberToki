@@ -14228,10 +14228,10 @@ $(function () {
     window.Echo.channel('post').listen('GroupPosted', function (e) {
         console.log(e);
 
-		//group_idとmessageのgroup_idが一致しなかったらajaxと通信しない->何も表示されない
-		if(e.post.group_id != $("#group_id").val()){
-			return;
-		}
+        //group_idとmessageのgroup_idが一致しなかったらajaxと通信しない->何も表示されない
+        if (e.post.group_id != $("#group_id").val()) {
+            return;
+        }
 
         $.ajax({
             url: '/groupMessage/getDetail',
@@ -14246,9 +14246,11 @@ $(function () {
             console.log(data);
             var message = null;
             if (data[0].user_id == Laravel.user_id) {
-                message = myMessage({ text: data[0].text, sent_time: data[0].sent_time });
+                var date = moment(data[0].sent_time);
+                message = myMessage({ text: data[0].text, sent_time: date.format('HH:mm') });
             } else {
-                message = theirMessage({ img: data[0].user.img, name: data[0].user.name, text: data[0].text, sent_time: data[0].sent_time });
+                var _date = moment(data[0].sent_time);
+                message = theirMessage({ img: data[0].user.img, name: data[0].user.name, text: data[0].text, sent_time: _date.format('HH:mm') });
             }
 
             $(".line__contents").append(message);
