@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class UserGroup extends Model
 {
+
+    use softDeletes;
+
     public static function getAttendGroup(int $user_id)
     {
 

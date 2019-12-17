@@ -18,6 +18,7 @@ class CreateUserGroupsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('group_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

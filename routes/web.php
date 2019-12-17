@@ -22,10 +22,11 @@ Route::group(['middleware' => ['auth']], function()
 
 //Home
     Route::get('/home/thanks', 'HomeController@thanks')->name('home.thanks');
+    Route::get('/home/saveImg', 'HomeController@storeDefaultImg')->name('saveImg');
     Route::post('/chat/index', 'HomeController@storeDetail')->name('post.chat.index');
 
 //Chat
-    Route::get('/chat/index', 'ChatController@index')->name('get.chat.index');
+    Route::get('/chat/{id}/index', 'ChatController@index')->name('get.chat.index');
     Route::get('/chat/listGroup', 'ChatController@toListGroup')->name('chat.listGroup');
     Route::get('/chat/makeGroup', 'ChatController@toMakeGroup')->name('chat.makeGroup');
     Route::post('/chat/confirm', 'ChatController@confirmGroup')->name('chat.confirm');
@@ -53,6 +54,8 @@ Route::group(['middleware' => ['auth']], function()
     Route::post('setting/confirmHelp', 'SettingController@confirmHelp')->name('setting.confirmHelp');
     Route::post('setting/sendHelp', 'SettingController@sendHelp')->name('setting.sendHelp');
 
-    Route::post("groupChat/create", 'GRoupMessageController@create')->name('post.create');
+    Route::post("/groupChat/create", 'GroupMessageController@create')->name('post.create');
+
+    Route::post("/groupMessage/getDetail", 'GroupMessageController@getDetail')->name('getDetail');
 
 });

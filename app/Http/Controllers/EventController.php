@@ -84,7 +84,9 @@ class EventController extends Controller
 
         $request->session()->forget('event');
 
-        return redirect()->route('get.chat.index');
+        return redirect()->route('get.chat.index',[
+            'id' => 0
+        ]);
     }
 
     public function attendEvent(Request $request)
@@ -96,7 +98,9 @@ class EventController extends Controller
 
         $event_User->save();
 
-        return redirect()->route('get.chat.index');
+        return redirect()->route('get.chat.index',[
+            'id' => 0
+        ]);
     }
 
     public function leaveEvent(Request $request)
@@ -106,7 +110,9 @@ class EventController extends Controller
 
         $leaveEvent->delete();
 
-        return redirect()->route('get.chat.index');
+        return redirect()->route('get.chat.index',[
+            'id' => 0
+        ]);
     }
 
 
