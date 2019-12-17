@@ -14,10 +14,78 @@ window.Laravel.user_id = {{ Auth::user()->id }}
 
 </script>
 
+    <div class="sidebar-container">
+        <header id="global-head">
+        <div id="nav-toggle">
+            <div>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        </header>
+        <div class="sidebar-logo">
+                <a class="btn btn-blac text-white" href="{{ route('home.index') }}" role="button">ホーム</a>
+        </div>
+        <ul class="sidebar-navigation">
+            <!-- 1 ,ナビゲーション -->
+                <li class="header">グループCHAT</li>
+            <!-- 1列目 -->
+            <li>
+                <a class="btn btn-blac text-white" href="{{ route('chat.listGroup') }}" role="button">＋ グループを追加する</a>
+            </li>
+    
+            <!-- 2列目 -->
+            @foreach($attendGroups as $attendGroup)
+            <li>
+            <a class="nav-link active text-light" id="v-pills-home-tab" href="{{ route('get.chat.index', ['id' => $attendGroup->group->id]) }}"  aria-controls="v-pills-home" aria-selected="true">{{ $attendGroup->group->name }}</a>
+            </li>
+            @endforeach
+            <!-- 2,ナビゲーション -->
+            <li class="header">個人CHAT</li>
+            <!-- 1個目 -->
+            <li>
+                <a class="btn btn-black text-white" href="#" role="button">＋ メンバーを招待する</a>
+            </li>
+            @for ($i = 0; $i < 3; $i++)
+            <li>
+                <a class="nav-link active text-light" id="v-pills-home-tab"  href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">○ メンバーの名前</a>
+            </li>
+            @endfor
+            </li>
+            <!-- 2個目 -->
+            <li>
+                <a href="{{ url('/setting/index') }}">
+                    <i class="fa fa-cog" aria-hidden="true"></i> Settings
+                </a>
+            </li>
+            <!-- 3個目 -->
+            <li>
+                <a href="#">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i> Information
+                </a>
+            </li>
+            <!-- 3,ナビゲーション -->
+            <li class="header">参加予定のイベント</li>
+            <li>
+                <a href="{{ route('event.index') }}">
+                    <i class="fa fa-tachometer" aria-hidden="true"></i>+ 他のイベントを見る
+                </a>
+            </li>
+            @foreach($attendEvents as $attendEvent)
+            <li>
+                <a class="nav-link active text-light" id="v-pills-home-tab" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">{{ $attendEvent->event->name }}</a>
+            </li>
+            @endforeach
+        </ul>
+    </div>
 
+
+
+{{-- ここから下は、保存 --}}
 {{-- サイドバーを表示する --}}
 {{-- <div class="container-fluid"> --}}
-<div class="sidebar-container">
+{{-- <div class="sidebar-container">
     <div class="sidebar-logo">
             <a class="btn btn-blac text-white" href="{{ route('home.index') }}" role="button">CPIC</a>
     </div>
@@ -72,7 +140,7 @@ window.Laravel.user_id = {{ Auth::user()->id }}
         </li>
         @endforeach
     </ul>
-</div>
+</div> --}}
 
 {{-- 中央・チャット --}}
 @if(!empty($group))
@@ -118,6 +186,7 @@ window.Laravel.user_id = {{ Auth::user()->id }}
             <input type="submit" value="送信" id="bms_send_btn">
         </div>
     </div>
+    <div id="overlay"></div>
 @else
     <div class="text-center">グループに参加してみよう！</div>
 @endif
