@@ -10,12 +10,13 @@ use App\User;
 use App\Dm;
 use App\UserGroup;
 use App\EventUser;
+use App\GroupChatMessage;
 use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
 {
 
-    public function index()
+    public function index(int $id)
     {
         $attendEvents = EventUser::where('user_id', Auth::user()->id)->with('event')->get();
         $attendGroups = UserGroup::where('user_id', Auth::user()->id)->with('group')->get();
@@ -23,8 +24,15 @@ class ChatController extends Controller
         $genres = Genre::all();
         $dms = Dm::getDm(Auth::user()->id);
 
-        return view('chat.index', ['attendEvents' => $attendEvents, 'genres' => $genres, 'attendGroups' => $attendGroups, 'dms' => $dms]);
+        $posts = GroupChatMessage::where('group_id', $id)->with('user')->get();
+        $group = Group::find($id);
+        $userNum = UserGroup::where('group_id', $id)->count();
+
+        // $userNum = UserGroup::where($group_id)->count();
+
+        return view('chat.index', compact('attendEvents', 'genres', 'attendGroups', 'dms', 'posts', 'group', 'userNum'));
     }
+
 
     public function toListGroup()
     {
@@ -84,13 +92,23 @@ class ChatController extends Controller
 
     public function makeGroup(Request $request)
     {
-        $group = $request->session()->get('group');
+        // session()使ってるからか全部表示されなくなる
 
-        $group->save();
+        // $action = $request->get('action', 'back');
+        // if($action == 'back'){
+        //     return redirect()->route('chat.makeGroup');
+        // }else{
 
-        $request->session()->forget('group');
+            $group = $request->session()->get('group');
 
-        return redirect()->route('get.chat.index');
+            $group->save();
+
+            $request->session()->forget('group');
+
+            return redirect()->route('get.chat.index',[
+                'id' => 0
+            ]);
+        // }
     }
 
     public function attendGroup(Request $request)
@@ -102,7 +120,9 @@ class ChatController extends Controller
 
         $user_Group->save();
 
-        return redirect()->route('get.chat.index');
+        return redirect()->route('get.chat.index',[
+            'id' => 0
+        ]);
     }
 
     public function leaveGroup(Request $request)
@@ -113,7 +133,9 @@ class ChatController extends Controller
         //削除
         $leaveGroup->delete();
 
-        return redirect()->route('get.chat.index');
+        return redirect()->route('get.chat.index',[
+            'id' => 0
+        ]);
     }
 
 

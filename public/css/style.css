@@ -1,25 +1,20 @@
 /* ホームページメイン画面 */
-.bg-image{
+  .bg-image{
     height:600px;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-}
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+  }
 
-.stay-right {
-    position:relative;
-}
-.row{
-    height:100%;
-}
-
-.comment1{
+  .comment1{
     font-size:18px;
-    margin-top: 300px;
+    /* margin-top: 300px; */
     margin-left: auto;
     margin-right: auto;
   }
-
+/* ヘッダーの文字に影つける */
   .comment1 p{
     text-shadow: #0f1721 3px 0px 10px;
   }
@@ -33,39 +28,41 @@
   .connect {
     text-align: right;
   }
-
+/* ヘッダーの文字に影をつける */
   .comment-con {
-    padding-top:70px;
+    padding-top:75px;
     text-shadow: #0f1721 3px 0px 10px;
   }
 
-.container-fluid section {
+/* イベント */
+  .event{
+    margin-top:40px;
+    margin-bottom:40px;
+  }
+
+  .container-fluid section {
     margin: 10px;
     border-radius: 5px;
     background: #F5F0CF;
     padding: 15px;
     display: flex;
   }
-
+/* イベント・グループの説明欄 */
   .contents{
     font-size:20px;
+    margin-left: 146px;
+    text-align: left;
   }
 
-
-  .contents-into h1 {
-    color: #E6AC27;
-    font-size: 1.5rem;
-  }
   .contents-into p {
     margin-top: 10px;
   }
-
+/* グループカードの画像のサイズ */
   .card img{
     width:100%;
   }
 
-  /* グループ一覧 */
-  /* 矢印用スタイル */
+/* 矢印用スタイル */
   .prev-arrow,
   .next-arrow {
     position: absolute;
@@ -80,20 +77,25 @@
   }
 
   .prev-arrow {
-    left: -20px;
+    left: -40px;
   }
 
   .next-arrow {
-    right: -20px;
+    right: -40px;
   }
 
+/* グループ一覧 */
+  .group{
+    margin-bottom:40px;
+  }
 
-  /* CPICの仕組み */
+/* CPICの仕組み */
   .description-wrapper{
-    height:350px;
+    /* height:22rem; */
     padding-bottom:30px;
     background-color: #0f1721;
     text-align:center;
+    margin-bottom:40px;
   }
 
   .heading{
@@ -105,17 +107,28 @@
     font-weight:normal;
   }
 
+  .icon{
+    padding-left:20px;
+  }
+
   .description{
     float:left;
   }
 
   .txt-contents{
-    width:80%;
+    /* width:80%; */
     display:inline-block;
     margin:20px;
     font-size:15px;
   }
   /* news一覧 */
+  .news{
+    margin-bottom:40px;
+  }
+
+  .news h2{
+    margin-bottom:20px;
+  }
   .msr_newslist02 {
     width: 100%;
   }
@@ -171,28 +184,11 @@
   .msr_newslist02 li .cpic02 {
     background-color: #0E3A5F;
   }
-  /* footer */
-  .footer {
-    color:#fff;
-    height: 120px;
-    margin-top: 50px;
-    padding:10px;
-    margin-bottom:0px;
-  }
 
-  .footer-logo{
-    font-size:32px;
-    float:left;
-    padding-top:25px;
-    padding-left:15px;
-  }
-
-  .footer-list{
-    float:right;
-    padding-top:10px;
-    padding-right:15px;
-  }
-
-  .footer-list li{
-    padding-bottom:5px;
+  @media screen and (max-width: 1000px) {
+    .contents{
+      /* font-size:20px; */
+      margin-left: 0;
+      text-align: center;
+    }
   }

@@ -9,4 +9,9 @@ class Event extends Model
     protected $dates = [
         'startTime'
     ];
+
+    public function genre()
+    {
+        return $this->belongsTo('App\Genre');
+    }
 }

@@ -15,7 +15,7 @@ class CreateGroupChatMessagesTable extends Migration
     {
         Schema::create('group_chat_messages', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('group_chat_id');
+            $table->integer('group_id');
             $table->text('text');
             $table->integer('user_id');
             $table->timestamp('sent_time');

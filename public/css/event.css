@@ -1,13 +1,16 @@
-/* event.makeEvent.blade.php */
-.btn:hover{
-    opacity:1.5;
-  }
-
-  .btn{
-    font-size:20px;
+.textlines{
+    border: 0ch;
 }
 
-select{
-  font-size:14px;
-  border:1px;
-  }
+.img-left{
+    padding-top:20px;
+}
+
+p{
+    margin-bottom: 0;
+}
+
+h5{
+    padding-top: 15px;
+    padding-right: 45px;
+}

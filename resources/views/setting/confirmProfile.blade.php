@@ -3,11 +3,13 @@
 @section('title', 'confirm')
 
 @section('content')
+
+@include('components.header')
+
 <div class="container">
     <div class="py-5 text-center">
         <h1 class="card-header text-white bg-primary">以下の内容でよろしいですか？</h1><br>
     </div>
-
     <div class="row">
 
         <div class="col-md-4 order-md-2 mb-4">
@@ -42,13 +44,13 @@
                     <div class="input-group col-9 px-0">
                         <div class="input-group-prepend">
                             <div class="input-group-text col-12">
-                                <input type="radio" name="gender" id="man" {{ $user->gender ? 'checked' : '' }} value='1' disabled>
+                                <input type="radio" name="gender" id="man" {{ $user->gender==1 ? 'checked' : '' }} value='1' disabled>
                             </div>
                         </div>
                         <input class="form-control" for="man" value="男性" readonly>
                         <div class="input-group-prepend">
                             <div class="input-group-text col-12">
-                                <input type="radio" name="gender" id="woman" {{ $user->gender ? 'checked' : '' }} value='2' disabled>
+                                <input type="radio" name="gender" id="woman" {{ $user->gender==2 ? 'checked' : '' }} value='2' disabled>
                             </div>
                         </div>
                         <input class="form-control" for="woman" value="女性" readonly>

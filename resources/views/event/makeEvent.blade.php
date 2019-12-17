@@ -13,10 +13,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link href="{{ asset('css/croppie.css') }}" rel="stylesheet">
     <link href="{{ asset('css/event-cropper.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/event.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/event.makeevent.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
+
+@include('components.header')
 
 <div class="container">
     @if($errors->any())
@@ -96,7 +98,7 @@
                     <div class="input-group-prepend col-3 px-0">
                         <label class="input-group-text col-12"  for="end_date">終了時間</label>
                     </div>
-                    <input id="end_date" type="date" name="end_date_time" class="form-control col-9 date-time-picker" value="{{ old('end_date_time') }}" style="background: white" placeholder="終了時間" required>
+                    <input id="end_date" type="date" name="end_date_time" class="form-control col-9 date-time-picker" value="{{ old('end_date_ime') }}" style="background: white" placeholder="終了時間" required>
                 </div>
 
                 <div class="input-group mb-5">
