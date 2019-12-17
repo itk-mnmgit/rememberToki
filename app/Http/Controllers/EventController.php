@@ -23,7 +23,7 @@ class EventController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
-        $events = Event::all();
+        $events = Event::with('genre')->get();
         $genres = Genre::all();
         $attendEvents = EventUser::where('user_id', $user_id)->get(['event_id'])->toArray();
         if(!isset($attendEvents[0])) {
@@ -84,7 +84,9 @@ class EventController extends Controller
 
         $request->session()->forget('event');
 
-        return redirect()->route('get.chat.index');
+        return redirect()->route('get.chat.index',[
+            'id' => 0
+        ]);
     }
 
     public function attendEvent(Request $request)
@@ -96,7 +98,9 @@ class EventController extends Controller
 
         $event_User->save();
 
-        return redirect()->route('get.chat.index');
+        return redirect()->route('get.chat.index',[
+            'id' => 0
+        ]);
     }
 
     public function leaveEvent(Request $request)
@@ -106,7 +110,9 @@ class EventController extends Controller
 
         $leaveEvent->delete();
 
-        return redirect()->route('get.chat.index');
+        return redirect()->route('get.chat.index',[
+            'id' => 0
+        ]);
     }
 
 

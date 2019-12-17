@@ -36,7 +36,7 @@
                         <a class="btn btn-primary btn-lg text-white" href="{{ route('login') }}" role="button">ログイン</a>
                     @endguest
                     @if(Auth::check())
-                        <a class="btn btn-primary btn-lg text-white" href="{{ route('get.chat.index') }}" role="button">My Page へ</a>
+                        <a class="btn btn-primary btn-lg text-white" href="{{ route('get.chat.index',['id' => 0]) }}" role="button">My Page へ</a>
                     @endif
                 </div>
             </div>

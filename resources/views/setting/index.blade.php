@@ -36,7 +36,7 @@
                 <label class="custom-file-label" for="picture">プロフィール画像</label>
             </div>
 
-            <img id="cropped-img" src="{{ old('base64') }}" alt="" style="width: 100%">
+            <img id="cropped-img" src="{{ old('base64', $user->img) }}" alt="" style="width: 100%">
 
             <div class="modal fade" id="cropper-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -63,7 +63,7 @@
         <div class="col-md-8 order-md-1">
             <form action="{{ route('setting.confirmProfile') }}" method="POST" class="form-horizontal">
                 @csrf
-                <textarea id="base64" name="base64" style="display: none"></textarea>
+            <textarea id="base64" name="base64" style="display: none">{{ $user->img }}</textarea>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend col-3 px-0">
@@ -90,13 +90,13 @@
                     <div class="input-group col-9 px-0">
                         <div class="input-group-prepend">
                             <div class="input-group-text col-12">
-                                <input type="radio" name="gender" id="man" {{ $user->gender ? 'checked' : '' }} value='1'>
+                                <input type="radio" name="gender" id="man" {{ $user->gender==1 ? 'checked' : '' }} value='1'>
                             </div>
                         </div>
                         <label class="form-control" for="man">男性</label>
                         <div class="input-group-prepend">
                             <div class="input-group-text col-12">
-                                <input type="radio" name="gender" id="woman" {{ $user->gender ? 'checked' : '' }} value='2'>
+                                <input type="radio" name="gender" id="woman" {{ $user->gender==2 ? 'checked' : '' }} value='2'>
                             </div>
                         </div>
                         <label class="form-control" for="woman">女性</label>

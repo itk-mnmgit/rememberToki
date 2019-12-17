@@ -85,6 +85,14 @@
   background-color: transparent;
 }
 
+/* .navbar-toggler{
+  background: rgb(246, 247, 248);
+}
+
+.navbar-toggler-icon{
+  background: white;
+} */
+
 
 /* ↓↓↓↓↓↓↓↓↓↓↓↓chat用↓↓↓↓↓↓↓↓↓↓↓ */
 
@@ -96,14 +104,9 @@
 .inputFiles{
   padding: 5px 30px;
   height: 40px;
-  background: #273246;
+  background: #1a1a1a;
   color: #ffffff;
 }
-
-/* i{
-  padding: 4px 5px 4px 5px;
-  float: right;
-} */
 
 .inputText{
   text-align: right;
@@ -114,7 +117,7 @@
 
 .line__container {
   padding:0;
-  background: #7494c0;
+  background: #2574A9;
   overflow: hidden;
   /* max-width: 400px; */
   /* margin: 20px auto; */
@@ -124,7 +127,7 @@
 /* タイトル部分 */
 .line__container .line__title {
   height : 50px;
-  background: #273246;
+  background: #1a1a1a;
   /* padding: 10px; */
   text-align: center;
   color: #ffffff;
@@ -273,6 +276,17 @@
   width: 100px;
   text-align: right;
   left: -30px;
+  bottom: 0px;
+  font-size: 80%;
+  color: #ffffff;
+}
+/* 既読エリア */
+.line__container .line__left .date {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100px;
+  text-align: right;
   bottom: 0px;
   font-size: 80%;
   color: #ffffff;
