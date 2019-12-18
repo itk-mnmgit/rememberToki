@@ -29,20 +29,20 @@ window.Laravel.user_id = {{ Auth::user()->id }}
         </div>
         <ul class="sidebar-navigation">
             <li class="header">GROUPS</li>
-            <li>
-                <a class="btn btn-blac text-white" href="{{ route('chat.listGroup') }}" role="button">＋ more</a>
-            </li>
             @foreach($attendGroups as $attendGroup)
             <li>
             <a class="nav-link active text-light" id="v-pills-home-tab" href="{{ route('get.chat.index', ['id' => $attendGroup->group->id]) }}"  aria-controls="v-pills-home" aria-selected="true">{{ $attendGroup->group->name }}</a>
             </li>
             @endforeach
+            <li>
+                <a class="btn btn-black text-white text-right pr-4" href="{{ route('chat.listGroup') }}" role="button">＋ more</a>
+            </li>
             <li class="header">DMs</li>
             <li>
                 <a class="nav-link active text-light" id="v-pills-home-tab"  href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">○ Kaan Yoneeda</a>
             </li>
             <li>
-                <a class="btn btn-black text-white" href="#" role="button">＋ more</a>
+                <a class="btn btn-black text-white text-right pr-4" href="#" role="button">＋ more</a>
             </li>
             </li>
             <li class="header">EVENTS</li>
@@ -53,8 +53,8 @@ window.Laravel.user_id = {{ Auth::user()->id }}
             </li>
             @endforeach
             <li>
-                <a href="{{ route('event.index') }}">
-                    <i class="fa fa-tachometer" aria-hidden="true"></i>+ more
+                <a class="btn btn-black text-white text-right pr-4" href="{{ route('event.index') }}">
+                    {{-- <i class="fa fa-tachometer" aria-hidden="true"></i> --}}+ more
                 </a>
             <li>
                 <a href="{{ url('/setting/index') }}">
