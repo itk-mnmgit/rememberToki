@@ -58,7 +58,7 @@
                             <p class="card-text"><small class="text-primary">{{ date('Y/m/d h:i', strtotime($event->finishTime)) }} - {{ date('h:i', strtotime($event->finishTime)) }}</small></p>
                             <h5 class="card-title"><strong>{{ $event->name }}</strong></h5>
                             <h6 class="card-subtitle mb-2 text-muted">{{ $event->user->name }}</h6>
-                            <p class="card-text">{{ $event->intro }}</p>
+                            <p class="card-text">{{ str_limit($event->intro, $limit = 20, $end = '…') }}</p>
                         <p class="card-text"><small class="text-muted">参加者 何人？</small></p>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><strong>{{ $group->name}}</strong></h5>
                             <h6 class="card-subtitle mb-2 text-muted">{{ $group->user->name }}</h6>
-                            <p class="card-text">{{ str_limit($group->intro, $limit = 30, $end = '…') }}</p>
+                            <p class="card-text">{{ str_limit($group->intro, $limit = 20, $end = '…') }}</p>
                         </div>
                     </div>
                 @endforeach
