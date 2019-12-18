@@ -28,10 +28,11 @@ const theirMessage = ({img, name, text, sent_time}) => `
             <img  src="${img}" alt="userIcon">
         </figure>
         <div class="line__left-text">
-            <div class="name">${name}</div>
-            <div class="text">${text}</div>
-            <span class="date">${sent_time}</span>
-
+        <div class="name">${name}</div>
+            <div class="left-text-date">
+                <div class="text">${text}</div>
+                <span class="date">${sent_time}</span>
+            </div>
         </div>
     </div>
 `;
@@ -75,6 +76,8 @@ $(function () {
             }
 
             $(".line__contents").append(message);
+
+            $('.line__contents').animate({scrollTop: $('.line__contents')[0].scrollHeight}, 'slow');
 
           }).fail(error => {
             console.log(error);

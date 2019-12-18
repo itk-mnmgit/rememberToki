@@ -165,7 +165,7 @@
     position: relative;
     display: inline-block;
     margin-bottom: 5px;
-    max-width: 80%;
+    max-width: 70%;
     clear: both;
     word-wrap: break-word;/* 吹き出し内で自動で改行 */
     white-space: normal;/*指定widthに合わせて、文字を自動的に改行*/
@@ -223,15 +223,18 @@
 
 /* 自分の会話 */
 .line__container .line__right {
+    width: 100%;
     position: relative;
-    display: inline-block;
-    margin: 5px 0;
-    max-width: 75%;
+    /* display: inline-block; */
+    margin: 5px 15px 5px 0px;
+    max-width: 70%;
     float: right;
-    margin-right: 15px;
     clear: both;
     word-wrap: break-word;/* 吹き出し内で自動で改行 */
     white-space: normal;/*指定widthに合わせて、文字を自動的に改行*/
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
 }
 
 /* コメントエリア */
@@ -240,7 +243,7 @@
   border-radius: 20px;
   background-color: #8de055;
   margin: 0;
-  margin-left: 80px;
+
 }
 
 /* 吹き出し */
@@ -257,34 +260,30 @@
   border-bottom: 10px solid transparent;
 }
 
-/* 自分がスタンプを送る時 */
-.line__container .line__right .stamp {
-  position: relative;
-  margin-left: 80px;
-}
-
 /* 既読エリア */
 .line__container .line__right .date {
   content: '';
-  position: absolute;
   display: block;
-  width: 100px;
-  text-align: right;
   left: -30px;
-  bottom: 0px;
   font-size: 80%;
   color: #ffffff;
+  padding-right: 10px;
+  align-self: flex-end;
 }
 /* 既読エリア */
 .line__container .line__left .date {
   content: '';
-  position: absolute;
   display: block;
-  width: 100px;
-  text-align: right;
-  bottom: 0px;
   font-size: 80%;
+  padding-left: 10px;
   color: #ffffff;
+  align-self: flex-end;
+}
+
+.left-text-date{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .text {
