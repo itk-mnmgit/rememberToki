@@ -9,11 +9,6 @@
   color: #fff;
 }
 
-.chat-container {
-  padding-left: 220px;
-  height: 100%;
-}
-
 .chat-header {
   height: 50px;
 }
@@ -341,4 +336,16 @@
 
   .fa-2x{
     padding: 0px 4px 2px;
+  }
+
+  /* マイページが表示される場合の画面 */
+
+  .maru-box4 img {
+    border-radius: 50%; border: 10px double #8b0000;
+  }
+
+  ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
