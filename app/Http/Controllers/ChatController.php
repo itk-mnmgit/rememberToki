@@ -103,7 +103,7 @@ class ChatController extends Controller
 
             $request->session()->forget('group');
 
-            return redirect()->route('get.chat.index',['id' => 0]);
+            return redirect()->route('get.chat.index',['id' => $group->id]);
         // }
     }
 
