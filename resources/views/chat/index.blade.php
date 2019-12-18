@@ -15,17 +15,8 @@ window.Laravel.user_id = {{ Auth::user()->id }}
 </script>
 
     <div class="sidebar-container">
-        {{-- <header id="global-head">
-        <div id="nav-toggle">
-            <div>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        </header> --}}
         <div class="sidebar-logo">
-                <a class="btn btn-blac text-white" href="{{ route('home.index') }}" role="button">MY PAGE</a>
+                <a class="btn btn-blac text-white" href="{{ route('get.chat.index', ['id' => 0]) }}" role="button">MY PAGE</a>
         </div>
         <ul class="sidebar-navigation">
             <li class="header">GROUPS</li>
