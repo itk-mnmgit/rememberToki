@@ -16,7 +16,7 @@
 @include('components.header')
 
 <div class="main">
-    <div class="bg-image row" style="background-image: url({{ asset('image/homebackground6.jpg') }})">
+    <div class="bg-image row" style="background-image: url({{ asset('image/homebackground7.jpg') }})">
         <div class="title-container col-sm-12 col-md-6 d-flex flex-column pl-4 text-light comment-con text-center">
             <div class="title">
                 <h3 class="display-4-1 text-light"><strong>最高に『ワクワクする出会い』を</strong></h3>
