@@ -30,7 +30,7 @@ class HomeController extends Controller
     }
     public function thanks()
     {
-        return view('home.thanks');
+        return view('home.thanks', ['id' => 0]);
     }
 
     public function storeDefaultImg(){

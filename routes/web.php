@@ -23,7 +23,7 @@ Route::group(['middleware' => ['auth']], function()
 //Home
     Route::get('/home/thanks', 'HomeController@thanks')->name('home.thanks');
     Route::get('/home/saveImg', 'HomeController@storeDefaultImg')->name('saveImg');
-    Route::post('/chat/index', 'HomeController@storeDetail')->name('post.chat.index');
+    Route::post('/chat/0/index', 'HomeController@storeDetail')->name('post.chat.index');
 
 //Chat
     Route::get('/chat/{id}/index', 'ChatController@index')->name('get.chat.index');
