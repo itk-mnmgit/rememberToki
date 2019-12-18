@@ -25,57 +25,47 @@ window.Laravel.user_id = {{ Auth::user()->id }}
         </div>
         </header>
         <div class="sidebar-logo">
-                <a class="btn btn-blac text-white" href="{{ route('home.index') }}" role="button">ホーム</a>
+                <a class="btn btn-blac text-white" href="{{ route('home.index') }}" role="button">MY PAGE</a>
         </div>
         <ul class="sidebar-navigation">
-            <!-- 1 ,ナビゲーション -->
-                <li class="header">グループCHAT</li>
-            <!-- 1列目 -->
+            <li class="header">GROUPS</li>
             <li>
-                <a class="btn btn-blac text-white" href="{{ route('chat.listGroup') }}" role="button">＋ グループを追加する</a>
+                <a class="btn btn-blac text-white" href="{{ route('chat.listGroup') }}" role="button">＋ more</a>
             </li>
-            <!-- 2列目 -->
             @foreach($attendGroups as $attendGroup)
             <li>
             <a class="nav-link active text-light" id="v-pills-home-tab" href="{{ route('get.chat.index', ['id' => $attendGroup->group->id]) }}"  aria-controls="v-pills-home" aria-selected="true">{{ $attendGroup->group->name }}</a>
             </li>
             @endforeach
-            <!-- 2,ナビゲーション -->
-            <li class="header">個人CHAT</li>
-            <!-- 1個目 -->
+            <li class="header">DMs</li>
             <li>
-                <a class="btn btn-black text-white" href="#" role="button">＋ メンバーを招待する</a>
+                <a class="nav-link active text-light" id="v-pills-home-tab"  href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">○ Kaan Yoneeda</a>
             </li>
-            @for ($i = 0; $i < 3; $i++)
             <li>
-                <a class="nav-link active text-light" id="v-pills-home-tab"  href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">○ メンバーの名前</a>
+                <a class="btn btn-black text-white" href="#" role="button">＋ more</a>
             </li>
-            @endfor
             </li>
-            <!-- 2個目 -->
-            <li>
-                <a href="{{ url('/setting/index') }}">
-                    <i class="fa fa-cog" aria-hidden="true"></i> Settings
-                </a>
-            </li>
-            <!-- 3個目 -->
-            <li>
-                <a href="#">
-                    <i class="fa fa-info-circle" aria-hidden="true"></i> Information
-                </a>
-            </li>
-            <!-- 3,ナビゲーション -->
-            <li class="header">参加予定のイベント</li>
-            <li>
-                <a href="{{ route('event.index') }}">
-                    <i class="fa fa-tachometer" aria-hidden="true"></i>+ 他のイベントを見る
-                </a>
+            <li class="header">EVENTS</li>
             </li>
             @foreach($attendEvents as $attendEvent)
             <li>
                 <a class="nav-link active text-light" id="v-pills-home-tab" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">{{ $attendEvent->event->name }}</a>
             </li>
             @endforeach
+            <li>
+                <a href="{{ route('event.index') }}">
+                    <i class="fa fa-tachometer" aria-hidden="true"></i>+ more
+                </a>
+            <li>
+                <a href="{{ url('/setting/index') }}">
+                    <i class="fa fa-cog" aria-hidden="true"></i> SETTING
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i> ABOUT US
+                </a>
+            </li>
         </ul>
     </div>
 
@@ -140,7 +130,7 @@ window.Laravel.user_id = {{ Auth::user()->id }}
             <div class="row">
                 <div class="introduction col-md-6 mt-5">
                     <div class="maru-box4">
-                        <img src="{{ asset('image/ishiharaharuka.jpg') }}" alt="maru" width="300" class="d-block mx-auto"/>
+                        <img src="{{ $user->img }}" alt="maru" width="300" class="d-block mx-auto"/>
                     </div>
                     <h3 class="my-3 text-center">{{ $user->name }}</h3>
                     <p class="text-center mx-5">{{ $user->intro }}</p>
@@ -152,17 +142,17 @@ window.Laravel.user_id = {{ Auth::user()->id }}
                             <div class="card">
                                 <div class="card-header" role="tab" id="heading1">
                                     <h5 class="mb-0">
-                                        <a data-toggle="collapse" class="text-body stretched-link text-decoration-none" href="#collapse1" aria-expanded="true" aria-controls="collapse1"> 友だち </a>
+                                        <a data-toggle="collapse" class="text-body stretched-link text-decoration-none" href="#collapse1" aria-expanded="true" aria-controls="collapse1" disabled> FRIENDS </a>
                                     </h5>
                                 </div>
                                 <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion2">
-                                <div class="card-body">たかさん❤️</div>
+                                    <div class="card-body">Taka❤️</div>
                                 </div>
                             </div>
                             <div class="card">
                                 <div class="card-header" role="tab" id="heading2">
                                     <h5 class="mb-0">
-                                        <a class="collapsed text-body stretched-link text-decoration-none" data-toggle="collapse" href="#collapse2" aria-expanded="false" aria-controls="collapse2"> グループ </a>
+                                        <a class="collapsed text-body stretched-link text-decoration-none" data-toggle="collapse" href="#collapse2" aria-expanded="false" aria-controls="collapse2"> GROUPS </a>
                                     </h5>
                                 </div>
                                 @foreach($attendGroups as $attendGroup)
@@ -174,7 +164,7 @@ window.Laravel.user_id = {{ Auth::user()->id }}
                             <div class="card">
                                 <div class="card-header" role="tab" id="heading3">
                                     <h5 class="mb-0">
-                                        <a class="collapsed text-body stretched-link text-decoration-none" data-toggle="collapse" href="#collapse3" aria-expanded="false" aria-controls="collapse3"> イベント </a>
+                                        <a class="collapsed text-body stretched-link text-decoration-none" data-toggle="collapse" href="#collapse3" aria-expanded="false" aria-controls="collapse3"> EVENTS </a>
                                     </h5>
                                 </div>
                                 @foreach($attendEvents as $attendEvent)
@@ -188,42 +178,42 @@ window.Laravel.user_id = {{ Auth::user()->id }}
                         </div>
                     </div>
                     <div class="blog mt-5">
-                        <h3>ブログ</h3>
+                        <h3>VLOG</h3>
                         <ul class="msr_newslist02">
                             <li>
                                 <a href="#">
-                                <div>
-                                <time datetime="2019-12-20">2019.12.21</time>
-                                <p class="cpic01">NexSeed</p>
-                                </div>
-                                <p>みんなとのお別れ。寂しさを超えて。</p>
+                                    <div>
+                                        <time datetime="2019-12-20">2019.12.21</time>
+                                        <p class="cpic01">lifestyle</p>
+                                    </div>
+                                    <p>【OMG】The toilet is clogged!!!</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                <div>
-                                <time datetime="2019-12-19">2019.12.19</time>
-                                <p class="cpic02">Besty</p>
-                                </div>
-                                <p>チーム開発最終プレゼンまでの軌跡</p>
+                                    <div>
+                                        <time datetime="2019-12-19">2019.12.19</time>
+                                        <p class="cpic02">Love</p>
+                                    </div>
+                                    <p>【BREAKING】 Haruka finally found her partoner:)</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                <div>
-                                <time datetime="2019-12-13">2019.12.13</time>
-                                <p class="cpic01">NexSeed</p>
-                                </div>
-                                <p>ダブルゆうき生誕祭！カジノで豪遊</p>
+                                    <div>
+                                        <time datetime="2019-12-13">2019.12.13</time>
+                                        <p class="cpic01">Programming</p>
+                                    </div>
+                                    <p>How to format Timestamps in laravel</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                <div>
-                                <time datetime="2019-12-11">2019.12.01</time>
-                                <p class="cpic02">Besty</p>
-                                </div>
-                                <p>Besty発足！私たちは爆速で成長します！</p>
+                                    <div>
+                                        <time datetime="2019-12-11">2019.12.01</time>
+                                        <p class="cpic02">Besty</p>
+                                    </div>
+                                    <p>Let's find a gift for your partner!! http://...</p>
                                 </a>
                             </li>
                         </ul>
