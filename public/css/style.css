@@ -161,7 +161,6 @@
   }
   .msr_newslist02 li p {
     display: table-cell;
-    padding-left: 20px;
     vertical-align: middle;
   }
   /* 時間の設定 */
@@ -191,4 +190,8 @@
       margin-left: 0;
       text-align: center;
     }
+  }
+
+  ul{
+    list-style: none;
   }

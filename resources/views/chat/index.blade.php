@@ -34,7 +34,6 @@ window.Laravel.user_id = {{ Auth::user()->id }}
             <li>
                 <a class="btn btn-blac text-white" href="{{ route('chat.listGroup') }}" role="button">＋ グループを追加する</a>
             </li>
-    
             <!-- 2列目 -->
             @foreach($attendGroups as $attendGroup)
             <li>
@@ -87,7 +86,7 @@ window.Laravel.user_id = {{ Auth::user()->id }}
 {{-- <div class="container-fluid"> --}}
 {{-- <div class="sidebar-container">
     <div class="sidebar-logo">
-            <a class="btn btn-blac text-white" href="{{ route('home.index') }}" role="button">CPIC</a>
+            <a class="btn btn-blac text-white" href="{{ route('get.chat.index', ['id' => 0]) }}" role="button">CPIC</a>
     </div>
     <ul class="sidebar-navigation">
         <!-- 1 ,ナビゲーション -->
@@ -189,7 +188,105 @@ window.Laravel.user_id = {{ Auth::user()->id }}
     </div>
     <div id="overlay"></div>
 @else
-    <div class="text-center">グループに参加してみよう！</div>
+    <div class="chat-container">
+        <div class="container">
+            <div class="row p-5">
+                <div class="sns d-block mx-auto">
+                    <i class="mx-4 fab fa-facebook-square fa-3x"></i>
+                    <i class="mx-4 fab fa-twitter-square fa-3x"></i>
+                    <i class="mx-4 fab fa-instagram fa-3x"></i>
+                    <i class="mx-4 fab fa-github-square fa-3x"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="introduction col-md-6 mt-5">
+                    <div class="maru-box4">
+                        <img src="{{ asset('image/ishiharaharuka.jpg') }}" alt="maru" width="300" class="d-block mx-auto"/>
+                    </div>
+                    <h3 class="my-3 text-center">Haruka Ishihara</h3>
+                    <p class="text-center mx-5">私の名前は石原春花です。はいつぁい！<br>沖縄生まれ沖縄育ち那覇市在住の元気っ子！<br>誰に何を言われようとも自分の意見は曲げません。<br>私は私の道を進むのだー！</p>
+                </div>
+                <div class="mine col-md-6 mt-5 pt-3">
+                    <div class="favorite">
+                        <h3>Your Favorite<i class="fas fa-heart"></i></h3>
+                        <div class="accordion" id="accordion2" role="tablist">
+                            <div class="card">
+                                <div class="card-header" role="tab" id="heading1">
+                                    <h5 class="mb-0">
+                                        <a data-toggle="collapse" class="text-body stretched-link text-decoration-none" href="#collapse1" aria-expanded="true" aria-controls="collapse1"> 友だち </a>
+                                    </h5>
+                                </div>
+                                <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion2">
+                                <div class="card-body">たかさん❤️</div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="heading2">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed text-body stretched-link text-decoration-none" data-toggle="collapse" href="#collapse2" aria-expanded="false" aria-controls="collapse2"> グループ </a>
+                                    </h5>
+                                </div>
+                                <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="heading2" data-parent="#accordion2">
+                                    <div class="card-body">Remember Toki❤️</div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="heading3">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed text-body stretched-link text-decoration-none" data-toggle="collapse" href="#collapse3" aria-expanded="false" aria-controls="collapse3"> イベント </a>
+                                    </h5>
+                                </div>
+                                <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading3" data-parent="#accordion2">
+                                    <div class="card-body">サマソニ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog mt-5">
+                        <h3>ブログ</h3>
+                        <ul class="msr_newslist02">
+                            <li>
+                                <a href="#">
+                                <div>
+                                <time datetime="2019-12-20">2019.12.21</time>
+                                <p class="cpic01">NexSeed</p>
+                                </div>
+                                <p>みんなとのお別れ。寂しさを超えて。</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <div>
+                                <time datetime="2019-12-19">2019.12.19</time>
+                                <p class="cpic02">Besty</p>
+                                </div>
+                                <p>チーム開発最終プレゼンまでの軌跡</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <div>
+                                <time datetime="2019-12-13">2019.12.13</time>
+                                <p class="cpic01">NexSeed</p>
+                                </div>
+                                <p>ダブルゆうき生誕祭！カジノで豪遊</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                <div>
+                                <time datetime="2019-12-11">2019.12.01</time>
+                                <p class="cpic02">Besty</p>
+                                </div>
+                                <p>Besty発足！私たちは爆速で成長します！</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endif
 
 <script>
