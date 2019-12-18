@@ -15,7 +15,7 @@ window.Laravel.user_id = {{ Auth::user()->id }}
 </script>
 
     <div class="sidebar-container">
-        <header id="global-head">
+        {{-- <header id="global-head">
         <div id="nav-toggle">
             <div>
                 <span></span>
@@ -23,7 +23,7 @@ window.Laravel.user_id = {{ Auth::user()->id }}
                 <span></span>
             </div>
         </div>
-        </header>
+        </header> --}}
         <div class="sidebar-logo">
                 <a class="btn btn-blac text-white" href="{{ route('home.index') }}" role="button">MY PAGE</a>
         </div>
@@ -64,6 +64,11 @@ window.Laravel.user_id = {{ Auth::user()->id }}
             <li>
                 <a href="#">
                     <i class="fa fa-info-circle" aria-hidden="true"></i> ABOUT US
+                </a>
+            </li>
+            <li>
+                <a href="http://remember-toki.herokuapp.com/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>Logout
                 </a>
             </li>
         </ul>
@@ -110,7 +115,7 @@ window.Laravel.user_id = {{ Auth::user()->id }}
             <i class="fas fa-images fa-2x"></i>
         </div>
         <div id="bms_send">
-            <textarea id="bms_send_message" placeholder="Shift+Enterで送信はまだできません" autofocus></textarea>
+            <textarea id="bms_send_message" placeholder="Shift+Enterで送信はまだできませんので右のボタン押してくださいごめんなさい" autofocus></textarea>
             <input type="hidden" id="group_id" value="{{ $group->id }}">
             <input type="submit" value="送信" id="bms_send_btn">
         </div>
@@ -137,12 +142,12 @@ window.Laravel.user_id = {{ Auth::user()->id }}
                 </div>
                 <div class="mine col-md-6 mt-5 pt-3">
                     <div class="favorite">
-                        <h3>Your Favorite<i class="fas fa-heart"></i></h3>
+                        <h3>Your Favorite <i class="fas fa-heart"></i></h3>
                         <div class="accordion" id="accordion2" role="tablist">
                             <div class="card">
                                 <div class="card-header" role="tab" id="heading1">
                                     <h5 class="mb-0">
-                                        <a data-toggle="collapse" class="text-body stretched-link text-decoration-none" href="#collapse1" aria-expanded="true" aria-controls="collapse1" disabled> FRIENDS </a>
+                                        <a data-toggle="collapse" class="text-body stretched-link text-decoration-none" href="#collapse1" aria-expanded="false" aria-controls="collapse1" disabled> FRIENDS </a>
                                     </h5>
                                 </div>
                                 <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion2">
@@ -195,14 +200,14 @@ window.Laravel.user_id = {{ Auth::user()->id }}
                                         <time datetime="2019-12-19">2019.12.19</time>
                                         <p class="cpic02">Love</p>
                                     </div>
-                                    <p>【BREAKING】 Haruka finally found her partoner:)</p>
+                                    <p>【BREAKING】 Haruka finally found her partner:)</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     <div>
                                         <time datetime="2019-12-13">2019.12.13</time>
-                                        <p class="cpic01">Programming</p>
+                                        <p class="cpic01">IT</p>
                                     </div>
                                     <p>How to format Timestamps in laravel</p>
                                 </a>
