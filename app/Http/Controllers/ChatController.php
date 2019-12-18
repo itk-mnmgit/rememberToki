@@ -22,13 +22,13 @@ class ChatController extends Controller
         $attendGroups = UserGroup::where('user_id', Auth::user()->id)->with('group')->get();
 
         $genres = Genre::all();
-        $dms = Dm::getDm(Auth::user()->id);
 
         $posts = GroupChatMessage::where('group_id', $id)->with('user')->get();
         $group = Group::find($id);
         $userNum = UserGroup::where('group_id', $id)->count();
+        $user = Auth::user();
 
-        return view('chat.index', compact('attendEvents', 'genres', 'attendGroups', 'dms', 'posts', 'group', 'userNum'));
+        return view('chat.index', compact('attendEvents', 'genres', 'attendGroups', 'user', 'posts', 'group', 'userNum'));
     }
 
 
@@ -103,7 +103,7 @@ class ChatController extends Controller
 
             $request->session()->forget('group');
 
-            return redirect()->route('get.chat.index',['id' => 0]);
+            return redirect()->route('get.chat.index',['id' => $group->id]);
         // }
     }
 
