@@ -48,7 +48,6 @@
                     </div>
                 </div>
                 </div>
-            
 
         <!-- モーダルの設定 -->
         <div class="modal fade" id="myModal-{{$event->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -82,7 +81,7 @@
                                     <div class="col-8 col-sm-6">
                                         <div class="modal-body">
                                             {{-- <p class="card-text">{{ $event->intro }}</p> --}}
-                                            <p class="title">{{ $event->name}}</p>
+                                            <p class="title">{{ $event->name }}</p>
                                             <p>
                                                 <textarea name="message" cols="45" rows="15" class="textlines">{{ $event->intro }}</textarea>
                                                   </p>
@@ -94,7 +93,7 @@
                                                 {{-- 開始、終了時間、イベント作成者 --}}
                                                 <P class="start_date">{{ $event->startTime }}</P>
                                                 <P class="finish_date">〜&ensp;{{$event->finishTime}}</P>
-                                                <p class="representative">イベント代表者：{{ Auth::user()->name }}</p>
+                                                <p class="representative">イベント代表者：{{ $event->user->name }}</p>
                                             </div>
                                         <div class="modal-footer text-right">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
