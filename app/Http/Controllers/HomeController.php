@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Group;
+use App\Event;
+use App\UserGroup;
+use Carbon\Carbon;
+
 // use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,11 +22,15 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home.index');
+        $groups = Group::with('user')->get();
+        $events = Event::with('genre')->with('user')->get();
+        // $userNum = UserGroup::where('group_id', $id)->count();
+
+        return view('home.index', compact('events', 'groups'));
     }
     public function thanks()
     {
-        return view('home.thanks');
+        return view('home.thanks', ['id' => 0]);
     }
 
     public function storeDefaultImg(){

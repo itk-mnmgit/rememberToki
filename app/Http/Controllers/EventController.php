@@ -23,7 +23,7 @@ class EventController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
-        $events = Event::with('genre')->get();
+        $events = Event::with('genre')->with('user')->get();
         $genres = Genre::all();
         $attendEvents = EventUser::where('user_id', $user_id)->get(['event_id'])->toArray();
         if(!isset($attendEvents[0])) {
