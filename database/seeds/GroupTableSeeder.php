@@ -19,8 +19,8 @@ class GroupTableSeeder extends Seeder
             'user_id' => '1',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'img' => 'public/icons/irasutoya1.pngg',
-            'intro' => 'おなはしするよーーーーーーーーーー',
+            'img' => 'public/icons/irasutoya1.png',
+            'intro' => 'セブ在住のエンジニアいっぱいでで飲み会しましょう〜〜〜〜〜〜〜。',
         ]);
         DB::table('groups')->insert([
             'name' => '週１フットサルしようよ！',
@@ -29,7 +29,7 @@ class GroupTableSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'img' => 'public/icons/irasutoya2.png',
-            'intro' => 'よーーーーーーーーーー',
+            'intro' => '毎週土曜日の朝フットサルしたい人〜〜〜〜！！',
         ]);
         DB::table('groups')->insert([
             'name' => 'laravelお勉強',
@@ -38,16 +38,16 @@ class GroupTableSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'img' => 'public/icons/irasutoya3.png',
-            'intro' => 'おああああああああああーーーーーーーーーー',
-        ]);
+            'intro' => 'laravel の疑問を協力して解決しあおう！',
+           ]);
         DB::table('groups')->insert([
             'name' => '童貞卒業相談所',
             'genre_id' => '6',
             'user_id' => '2',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'img' => 'public/icons/irasutoya4.jpeg',
-            'intro' => 'おなはしするよーーーーーーーーーー',
+            'img' => 'public/icons/irasutoya4.png',
+            'intro' => '童貞の相談に乗ってあげましょう！',
         ]);
     }
 }
