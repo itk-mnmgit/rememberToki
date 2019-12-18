@@ -34,7 +34,7 @@
         @foreach($groups as $group)
             <div class="col-md-3 mb-3">
                 <div class="card" id="highreliability">
-                    <img src="{{ asset($group->img) }}" alt="business city" class='img-fluid card-img-top'>
+                    <img src="{{ $group->img }}" alt="business city" class='img-fluid card-img-top'>
                     <div class="card-body">
                         <h5 class="title">{{ $group->name }}</h5>
                         <p class="card-text">{{ str_limit($group->intro, $limit = 20, $end = '…') }}</p>
@@ -50,9 +50,10 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <img src="{{ asset($group->img) }}" alt="" class='img-fluid card-img-top'>
+                                    <img src="{{ $group->img }}" alt="" class='img-fluid card-img-top'>
                                     <div class="modal-body">
                                         <p class="card-text">{{ $group->intro }}</p>
+                                        <p class="representative">イベント代表者：{{ $group->user->name }}</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>

@@ -25,16 +25,15 @@ window.Laravel.user_id = {{ Auth::user()->id }}
         <!-- 1 ,ナビゲーション -->
             <li class="header">グループCHAT</li>
         <!-- 1列目 -->
-        <li>
-            <a class="btn btn-blac text-white" href="{{ route('chat.listGroup') }}" role="button">＋ グループを追加する</a>
-        </li>
-
-        <!-- 2列目 -->
         @foreach($attendGroups as $attendGroup)
         <li>
         <a class="nav-link active text-light" id="v-pills-home-tab" href="{{ route('get.chat.index', ['id' => $attendGroup->group->id]) }}"  aria-controls="v-pills-home" aria-selected="true">{{ $attendGroup->group->name }}</a>
         </li>
+        <!-- 2列目 -->
         @endforeach
+        <li>
+            <a class="btn btn-blac text-white" href="{{ route('chat.listGroup') }}" role="button">＋ グループを追加する</a>
+        </li>
         <!-- 2,ナビゲーション -->
         <li class="header">個人CHAT</li>
         <!-- 1個目 -->
@@ -95,13 +94,15 @@ window.Laravel.user_id = {{ Auth::user()->id }}
                             </figure>
                             <div class="line__left-text">
                             <div class="name">{{$post->user->name }}</div>
-                            <div class="text">{{ $post->text }}</div>
-                            <span class="date">{{ date('h:m', strtotime($post->sent_time)) }}</span>
+                            <div class="left-text-date">
+                                <div class="text">{!! nl2br($post->text) !!}</div>
+                                <span class="date">{{ date('h:m', strtotime($post->sent_time)) }}</span>
+                            </div>
                             </div>
                         </div>
                     @else
                         <div class="line__right">
-                            <div class="text">{{ $post->text }}</div>
+                            <div class="text">{!! nl2br($post->text) !!}</div>
                             <span class="date">{{ date('h:m', strtotime($post->sent_time)) }}</span>
                         </div>
                     @endif
@@ -121,6 +122,10 @@ window.Laravel.user_id = {{ Auth::user()->id }}
 @else
     <div class="text-center">グループに参加してみよう！</div>
 @endif
+
+<script>
+    $('.line__contents').animate({scrollTop: $('.line__contents')[0].scrollHeight}, 1);
+</script>
 
 
 

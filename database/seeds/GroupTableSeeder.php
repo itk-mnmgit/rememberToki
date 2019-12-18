@@ -14,39 +14,39 @@ class GroupTableSeeder extends Seeder
     public function run()
     {
         DB::table('groups')->insert([
-            'name' => 'Group1',
+            'name' => 'IT飲み会',
+            'genre_id' => '2',
+            'user_id' => '1',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'img' => 'public/icons/irasutoya1.pngg',
+            'intro' => 'おなはしするよーーーーーーーーーー',
+        ]);
+        DB::table('groups')->insert([
+            'name' => '週１フットサルしようよ！',
+            'genre_id' => '1',
+            'user_id' => '2',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'img' => 'public/icons/irasutoya2.png',
+            'intro' => 'よーーーーーーーーーー',
+        ]);
+        DB::table('groups')->insert([
+            'name' => 'laravelお勉強',
             'genre_id' => '3',
             'user_id' => '3',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'img' => 'storage/images/event/G2wrOA4DISiBmj9lYCbhxtdGINl9TOOgSNzKuM5f.jpeg',
-            'intro' => 'おなはしするよーーーーーーーーーー',
-        ]);
-        DB::table('groups')->insert([
-            'name' => 'Group2',
-            'genre_id' => '2',
-            'user_id' => '2',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-            'img' => 'storage/images/event/G2wrOA4DISiBmj9lYCbhxtdGINl9TOOgSNzKuM5f.jpeg',
-            'intro' => 'よーーーーーーーーーー',
-        ]);
-        DB::table('groups')->insert([
-            'name' => 'Group3',
-            'genre_id' => '1',
-            'user_id' => '1',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-            'img' => 'storage/images/event/G2wrOA4DISiBmj9lYCbhxtdGINl9TOOgSNzKuM5f.jpeg',
+            'img' => 'public/icons/irasutoya3.png',
             'intro' => 'おああああああああああーーーーーーーーーー',
         ]);
         DB::table('groups')->insert([
-            'name' => 'Group1',
-            'genre_id' => '2',
+            'name' => '童貞卒業相談所',
+            'genre_id' => '6',
             'user_id' => '2',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'img' => 'storage/images/event/G2wrOA4DISiBmj9lYCbhxtdGINl9TOOgSNzKuM5f.jpeg',
+            'img' => 'public/icons/irasutoya4.jpeg',
             'intro' => 'おなはしするよーーーーーーーーーー',
         ]);
     }
