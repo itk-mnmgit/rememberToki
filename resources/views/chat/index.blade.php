@@ -19,7 +19,7 @@ window.Laravel.user_id = {{ Auth::user()->id }}
 {{-- <div class="container-fluid"> --}}
 <div class="sidebar-container">
     <div class="sidebar-logo">
-            <a class="btn btn-blac text-white" href="{{ route('home.index') }}" role="button">CPIC</a>
+            <a class="btn btn-blac text-white" href="{{ route('get.chat.index', ['id' => 0]) }}" role="button">CPIC</a>
     </div>
     <ul class="sidebar-navigation">
         <!-- 1 ,ナビゲーション -->
