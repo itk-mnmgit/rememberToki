@@ -51,17 +51,17 @@
         {{-- イベント一覧表示 --}}
         <div class="container mt-3 mb-3">
             <div class="slider">
-                @for ($i = 0; $i < 8; $i++)
+                @foreach($events as $event)
                     <div class="card" style="width: 20rem; margin-left: 15px; margin-right: 15px;">
                         <div class="card-body">
-                            <p class="card-text"><small class="text-primary">12月20日(金), 18:00</small></p>
-                            <h5 class="card-title"><strong>IT PARK WordPress勉強会</strong></h5>
-                            <h6 class="card-subtitle mb-2 text-muted">かみーゆ</h6>
-                            <p class="card-text">IT PARK にあるコワーキングスペースで WordPress の勉強会を開催します。</p>
-                            <p class="card-text"><small class="text-muted">参加者 25人</small></p>
+                            <p class="card-text"><small class="text-primary">{{ date('Y/m/d h:i', strtotime($event->finishTime)) }} - {{ date('h:i', strtotime($event->finishTime)) }}</small></p>
+                            <h5 class="card-title"><strong>{{ $event->name }}</strong></h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ $event->user->name }}</h6>
+                            <p class="card-text">{{ $event->intro }}</p>
+                        <p class="card-text"><small class="text-muted">参加者 何人？</small></p>
                         </div>
                     </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </div>
@@ -73,16 +73,16 @@
         </div>
         <div class="container mt-3 mb-3">
             <div class="row slider2">
-                @for ($i = 0; $i < 8; $i++)
+                @foreach($groups as $group)
                     <div class="card" style="width: 12rem; margin-left: 15px; margin-right: 15px;">
-                        <img src="{{ asset('image/homefootball.jpg') }}" class="img-fluid card-img-top">
+                        <img src="{{ $group->img }}" class="img-fluid card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title"><strong>Cebu FC</strong></h5>
-                            <h6 class="card-subtitle mb-2 text-muted">イツキ</h6>
-                            <p class="card-text">毎月2週目と4週目の土曜日の朝10時から Metro Sports Center でフットサルしてます。みんなで汗を流しましょう。</p>
+                            <h5 class="card-title"><strong>{{ $group->name}}</strong></h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ $group->user->name }}</h6>
+                            <p class="card-text">{{ str_limit($group->intro, $limit = 30, $end = '…') }}</p>
                         </div>
                     </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </div>

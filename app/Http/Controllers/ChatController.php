@@ -28,15 +28,13 @@ class ChatController extends Controller
         $group = Group::find($id);
         $userNum = UserGroup::where('group_id', $id)->count();
 
-        // $userNum = UserGroup::where($group_id)->count();
-
         return view('chat.index', compact('attendEvents', 'genres', 'attendGroups', 'dms', 'posts', 'group', 'userNum'));
     }
 
 
     public function toListGroup()
     {
-        $groups = Group::all();
+        $groups = Group::with('user')->get();
         $genres = Genre::all();
 
         $user_id = Auth::user()->id;

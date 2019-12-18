@@ -14,40 +14,40 @@ class GroupTableSeeder extends Seeder
     public function run()
     {
         DB::table('groups')->insert([
-            'name' => 'Group1',
+            'name' => 'IT飲み会',
+            'genre_id' => '2',
+            'user_id' => '1',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'img' => 'public/icons/irasutoya1.png',
+            'intro' => 'セブ在住のエンジニアいっぱいでで飲み会しましょう〜〜〜〜〜〜〜。',
+        ]);
+        DB::table('groups')->insert([
+            'name' => '週１フットサルしようよ！',
+            'genre_id' => '1',
+            'user_id' => '2',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'img' => 'public/icons/irasutoya2.png',
+            'intro' => '毎週土曜日の朝フットサルしたい人〜〜〜〜！！',
+        ]);
+        DB::table('groups')->insert([
+            'name' => 'laravelお勉強',
             'genre_id' => '3',
             'user_id' => '3',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'img' => 'storage/images/event/G2wrOA4DISiBmj9lYCbhxtdGINl9TOOgSNzKuM5f.jpeg',
-            'intro' => 'おなはしするよーーーーーーーーーー',
-        ]);
+            'img' => 'public/icons/irasutoya3.png',
+            'intro' => 'laravel の疑問を協力して解決しあおう！',
+           ]);
         DB::table('groups')->insert([
-            'name' => 'Group2',
-            'genre_id' => '2',
+            'name' => '童貞卒業相談所',
+            'genre_id' => '6',
             'user_id' => '2',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'img' => 'storage/images/event/G2wrOA4DISiBmj9lYCbhxtdGINl9TOOgSNzKuM5f.jpeg',
-            'intro' => 'よーーーーーーーーーー',
-        ]);
-        DB::table('groups')->insert([
-            'name' => 'Group3',
-            'genre_id' => '1',
-            'user_id' => '1',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-            'img' => 'storage/images/event/G2wrOA4DISiBmj9lYCbhxtdGINl9TOOgSNzKuM5f.jpeg',
-            'intro' => 'おああああああああああーーーーーーーーーー',
-        ]);
-        DB::table('groups')->insert([
-            'name' => 'Group1',
-            'genre_id' => '2',
-            'user_id' => '2',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-            'img' => 'storage/images/event/G2wrOA4DISiBmj9lYCbhxtdGINl9TOOgSNzKuM5f.jpeg',
-            'intro' => 'おなはしするよーーーーーーーーーー',
+            'img' => 'public/icons/irasutoya4.png',
+            'intro' => '童貞の相談に乗ってあげましょう！',
         ]);
     }
 }

@@ -14215,7 +14215,7 @@ var theirMessage = function theirMessage(_ref) {
         name = _ref.name,
         text = _ref.text,
         sent_time = _ref.sent_time;
-    return '\n    <div class="line__left">\n        <figure>\n            <img  src="' + img + '" alt="userIcon">\n        </figure>\n        <div class="line__left-text">\n            <div class="name">' + name + '</div>\n            <div class="text">' + text + '</div>\n            <span class="date">' + sent_time + '</span>\n\n        </div>\n    </div>\n';
+    return '\n    <div class="line__left">\n        <figure>\n            <img  src="' + img + '" alt="userIcon">\n        </figure>\n        <div class="line__left-text">\n        <div class="name">' + name + '</div>\n            <div class="left-text-date">\n                <div class="text">' + text + '</div>\n                <span class="date">' + sent_time + '</span>\n            </div>\n        </div>\n    </div>\n';
 };
 
 var myMessage = function myMessage(_ref2) {
@@ -14254,6 +14254,8 @@ $(function () {
             }
 
             $(".line__contents").append(message);
+
+            $('.line__contents').animate({ scrollTop: $('.line__contents')[0].scrollHeight }, 'slow');
         }).fail(function (error) {
             console.log(error);
         });
