@@ -340,7 +340,7 @@
   /* マイページが表示される場合の画面 */
 
   .maru-box4 img {
-    border-radius: 50%; border: 10px double #8b0000;
+    border-radius: 100%; border: 10px double #8b0000;
   }
 
   ul{

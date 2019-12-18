@@ -124,7 +124,7 @@ window.Laravel.user_id = {{ Auth::user()->id }}
 @else
     <div class="chat-container">
         <div class="container">
-            <div class="row mx-5 mb-5 pt-4">
+            <div class="row p-5">
                 <div class="sns d-block mx-auto">
                     <i class="mx-4 fab fa-facebook-square fa-3x"></i>
                     <i class="mx-4 fab fa-twitter-square fa-3x"></i>
