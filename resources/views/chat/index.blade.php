@@ -69,13 +69,22 @@ window.Laravel.user_id = {{ Auth::user()->id }}
 @if(!empty($group))
     <div class="chat-container">
         <div class="line__container">
-            <div class="line__title">
-                <div id="title">{{ $group->name }}</div>
-                <div id="member text-center">
-                    {{ $userNum }}人
-                    <i class="fas fa-users fa-lg"></i>
-                </div>
-            </div>
+           <div class="line__title">
+                    <div class="ham">
+                            <span class="ham_line ham_line1"></span>
+                            <span class="ham_line ham_line2"></span>
+                            <span class="ham_line ham_line3"></span>
+                    </div>
+              
+                    <div class="item">
+                        <div id="title">{{ $group->name }}</div>
+                        
+                        <div id="member">
+                            {{ $userNum }}人
+                            <i class="fas fa-users fa-lg"></i>
+                        </div>
+                    </div>
+           </div>
             <!-- ▼会話エリア scrollを外すと高さ固定解除 -->
             <div class="line__contents scroll">
                 @foreach($posts as $post)
