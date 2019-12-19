@@ -30,8 +30,11 @@ window.Laravel.user_id = {{ Auth::user()->id }}
             </li>
             <li class="header">DMs</li>
             <li>
-                <a class="nav-link active text-light" id="v-pills-home-tab"  href="#yoneeeeeedakaaaaan" role="tab" aria-controls="v-pills-home" aria-selected="true">○ Kaan Yoneeda</a>
+                <a class="nav-link active text-light" id="v-pills-home-tab"  href="#yoneeeeeedakaaaaan" role="tab" aria-controls="v-pills-home" aria-selected="true">○ Mom</a>
             </li>
+            <li>
+                    <a class="nav-link active text-light" id="v-pills-home-tab"  href="#yoneeeeeedakaaaaan" role="tab" aria-controls="v-pills-home" aria-selected="true">○ Grandma</a>
+                </li>
             <li>
                 <a class="btn btn-black text-white text-right pr-4" href="#" role="button">＋ more</a>
             </li>
@@ -137,8 +140,10 @@ window.Laravel.user_id = {{ Auth::user()->id }}
                     <div class="maru-box4">
                         <img src="{{ $user->img }}" alt="maru" width="300" class="d-block mx-auto"/>
                     </div>
-                    <h3 class="my-3 text-center">{{ $user->name }}</h3>
-                    <p class="text-center mx-5">{{ $user->intro }}</p>
+                    <h3 class="my-3 text-center" style="
+                    font-size: 30px;">{{ $user->name }}</h3>
+                    <p class="text-center mx-5" style="
+                    font-size: 20px;">{{ $user->intro }}</p>
                 </div>
                 <div class="mine col-md-6 mt-5 pt-3">
                     <div class="favorite">
@@ -151,7 +156,7 @@ window.Laravel.user_id = {{ Auth::user()->id }}
                                     </h5>
                                 </div>
                                 <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion2">
-                                    <div class="card-body">Taka❤️</div>
+                                    <div class="card-body">Haruka❤️</div>
                                 </div>
                             </div>
                             <div class="card">

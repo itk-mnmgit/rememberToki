@@ -42,7 +42,7 @@
                     <img src="{{ $event->img }}" alt="business city" class='img-fluid card-img-top'>
                     <div class="card-body">
                         <h5 class="title">{{ $event->name }}</h5>
-                        <p class="card-text">{{ str_limit($event->intro, $limit = 20, $end = '…') }}</p>
+                        <p class="card-text">{{ str_limit($event->intro, $limit = 40, $end = '…') }}</p>
                         <!-- 切り替えボタンの設定 -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{$event->id}}">詳細</button>
                     </div>

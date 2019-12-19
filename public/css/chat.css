@@ -357,7 +357,7 @@ ul{
       padding-left: 0;
     }
 
-    /* .line__title {
+     .line__title {
       display: flex;
     }
 
@@ -373,7 +373,7 @@ ul{
 
     #member i {
       padding: 0;
-    } */
+    }
 
     .ham {
       position: relative;
@@ -409,7 +409,7 @@ ul{
    .open {
     overflow: hidden;
   }
- 
+
   /* nav open */
   .open {
       overflow: hidden;
@@ -420,6 +420,4 @@ ul{
   .open #sidebar  {
       transform: translate3d(-300px,0,0);
   }
-
-
-  }
+}
