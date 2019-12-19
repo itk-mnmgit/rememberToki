@@ -101,6 +101,12 @@ class ChatController extends Controller
 
             $group->save();
 
+            //groupに参加
+            $user_Group = new UserGroup();
+            $user_Group->group_id = $group->id;
+            $user_Group->user_id = Auth::user()->id;
+            $user_Group->save();
+
             $request->session()->forget('group');
 
             return redirect()->route('get.chat.index',['id' => $group->id]);

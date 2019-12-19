@@ -140,13 +140,8 @@
  #member{
   height: 40%;
   font-size: 150%;
-  text-align: right;
+  text-align: center;
  }
- #member i{
-   text-align: center;
-   padding-right: 45%;
- }
-
 
 /* 会話部分 */
 .line__container .line__contents {
@@ -343,6 +338,16 @@ padding: 4px;
   padding: 0px 4px 2px;
 }
 
+.maru-box4 img {
+  border-radius: 100%; border: 10px double #8b0000;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
   @media screen and (max-width: 900px) {
     .sidebar-container {
       display: none;
@@ -352,12 +357,32 @@ padding: 4px;
       padding-left: 0;
     }
 
+    /* .line__title {
+      display: flex;
+    }
+
+    .line__title .item {
+      margin: 0 auto;
+    }
+
+    #member {
+      display: flex;
+      font-display: row;
+      justify-content: center;
+    }
+
+    #member i {
+      padding: 0;
+    } */
+
     .ham {
       position: relative;
       width: 40px;
       height: 40px;
       cursor: pointer;
       background-color: rgb(5, 5, 5);
+      display: flex;
+
     }
     .ham_line {
       position: absolute;
@@ -396,12 +421,5 @@ padding: 4px;
       transform: translate3d(-300px,0,0);
   }
 
-.maru-box4 img {
-  border-radius: 100%; border: 10px double #8b0000;
-}
 
-ul{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+  }

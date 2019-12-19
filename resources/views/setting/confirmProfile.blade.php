@@ -13,7 +13,7 @@
     <div class="row">
 
         <div class="col-md-4 order-md-2 mb-4">
-            <img  src="{{ $user->img }}" width="350" height="350" alt="groupIcon">
+            <img  src="{{ $user->img }}" width="100%" alt="groupIcon">
         </div>
 
         <div class="col-md-8 order-md-1">

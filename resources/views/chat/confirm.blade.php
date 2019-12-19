@@ -13,7 +13,7 @@
 
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
-            <img  src="{{ $group->img }}" width="350" height="350" alt="groupIcon">
+            <img  src="{{ $group->img }}" width="100%" alt="groupIcon">
         </div>
         <div class="col-md-8 order-md-1">
             <form action="{{ route('chat.make') }}" method="POST" class="form-horizontal">

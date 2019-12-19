@@ -16,6 +16,9 @@
 
 @include('components.header')
 
+<a class="btn btn-secondary btn-lg text-white d-flex justify-content-center my-4" style="width: 200px; margin: 0 auto" href="{{ route('setting.help') }}" role="button">Do you need any help?</a>
+
+
 <div class="container">
     @if($errors->any())
         <ul>
@@ -24,7 +27,7 @@
             @endforeach
         </ul>
     @endif
-    <div class="py-5 text-center">
+    <div class="pb-3 text-center">
         <h1 class="card-header text-white bg-primary">プロフィールを変更する</h1><br>
     </div>
 
@@ -134,7 +137,4 @@
         </div>
     </div>
 </div>
-
-<a class="btn btn-primary btn-lg text-white" href="{{ route('setting.help') }}" role="button">help画面に移動するボタン</a>
-
 @endsection

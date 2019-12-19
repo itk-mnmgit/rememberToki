@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
             {{-- 元はw/h350 --}}
-            <img  src="{{ $event->img }}" width="270" height="220" alt="groupIcon">
+            <img  src="{{ $event->img }}" width="100%" alt="groupIcon">
         </div>
         <div class="col-md-8 order-md-1">
             <form action="{{ route('event.make') }}" method="POST" class="form-horizontal">

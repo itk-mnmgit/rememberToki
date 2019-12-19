@@ -1,6 +1,6 @@
 // 画像加工の幅・高さの定数 画像の大きさ正方形W/H共に270。今回は長方形に加工
-const CROP_WIDTH = 270;
-const CROP_HEIGHT = 220;
+const CROP_WIDTH = 250;
+const CROP_HEIGHT = 250;
 
 // 切り取った画像を保持する変数
 let rawImg;

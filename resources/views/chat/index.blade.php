@@ -30,7 +30,7 @@ window.Laravel.user_id = {{ Auth::user()->id }}
             </li>
             <li class="header">DMs</li>
             <li>
-                <a class="nav-link active text-light" id="v-pills-home-tab"  href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">○ Kaan Yoneeda</a>
+                <a class="nav-link active text-light" id="v-pills-home-tab"  href="#yoneeeeeedakaaaaan" role="tab" aria-controls="v-pills-home" aria-selected="true">○ Kaan Yoneeda</a>
             </li>
             <li>
                 <a class="btn btn-black text-white text-right pr-4" href="#" role="button">＋ more</a>
@@ -75,10 +75,8 @@ window.Laravel.user_id = {{ Auth::user()->id }}
                             <span class="ham_line ham_line2"></span>
                             <span class="ham_line ham_line3"></span>
                     </div>
-              
                     <div class="item">
                         <div id="title">{{ $group->name }}</div>
-                        
                         <div id="member">
                             {{ $userNum }}人
                             <i class="fas fa-users fa-lg"></i>
@@ -110,14 +108,16 @@ window.Laravel.user_id = {{ Auth::user()->id }}
                 @endforeach
             </div>
         </div>
-        <div class="inputFiles text-right">
-            <i class="fas fa-camera fa-2x"></i>
-            <i class="fas fa-images fa-2x"></i>
-        </div>
-        <div id="bms_send">
-            <textarea id="bms_send_message" placeholder="Shift+Enterで送信はまだできませんので右のボタン押してくださいごめんなさい" autofocus></textarea>
-            <input type="hidden" id="group_id" value="{{ $group->id }}">
-            <input type="submit" value="送信" id="bms_send_btn">
+        <div >
+            <div class="inputFiles text-right">
+                <i class="fas fa-camera fa-2x"></i>
+                <i class="fas fa-images fa-2x"></i>
+            </div>
+            <div id="bms_send">
+                <textarea id="bms_send_message" placeholder="Shift+Enterで送信はまだできませんので右のボタン押してくださいごめんなさい" autofocus></textarea>
+                <input type="hidden" id="group_id" value="{{ $group->id }}">
+                <input type="submit" value="送信" id="bms_send_btn">
+            </div>
         </div>
     </div>
     <div id="overlay"></div>
