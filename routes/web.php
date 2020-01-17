@@ -16,8 +16,9 @@
 Route::get('/', 'HomeController@index')->name('home.index');
 Auth::routes();
 
-Route::group(['middleware' => ['auth']], function()
-{
+// Route::group(['middleware' => ['auth']], function()
+// {
+
     //この中に書かれたrouteはログインしていないと見れなくなる
 
 //Home
@@ -58,4 +59,4 @@ Route::group(['middleware' => ['auth']], function()
 
     Route::post("/groupMessage/getDetail", 'GroupMessageController@getDetail')->name('getDetail');
 
-});
+// });
